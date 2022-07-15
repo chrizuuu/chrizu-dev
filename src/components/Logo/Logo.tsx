@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "gatsby";
 
 function Logo() {
   return (
     <div>
-      <a className="text-xl lg:text-2xl font-bold" href="/">
+      <Link className="text-xl lg:text-2xl font-bold" to="/">
         chrizu.dev
-      </a>
+      </Link>
     </div>
   );
 }
