@@ -5,6 +5,25 @@
 
 @layer base {
     html {
-        font-family: 'Space Grotesk', sans-serif;    
+        font-family: "Space-Grotesk", sans-serif;
+        color: theme(colors.black.800);
+    }
+
+
+    body {
+        @apply bg-background;
+        overflow-x:hidden;
+    }
+    
+    .stroke-header {
+        -webkit-text-stroke:1px theme(colors.black.900);
+        @apply text-transparent;
+        transition: color .3s,-webkit-text-stroke .3s;
+    }
+
+    .stroke-header:hover {
+        -webkit-text-stroke:0px;
+        @apply text-black-800;
+
     }
 }
