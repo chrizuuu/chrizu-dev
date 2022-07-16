@@ -19,6 +19,12 @@ module.exports = {
       },
       background: "rgb(245,245,250)",
     },
+    extend: {
+      spacing: {
+        mobileH: "40px",
+        desktopH: "60px",
+      },
+    },
   },
   plugins: [require("tailwindcss"), require("autoprefixer")],
 };
