@@ -1,9 +1,17 @@
 import React from "react";
 import { Link } from "gatsby";
-function StyledLink({ text, route }: { text: string; route: string }) {
+function StyledLink({
+  text,
+  route,
+  color,
+}: {
+  text: string;
+  route: string;
+  color?: string;
+}) {
   return (
     <Link to={route}>
-      <span className="tracking-widest">{text}</span>
+      <span className={`tracking-widest ${color}`}>{text}</span>
     </Link>
   );
 }

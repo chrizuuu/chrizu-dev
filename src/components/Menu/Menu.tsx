@@ -6,8 +6,10 @@ function Menu({ isOpen }: { isOpen: boolean }) {
     return null;
   }
   return (
-    <div className="fixed w-full h-screen bg-black-500 top-0 bottom-0 left-0 right-0 z-40">
-      Menu
+    <div className="fixed z-10 bg-black-900 top-0 bottom-0 left-0 right-0">
+      <div className="w-full h-full flex items-center justify-center text-white-900">
+        Menu
+      </div>
     </div>
   );
 }

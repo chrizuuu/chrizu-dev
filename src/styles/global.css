@@ -32,16 +32,9 @@
 
     /* ======================================================== */
     /* Menu toggle button */
-
-    .menu-btn-line {
-        width:30px;
-        height:3px;
-        @apply bg-black-800;
-        transition: transform 0.3s;
-    }
     
     .menu-btn-topline-active {
-        transform: translateY(5.5px) rotateZ(45deg);    
+        transform: translateY(5.5px) rotateZ(45deg);
     }
 
     .menu-btn-bottomline-active {
