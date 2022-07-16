@@ -7,18 +7,18 @@ import { useState } from "react";
 function Navbar() {
   const [isMenuOpen, toggleMenu] = useState(false);
   return (
-    <div className="fixed top-0 left-0 right-0 h-[80px] px-[15px] lg:px-[60px] bg-white-900">
+    <div className="absolute top-[20px] left-[40px] lg:left-[60px] right-[40px] lg:right-[60px] h-[80px] ">
       <div className="w-full h-full flex items-center justify-between">
         <Logo />
-        <div className="flex flex-row gap-x-[20px]">
+        <div className="hidden sm:flex flex-row items-center gap-x-[20px] relative right-[40px]">
           <StyledLink text="contact me" route="/contact" />
-          <div className="flex flex-row gap-x-[10px] items-center">
-            <StyledLink text="menu" route="/" />
-            <MenuToggle
-              isMenuOpen={isMenuOpen}
-              onClick={() => toggleMenu(!isMenuOpen)}
-            />
-          </div>
+          <StyledLink text="menu" route="/" />
+        </div>
+        <div className="fixed z-50 right-[40px] lg:right-[60px]">
+          <MenuToggle
+            isMenuOpen={isMenuOpen}
+            onClick={() => toggleMenu(!isMenuOpen)}
+          />
         </div>
       </div>
     </div>

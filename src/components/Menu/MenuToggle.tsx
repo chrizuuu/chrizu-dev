@@ -8,7 +8,7 @@ function MenuToggle({
   onClick: () => any;
 }): JSX.Element {
   return (
-    <button onClick={onClick} className="flex flex-col width-[28px] gap-[8px]">
+    <button onClick={onClick} className="flex flex-col gap-[8px] width-[28px]">
       <div
         className={`menu-btn-line ${isMenuOpen && "menu-btn-topline-active"}`}
       />
