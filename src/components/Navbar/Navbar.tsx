@@ -7,7 +7,7 @@ function Navbar() {
     <nav className="absolute top-[20px] left-mobileH lg:left-desktopH right-mobileH lg:right-desktopH h-[80px] z-40">
       <div className="w-full h-full flex items-center justify-between">
         <Logo />
-        <div className="hidden sm:flex flex-row items-center gap-x-[20px] relative right-mobileH">
+        <div className="hidden sm:flex flex-row items-center gap-x-[20px] relative">
           <StyledLink text="projects" route="/" />
           <StyledLink text="playground" route="/" />
           <StyledLink text="about me" route="/" />

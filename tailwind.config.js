@@ -17,6 +17,7 @@ module.exports = {
         300: "rgba(255,255,255,0.3)",
         900: "rgb(255,255,255)",
       },
+      primary: "rgba(100, 154, 210, 1)",
       background: "rgb(245,245,250)",
     },
     extend: {

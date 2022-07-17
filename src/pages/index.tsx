@@ -14,7 +14,7 @@ const IndexPage = () => {
           {"Junior? />"}
         </h1>
       </div>
-      <div className="h-[1500px] w-screen bg-white-300" />
+      <div className="h-[1500px] w-scree" />
     </PageLayout>
   );
 };
