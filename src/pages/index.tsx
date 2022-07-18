@@ -1,17 +1,16 @@
 import React from "react";
 import PageLayout from "layouts/PageLayout";
 import Header from "components/Texts/Header";
-import StrokeHeader from "components/Texts/StrokeHeader";
 // markup
 const IndexPage = () => {
   return (
     <PageLayout>
-      <div className="w-screen h-screen flex items-center justify-center">
+      <div className="w-screen h-screen flex items-center justify-center bg-white-900">
         <h1 className="text-center">
           <Header> {"<FrontendDev />"}</Header>
           <br />
-          <StrokeHeader>{"React "}</StrokeHeader>
-          <StrokeHeader>{"ReactNative"}</StrokeHeader>
+          <Header className="stroke-header">{"React "}</Header>
+          <Header className="stroke-header">{"ReactNative"}</Header>
           <br />
           <Header> {"Junior? />"}</Header>
         </h1>

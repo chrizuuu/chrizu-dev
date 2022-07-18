@@ -16,7 +16,7 @@
     }
     
     .stroke-header {
-        @apply text-background;
+        @apply text-white-900;
         text-shadow:
         -1px -1px 0 theme(colors.black.800),  
         1px -1px 0 theme(colors.black.800), 
@@ -28,6 +28,21 @@
     .stroke-header:hover {
         text-shadow: none;
         @apply text-black-800;
+    }
+
+    .stroke-white-header {
+        @apply text-black-800;
+        text-shadow:
+        -1px -1px 0 theme(colors.white.900),  
+        1px -1px 0 theme(colors.white.900),  
+        -1px 1px 0 theme(colors.white.900), 
+        1px 1px 0 theme(colors.white.900);
+        transition: color .3s,text-shadow .3s;
+    }
+
+    .stroke-white-header:hover {
+        text-shadow: none;
+        @apply text-white-900;
     }
 
     /* ======================================================== */

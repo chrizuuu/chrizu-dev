@@ -4,7 +4,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
-function SocialList({ className }: { className?: string }) {
+function SocialList({ className }: { className?: string | string[] }) {
   return (
     <div className={classnames("w-[28px]", className)}>
       <ul className="flex flex-col items-center gap-[30px]">

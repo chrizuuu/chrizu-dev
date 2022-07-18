@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from "classnames";
 
 function MobileMenuToggle({
   isMenuOpen,
@@ -10,13 +11,16 @@ function MobileMenuToggle({
   return (
     <button onClick={onClick} className={`sm:hidden flex flex-col gap-[8px]`}>
       <span
-        className={`w-[30px] h-[3px] bg-black-800 transition-transform duration-300 ${
-          isMenuOpen ? "menu-btn-topline-active bg-white-900" : null
-        }`}
+        className={classnames(
+          "w-[30px] h-[3px]  transition-transform duration-300",
+          isMenuOpen ? "menu-btn-topline-active bg-white-900" : "bg-black-800"
+        )}
       />
       <span
-        className={`w-[30px] h-[3px] bg-black-800 transition-transform duration-300 ${
-          isMenuOpen ? "menu-btn-bottomline-active bg-white-900" : null
+        className={`w-[30px] h-[3px] transition-transform duration-300 ${
+          isMenuOpen
+            ? "menu-btn-bottomline-active bg-white-900"
+            : "bg-black-800"
         }`}
       />
     </button>
