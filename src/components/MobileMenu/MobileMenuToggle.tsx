@@ -1,6 +1,6 @@
 import React from "react";
 
-function MenuToggle({
+function MobileMenuToggle({
   isMenuOpen,
   onClick,
 }: {
@@ -8,7 +8,7 @@ function MenuToggle({
   onClick: () => any;
 }): JSX.Element {
   return (
-    <button onClick={onClick} className="flex flex-col gap-[8px]">
+    <button onClick={onClick} className={`sm:hidden flex flex-col gap-[8px]`}>
       <div
         className={`w-[30px] h-[3px] bg-black-800 transition-transform duration-300 ${
           isMenuOpen ? "menu-btn-topline-active bg-white-900" : null
@@ -23,4 +23,4 @@ function MenuToggle({
   );
 }
 
-export default MenuToggle;
+export default MobileMenuToggle;

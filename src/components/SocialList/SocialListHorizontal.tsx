@@ -1,11 +1,14 @@
 import React from "react";
+import classnames from "classnames";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
-function SocialListHorizontal() {
+function SocialListHorizontal({ className }: { className?: string }) {
   return (
-    <ul className="flex flex-row items-center gap-[30px]">
+    <ul
+      className={classnames("flex flex-row items-center gap-[30px]", className)}
+    >
       <li className="w-[24px] h-[24px]">
         <a href="https://github.com/chrizuuu" target="_blank" rel="nofollow">
           <GitHubIcon className="hover:fill-primary hover:translate-y-[-2px] transition-fill transition-transform duration-600" />

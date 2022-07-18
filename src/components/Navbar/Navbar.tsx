@@ -1,28 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "components/Logo/Logo";
 import StyledLink from "components/StyledLink/StyledLink";
+import MobileMenuToggle from "components/MobileMenu/MobileMenuToggle";
+import MobileMenu from "components/MobileMenu/MobileMenu";
 
 function Navbar() {
+  const [isMobileMenuOpen, toggleMenu] = useState(false);
+  const fontColor = isMobileMenuOpen ? "text-white-900" : "text-black-800";
   return (
-    <nav className="absolute top-[20px] left-mobileH lg:left-desktopH right-mobileH lg:right-desktopH h-[80px] z-40">
-      <div className="w-full h-full flex items-center justify-between">
-        <Logo />
-        <ul className="hidden sm:flex flex-row items-center gap-x-[20px] relative">
-          <li>
-            <StyledLink text="projects" route="/" />
-          </li>
-          <li>
-            <StyledLink text="playground" route="/" />
-          </li>
-          <li>
-            <StyledLink text="about me" route="/" />
-          </li>
-          <li>
-            <StyledLink text="contact" route="/" />
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <>
+      <nav className="absolute top-[20px] left-mobileH lg:left-desktopH right-mobileH lg:right-desktopH h-[80px] z-30">
+        <div className="w-full h-full flex items-center justify-between">
+          <Logo color={fontColor} />
+          <MobileMenuToggle
+            isMenuOpen={isMobileMenuOpen}
+            onClick={() => toggleMenu(!isMobileMenuOpen)}
+          />
+          <ul className="hidden sm:flex flex-row items-center gap-x-[20px] relative">
+            <li>
+              <StyledLink text="projects" route="/" />
+            </li>
+            <li>
+              <StyledLink text="playground" route="/" />
+            </li>
+            <li>
+              <StyledLink text="about me" route="/" />
+            </li>
+            <li>
+              <StyledLink text="contact" route="/" />
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <MobileMenu isOpen={isMobileMenuOpen} />
+    </>
   );
 }
 
