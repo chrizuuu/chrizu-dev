@@ -1,12 +1,15 @@
 import * as React from "react";
 import Navbar from "components/Navbar/Navbar";
+import MainTemplate from "templates/MainTemplate/MainTemplate";
 
 // markup
 const NotFoundPage = () => {
   return (
-    <div className="w-screen h-screen bg-background">
-      <Navbar />
-    </div>
+    <MainTemplate>
+      <div className="w-screen h-screen flex items-center justify-center">
+        <span className="text-5xl font-bold">404</span>
+      </div>
+    </MainTemplate>
   );
 };
 

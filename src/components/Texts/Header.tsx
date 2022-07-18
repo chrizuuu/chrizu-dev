@@ -11,7 +11,7 @@ function Header({
   return (
     <span
       className={classnames(
-        "text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-snug",
+        "text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-snug",
         className
       )}
     >

@@ -55,6 +55,25 @@
         transform: translateY(-5.5px) rotateZ(315deg);
     }
     /* ======================================================== */
+    /* HeroSection: signature */
+
+    .signature::before, .signature::after {
+        @apply font-bold;
+        @apply text-black-100;
+        @apply text-2xl;
+        @apply md:text-3xl;
+        @apply relative;
+    }
+    .signature::before {
+        @apply right-2;
+    }
+
+    .signature::after {
+        @apply left-2;
+    }
+
+
+
 }
 
 

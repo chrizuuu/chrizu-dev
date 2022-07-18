@@ -22,6 +22,7 @@
     "@emotion/styled": "^11.9.3",
     "@fontsource/space-grotesk": "^4.5.8",
     "@mui/icons-material": "^5.8.4",
+    "babel-eslint": "^10.1.0",
     "classnames": "^2.3.1",
     "gatsby": "^4.18.0",
     "gatsby-plugin-image": "^2.18.0",
