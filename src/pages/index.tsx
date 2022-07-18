@@ -1,7 +1,7 @@
 import React from "react";
 import PageLayout from "layouts/PageLayout";
 import Header from "components/Texts/Header";
-// markup
+
 const IndexPage = () => {
   return (
     <PageLayout>

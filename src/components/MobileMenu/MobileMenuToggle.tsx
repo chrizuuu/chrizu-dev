@@ -9,7 +9,10 @@ function MobileMenuToggle({
   onClick: () => any;
 }): JSX.Element {
   return (
-    <button onClick={onClick} className={`sm:hidden flex flex-col gap-[8px]`}>
+    <button
+      onClick={onClick}
+      className={`sm:hidden flex flex-col gap-[8px] fixed right-mobileH`}
+    >
       <span
         className={classnames(
           "w-[30px] h-[3px]  transition-transform duration-300",
@@ -17,11 +20,12 @@ function MobileMenuToggle({
         )}
       />
       <span
-        className={`w-[30px] h-[3px] transition-transform duration-300 ${
+        className={classnames(
+          "w-[30px] h-[3px] transition-transform duration-300",
           isMenuOpen
             ? "menu-btn-bottomline-active bg-white-900"
             : "bg-black-800"
-        }`}
+        )}
       />
     </button>
   );

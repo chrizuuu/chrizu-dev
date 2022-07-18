@@ -7,7 +7,7 @@ function MobileMenu({ isOpen }: { isOpen: boolean }) {
     return null;
   }
   return (
-    <nav className="fixed sm:hidden z-20 bg-[black] top-0 left-0 right-0 bottom-0 opacity-1">
+    <nav className="sm:hidden fixed z-20 bg-[black] top-0 left-0 right-0 bottom-0">
       <div className="w-full h-full relative flex flex-col items-center justify-center text-white-900 text-[24px]">
         <ul className="flex flex-col items-center gap-y-[30px] relative">
           <li>
