@@ -22,7 +22,7 @@ function MainText() {
   );
 }
 
-function Hero() {
+function Hero(): JSX.Element {
   return (
     <section className="w-screen h-screen flex items-center justify-center bg-white-900 relative">
       <MainText />

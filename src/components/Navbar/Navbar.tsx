@@ -4,7 +4,7 @@ import StyledLink from "components/StyledLink/StyledLink";
 import MobileMenuToggle from "components/MobileMenu/MobileMenuToggle";
 import MobileMenu from "components/MobileMenu/MobileMenu";
 
-function Navbar() {
+function Navbar(): JSX.Element {
   const [isMobileMenuOpen, toggleMenu] = useState(false);
   const fontColor = isMobileMenuOpen ? "text-white-900" : "text-black-800";
   return (

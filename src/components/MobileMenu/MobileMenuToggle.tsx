@@ -6,7 +6,7 @@ function MobileMenuToggle({
   onClick,
 }: {
   isMenuOpen: boolean;
-  onClick: () => any;
+  onClick: () => void;
 }): JSX.Element {
   return (
     <button

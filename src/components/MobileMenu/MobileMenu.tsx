@@ -2,7 +2,7 @@ import React from "react";
 import StyledLink from "components/StyledLink/StyledLink";
 import SocialListHorizontal from "components/SocialList/SocialListHorizontal";
 
-function MobileMenu({ isOpen }: { isOpen: boolean }) {
+function MobileMenu({ isOpen }: { isOpen: boolean }): JSX.Element | null {
   if (!isOpen) {
     return null;
   }

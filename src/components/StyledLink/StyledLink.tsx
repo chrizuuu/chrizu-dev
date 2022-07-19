@@ -10,7 +10,7 @@ function StyledLink({
   text: string;
   route: string;
   color?: string;
-}) {
+}): JSX.Element {
   return (
     <Link to={route}>
       <span className={classnames("tracking-widest", color)}>{text}</span>

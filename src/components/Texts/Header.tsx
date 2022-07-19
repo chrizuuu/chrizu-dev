@@ -7,7 +7,7 @@ function Header({
 }: {
   children: string[] | string;
   className?: string;
-}) {
+}): JSX.Element {
   return (
     <span
       className={classnames(
