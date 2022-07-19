@@ -32,7 +32,7 @@
       "alias": {
         "map": [
           ["pages", "./src/pages"],
-          ["component", "./src/component"],
+          ["components", "./src/components"],
           ["images", "./src/images"],
           ["templates", "./src/templates"],
           ["styles", "./src/styles"]

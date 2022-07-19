@@ -9,17 +9,23 @@ function Signature() {
   );
 }
 
+function MainText() {
+  return (
+    <h1 className="text-center">
+      <Header> {"<FrontendDev />"}</Header>
+      <br />
+      <Header className="stroke-header">{"React "}</Header>
+      <Header className="stroke-header">{"ReactNative"}</Header>
+      <br />
+      <Header> {"Junior? />"}</Header>
+    </h1>
+  );
+}
+
 function Hero() {
   return (
     <section className="w-screen h-screen flex items-center justify-center bg-white-900 relative">
-      <h1 className="text-center">
-        <Header> {"<FrontendDev />"}</Header>
-        <br />
-        <Header className="stroke-header">{"React "}</Header>
-        <Header className="stroke-header">{"ReactNative"}</Header>
-        <br />
-        <Header> {"Junior? />"}</Header>
-      </h1>
+      <MainText />
       <Signature />
     </section>
   );

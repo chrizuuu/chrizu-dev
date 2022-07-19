@@ -1,16 +1,20 @@
-import * as React from "react";
-import Navbar from "components/Navbar/Navbar";
+import React from "react";
+import Header from "components/Texts/Header";
 import MainTemplate from "templates/MainTemplate/MainTemplate";
+import { Link } from "gatsby";
 
 // markup
-const NotFoundPage = () => {
+function NotFoundPage(): JSX.Element {
   return (
     <MainTemplate>
-      <div className="w-screen h-screen flex items-center justify-center">
-        <span className="text-5xl font-bold">404</span>
+      <div className="w-screen h-screen p-mobileH lg:p-desktopH flex flex-col items-center justify-center bg-white-900">
+        <Header className="text-center">404</Header>
+        <Link to="/">
+          <Header className="stroke-header"> Page not found</Header>
+        </Link>
       </div>
     </MainTemplate>
   );
-};
+}
 
 export default NotFoundPage;
