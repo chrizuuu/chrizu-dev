@@ -21,9 +21,6 @@ function Navbar(): JSX.Element {
               <StyledLink text="projects" route="/" />
             </li>
             <li>
-              <StyledLink text="playground" route="/" />
-            </li>
-            <li>
               <StyledLink text="about me" route="/" />
             </li>
             <li>

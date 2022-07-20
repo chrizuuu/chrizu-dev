@@ -14,9 +14,6 @@ function MobileMenu({ isOpen }: { isOpen: boolean }): JSX.Element | null {
             <StyledLink text="projects" route="/" />
           </li>
           <li>
-            <StyledLink text="playground" route="/" />
-          </li>
-          <li>
             <StyledLink text="about me" route="/" />
           </li>
           <li>

@@ -34,6 +34,8 @@ module.exports = {
       spacing: {
         mobileH: "40px",
         desktopH: "60px",
+        mobilePadding: "40px",
+        desktopPadding: "100px",
       },
     },
   },

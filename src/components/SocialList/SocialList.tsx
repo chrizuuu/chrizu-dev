@@ -6,7 +6,7 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
 function SocialList({ className }: { className?: string }): JSX.Element {
   return (
-    <div className={classnames("w-[28px]", className)}>
+    <div id="social-list" className={classnames("w-[28px]", className)}>
       <ul className="flex flex-col items-center gap-[30px]">
         <li className="w-[24px] h-[24px]">
           <a

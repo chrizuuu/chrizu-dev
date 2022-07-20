@@ -71,7 +71,48 @@
     .signature::after {
         @apply left-2;
     }
+
+
+    .section-layout-grid {
+        display: flex; 
+        flex-direction:row;
+        flex-wrap:wrap;
+        justify-content:space-between;
+        align-items:center;
+        background:red;
+        gap:40px;
+    }
+
+    .section-card{
+        display:flex;
+        flex-direction:row;
+        flex:1;
+        @apply bg-white-900;
+        border-radius:30px;
+    }
+
+    .section-card:nth-child(4n+1), .section-card:nth-child(4n) {
+        min-width: 400px;
+        max-width:700px;
+    }
+
+    .section-card:nth-child(4n+2), .section-card:nth-child(4n+3) {
+        min-width: 400px;
+        max-width:400px;
+    }
+
+    .section-card-active {
+        min-width: 700px;
+        max-width:700px;
+
+    }
 }
 
 
+/*
 
+        grid-template-columns: [first] 600px [second] 300px;
+        grid-template-rows: auto;
+        justify-content: space-between;
+
+        */

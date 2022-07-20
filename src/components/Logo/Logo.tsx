@@ -5,7 +5,7 @@ function Logo({ color }: { color?: string }): JSX.Element {
   return (
     <div>
       <Link className={`text-xl lg:text-2xl font-bold ${color}`} to="/">
-        chrizu.dev
+        Krzysztof Bonecki
       </Link>
     </div>
   );
