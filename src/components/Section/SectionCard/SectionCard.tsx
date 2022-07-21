@@ -17,7 +17,7 @@ function SectionCard({
   image?: string;
 }): JSX.Element {
   return (
-    <div className="group section-card h-[300px] hover:section-card-active  transition-all duration-500 relative">
+    <div className="group section-card h-[700px] hover:section-card-active  transition-all duration-500 relative">
       <SectionCardContent className={"w-[full] max-w-[400px] z-10"}>
         <div className="flex flex-col gap-1">
           <SectionCardTagline>{tagline}</SectionCardTagline>

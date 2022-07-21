@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "components/Texts/Header";
+import AnimatedHeader from "components/Texts/AnimatedHeader";
 
 function Signature() {
   return (
@@ -11,8 +12,11 @@ function Signature() {
 
 function MainText() {
   return (
-    <h1 className="text-left ">
-      <Header> {"Frontend Developer"}</Header> <br />
+    <h1>
+      <AnimatedHeader className="inline-block">
+        {"Frontend Developer"}
+      </AnimatedHeader>
+      <br />
       <Header className="stroke-header">{"React "}</Header>
       <Header className="stroke-header">{"ReactNative"}</Header>
     </h1>
