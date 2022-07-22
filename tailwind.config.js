@@ -21,6 +21,7 @@ module.exports = {
       },
       white: {
         300: "rgba(255,255,255,0.3)",
+        700: "rgba(255,255,255,0.7)",
         900: "rgb(255,255,255)",
       },
       primary: "rgba(100, 154, 210, 1)",
@@ -32,7 +33,7 @@ module.exports = {
     },
     extend: {
       spacing: {
-        mobileH: "40px",
+        mobileH: "20px",
         desktopH: "60px",
         mobilePadding: "40px",
         desktopPadding: "100px",

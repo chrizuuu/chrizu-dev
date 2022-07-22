@@ -19,7 +19,7 @@ function StyledLink({
       }
     >
       <span className={classnames("tracking-widest ", color)}>{text}</span>
-      <span className="w-0 h-[1px] bg-black-800 transition-w duration-500 group-hover:w-full"></span>
+      <span className="w-0 h-[1px] bg-black-800 transition-w duration-500 sm:group-hover:w-full"></span>
     </Link>
   );
 }

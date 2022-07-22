@@ -17,7 +17,7 @@ function MainTemplate({
       {displayNavbar && <Navbar />}
       {displaySocialList && (
         <SocialList
-          className={"hidden sm:block fixed bottom-[40px] left-desktopH z-10"}
+          className={"hidden  fixed bottom-[40px] left-desktopH z-10"}
         />
       )}
       <div>{children}</div>

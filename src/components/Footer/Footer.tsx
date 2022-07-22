@@ -9,7 +9,7 @@ function Footer(): JSX.Element {
       className="w-screen h-screen bg-black-800 relative flex flex-col items-center justify-center md:items-start md:justify-start p-desktopH"
     >
       <h3>
-        <AnimatedHeader className="text-white-900 inline-block">
+        <AnimatedHeader className=" text-white-900 inline-block">
           {"Get In Touch"}
         </AnimatedHeader>
         <Header className="stroke-white-header">email@gmail.com</Header>
