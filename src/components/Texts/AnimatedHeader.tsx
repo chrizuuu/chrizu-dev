@@ -35,7 +35,7 @@ function AnimatedLetter({
       onHoverStart={startAnimation}
       onAnimationComplete={() => setIsAnimationPlaying(false)}
       className={classnames(
-        "inline-block text-5xl xs:text-5xl md:text-6xl lg:text-7xl xl:text-[160px] 2xl:text-[180px] font-bold tracking-",
+        "inline-block text-5xl xs:text-5xl md:text-6xl lg:text-7xl xl:text-[160px] 2xl:text-[180px] font-bold",
         className
       )}
     >

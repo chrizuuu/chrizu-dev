@@ -3,15 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-        font-family: "Space Grotesk", sans-serif;
-        color: theme(colors.black.800);
-    }
-
-
     body {
+        font-family: "Space Grotesk";
+        color: theme(colors.black.800);
         @apply bg-background;
         overflow-x:hidden;
+        min-height:600vh
     }
     
     .stroke-header {

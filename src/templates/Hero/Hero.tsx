@@ -15,18 +15,18 @@ function Signature() {
 
 function MainText() {
   return (
-    <h1 className="w-full relative z-50">
-      <span className="inline-block z-50">
-        <Header className="stroke-header">{"Web "}</Header>
+    <h1 className="w-full relative">
+      <span className="inline-block">
+        <Header className="stroke-header">{"Xyz "}</Header>
         <AnimatedHeader>{"&"}</AnimatedHeader>
-        <Header className="stroke-header">{" Mobile"}</Header>
+        <Header className="stroke-header">{" Xyzxyz"}</Header>
       </span>
       <motion.span className="relative block">
-        <AnimatedHeader>{"Frontend  "}</AnimatedHeader>
+        <AnimatedHeader>{"Xyzxyzxy  "}</AnimatedHeader>
       </motion.span>
       <span className="w-full inline-block text-center"></span>
       <motion.span className="w-full relative block">
-        <AnimatedHeader>{"Developer"}</AnimatedHeader>
+        <AnimatedHeader>{"Xyzxyzxyz"}</AnimatedHeader>
       </motion.span>
     </h1>
   );
@@ -34,7 +34,7 @@ function MainText() {
 
 function Hero(): JSX.Element {
   return (
-    <section className="w-screen h-screen flex flex-col items-center justify-end p-mobileH lg:p-desktopH bg-white-900 relative">
+    <section className="w-full h-screen flex flex-col items-center justify-end p-mobileH lg:p-desktopH relative z-20">
       <MainText />
     </section>
   );

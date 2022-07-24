@@ -35,7 +35,8 @@
           ["components", "./src/components"],
           ["images", "./src/images"],
           ["templates", "./src/templates"],
-          ["styles", "./src/styles"]
+          ["styles", "./src/styles"],
+          ["hooks", "./src/hooks"]
         ],
         "extensions": [".ts", ".tsx", ".js", ".jsx"]
       },

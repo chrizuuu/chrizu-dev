@@ -12,17 +12,17 @@ const data = [
   {
     name: "chrizu",
     tagline: "Portfolio website",
-    technologies: "gatsby, tailwindcss, scrollmagic",
+    technologies: "gatsby, tailwindcss, framer-motion",
   },
   {
     name: "chrizu.ev",
     tagline: "Portfolio website",
-    technologies: "gatsby, tailwindcss, scrollmagic",
+    technologies: "gatsby, tailwindcss, framer-motion",
   },
   {
     name: "chrizu.d",
     tagline: "Portfolio website",
-    technologies: "gatsby, tailwindcss, scrollmagic",
+    technologies: "gatsby, tailwindcss, framer motion",
   },
 ];
 
