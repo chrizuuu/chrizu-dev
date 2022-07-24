@@ -46,6 +46,7 @@ const config: GatsbyConfig = {
         templates: path.join(__dirname, "src/templates"),
         layouts: path.join(__dirname, "src/layouts"),
         styles: path.join(__dirname, "src/styles"),
+        hooks: path.join(__dirname, "src/hooks"),
       },
     },
   ],

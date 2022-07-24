@@ -1,11 +1,9 @@
 import React from "react";
 import Header from "components/Texts/Header";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import AnimatedHeader from "components/Texts/AnimatedHeader";
-import useScrollPos from "hooks/useScrollPos";
-import { StaticImage } from "gatsby-plugin-image";
-import classNames from "classnames";
 
+/*
 function Signature() {
   return (
     <span className="signature absolute right-[5%] bottom-[8%] text-2xl md:text-3xl font-[400] text before:content-['<span>']  after:content-['</span>']">
@@ -13,6 +11,7 @@ function Signature() {
     </span>
   );
 }
+*/
 
 function MainText() {
   return (
@@ -34,12 +33,6 @@ function MainText() {
 }
 
 function Hero(): JSX.Element {
-  const { scrollY } = useScroll();
-  const width = useTransform(scrollY, [0, 1800], ["0vw", "150vw"]);
-  const height = useTransform(scrollY, [0, 1800], ["0vw", "150vw"]);
-  const left = useTransform(scrollY, [900, 1800], ["25%", "50%"]);
-  const top = useTransform(scrollY, [900, 1800], ["40%", "50%%"]);
-
   return (
     <section className="w-screen h-screen flex flex-col items-center justify-end p-mobileH lg:p-desktopH bg-white-900 relative">
       <MainText />

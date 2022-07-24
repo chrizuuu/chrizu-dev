@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useScroll } from "framer-motion";
 
-function useScrollPos() {
+function useScrollPos(): number {
   const [scrollPos, setScrollPos] = useState(0);
   const { scrollY } = useScroll();
 
