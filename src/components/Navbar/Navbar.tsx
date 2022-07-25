@@ -9,7 +9,7 @@ function Navbar(): JSX.Element {
   const fontColor = isMobileMenuOpen ? "text-white-900" : "text-black-800";
   return (
     <>
-      <nav className="absolute top-[20px] left-mobileH lg:left-desktopH right-mobileH lg:right-desktopH h-[80px] z-30">
+      <nav className="fixed top-[20px] left-mobileH lg:left-desktopH right-mobileH lg:right-desktopH h-[80px] z-30">
         <div className="w-full h-full flex items-center justify-between">
           <Logo color={fontColor} />
           <MobileMenuToggle

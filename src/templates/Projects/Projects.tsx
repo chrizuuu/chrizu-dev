@@ -28,7 +28,7 @@ const data = [
 
 function Projects(): JSX.Element {
   return (
-    <section className="w-screen min-h-screen p-mobilePadding lg:px-desktopPadding flex flex-col items-center">
+    <section className="w-screen h-[200vh] p-mobilePadding lg:px-desktopPadding flex flex-col items-center">
       <SectionCardsLayout>
         {data.map(
           ({

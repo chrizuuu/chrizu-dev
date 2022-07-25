@@ -8,7 +8,7 @@
         color: theme(colors.black.800);
         @apply bg-background;
         overflow-x:hidden;
-        min-height:600vh
+        height:500vh
     }
     
     .stroke-header {
@@ -18,7 +18,7 @@
         1px -1px 0 theme(colors.black.800), 
         -1px 1px 0 theme(colors.black.800), 
         1px 1px 0 theme(colors.black.800);
-        transition: color .3s,text-shadow .3s;
+        transition: color .3s;
     }
 
     .stroke-header:hover {
