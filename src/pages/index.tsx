@@ -66,11 +66,6 @@ function ScrollInner({ children }: { children: React.ReactNode }) {
 
 ScrollInner.displayName = "Scroll Inner";
 
-// change navbar font color when dot has benn growing
-// add animation inView for section
-// Change bg-color on white in about me section
-//
-
 const colors = {
   default: {
     bg: "black-800",
