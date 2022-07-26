@@ -18,7 +18,12 @@ function StyledLink({
         "group flex flex-col justify-center items-center gap-0 h-[40px] hover:translate-y-[-4px] transition-transform duration-200"
       }
     >
-      <span className={classNames("tracking-widest ", `text-${color}`)}>
+      <span
+        className={classNames(
+          "tracking-widest transition-colors duration-300",
+          `text-${color}`
+        )}
+      >
         {text}
       </span>
       <span

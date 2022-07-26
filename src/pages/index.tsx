@@ -9,12 +9,32 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 function Dot({ backgroundColor }: { backgroundColor?: string }) {
   const { scrollY } = useScroll();
-  const size = window.screen.availHeight;
+  const windowHeight = window.screen.availHeight;
+  const maxDimension = Math.max(
+    window.screen.availHeight,
+    window.screen.availWidth
+  );
 
-  const width = useTransform(scrollY, [0, size], ["0vw", "150vw"]);
-  const height = useTransform(scrollY, [0, size], ["0vw", "150vw"]);
-  const left = useTransform(scrollY, [size / 2, size], ["0%", "50%"]);
-  const top = useTransform(scrollY, [size / 2, size], ["0%", "50%%"]);
+  const width = useTransform(
+    scrollY,
+    [0, windowHeight],
+    [0, 1.5 * maxDimension]
+  );
+  const height = useTransform(
+    scrollY,
+    [0, windowHeight],
+    [0, 1.5 * maxDimension]
+  );
+  const left = useTransform(
+    scrollY,
+    [windowHeight / 2, windowHeight],
+    ["0%", "50%"]
+  );
+  const top = useTransform(
+    scrollY,
+    [windowHeight / 2, windowHeight],
+    ["0%", "50%%"]
+  );
 
   return (
     <motion.div
@@ -72,7 +92,6 @@ function IndexPage(): JSX.Element {
   const [colorsSchema, setColorsSchema] = useState(colors.default);
   // ====================
   // Refs
-  const scrollInnerRef = useRef(null);
   const projectRef = useRef(null);
   const spacerRef = useRef(null);
   const footerRef = useRef(null);
@@ -81,8 +100,7 @@ function IndexPage(): JSX.Element {
   // Hooks
 
   const isSpacerInView = useInView(spacerRef, { amount: 0.6 });
-  const isProjectInView = useInView(projectRef);
-  const isScrollInnerInView = useInView(scrollInnerRef);
+  const isProjectInView = useInView(projectRef, { amount: 0.1 });
   const isFooterInView = useInView(footerRef);
 
   useEffect(() => {
@@ -122,7 +140,8 @@ function IndexPage(): JSX.Element {
         <div ref={projectRef} className="w-full z-20">
           <Projects />
         </div>
-        <div ref={footerRef} className="z-20 w-full h-full">
+
+        <div ref={footerRef} className="mt-[200px] z-20 w-full h-full">
           <Footer />
         </div>
       </ScrollInner>

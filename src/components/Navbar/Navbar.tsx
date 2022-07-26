@@ -13,6 +13,7 @@ function Navbar({ color }: { color: string }): JSX.Element {
         <div className="w-full h-full flex items-center justify-between">
           <Logo color={fontColor} />
           <MobileMenuToggle
+            color={color}
             isMenuOpen={isMobileMenuOpen}
             onClick={() => toggleMenu(!isMobileMenuOpen)}
           />
