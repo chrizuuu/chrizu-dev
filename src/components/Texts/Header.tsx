@@ -5,7 +5,7 @@ function Header({
   children,
   className,
 }: {
-  children: string;
+  children: string | React.ReactNode;
   className?: string;
 }): JSX.Element {
   return (

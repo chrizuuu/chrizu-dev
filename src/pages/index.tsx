@@ -27,7 +27,7 @@ function Dot({ backgroundColor }: { backgroundColor?: string }) {
   );
 }
 
-function ScrollInner({ children }: { children: React.ReactNode }): JSX.Element {
+function ScrollInner({ children }: { children: React.ReactNode }) {
   const { scrollY } = useScroll();
   const scrollPos = useScrollPos();
 
@@ -44,50 +44,85 @@ function ScrollInner({ children }: { children: React.ReactNode }): JSX.Element {
   );
 }
 
+ScrollInner.displayName = "Scroll Inner";
+
 // change navbar font color when dot has benn growing
 // add animation inView for section
 // Change bg-color on white in about me section
 //
 
+const colors = {
+  default: {
+    bg: "black-800",
+    color: "black-800",
+  },
+  darkBg: {
+    bg: "black-800",
+    color: "white-900",
+  },
+  lightBg: {
+    bg: "background",
+    color: "black-800",
+  },
+};
+
 function IndexPage(): JSX.Element {
   // ====================
   // Local State
-  const [dotColor, setDotColor] = useState("bg-black-800");
+  const [colorsSchema, setColorsSchema] = useState(colors.default);
   // ====================
   // Refs
+  const scrollInnerRef = useRef(null);
   const projectRef = useRef(null);
   const spacerRef = useRef(null);
+  const footerRef = useRef(null);
 
   // ====================
   // Hooks
-  const isSpacerInView = useInView(spacerRef);
+
+  const isSpacerInView = useInView(spacerRef, { amount: 0.6 });
   const isProjectInView = useInView(projectRef);
+  const isScrollInnerInView = useInView(scrollInnerRef);
+  const isFooterInView = useInView(footerRef);
 
   useEffect(() => {
     if (isSpacerInView) {
-      setDotColor("bg-black-800");
+      setColorsSchema(colors.darkBg);
+    } else if (!isSpacerInView && !isProjectInView && !isFooterInView) {
+      setColorsSchema(colors.default);
     }
   }, [isSpacerInView]);
 
   useEffect(() => {
     if (isProjectInView) {
-      setDotColor("bg-background");
-    } else {
-      setDotColor("bg-black-800");
+      setColorsSchema(colors.lightBg);
     }
   }, [isProjectInView]);
+
+  useEffect(() => {
+    if (isFooterInView) {
+      setColorsSchema(colors.darkBg);
+    }
+  }, [isFooterInView]);
+
+  // ====================
+  // Transform
+
   return (
-    <MainTemplate className="fixed top-0 left-0">
-      <Dot backgroundColor={dotColor} />
-      <div className="w-full z-20">
+    <MainTemplate
+      className="fixed top-0 left-0"
+      navbarColor={colorsSchema.color}
+    >
+      <Dot backgroundColor={`bg-${colorsSchema.bg}`} />
+      <motion.div className="w-full z-20">
         <Hero />
-      </div>
+      </motion.div>
       <ScrollInner>
-        <div ref={spacerRef} className="h-[100vh] w-full z-20" />
+        <div ref={spacerRef} className="h-[140vh] w-full z-20" />
         <div ref={projectRef} className="w-full z-20">
           <Projects />
         </div>
-        <div className="z-20">
+        <div ref={footerRef} className="z-20 w-full h-full">
           <Footer />
         </div>
       </ScrollInner>

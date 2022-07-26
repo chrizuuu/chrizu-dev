@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import classnames from "classnames";
+import classNames from "classnames";
 
 function StyledLink({
   text,
@@ -18,8 +18,15 @@ function StyledLink({
         "group flex flex-col justify-center items-center gap-0 h-[40px] hover:translate-y-[-4px] transition-transform duration-200"
       }
     >
-      <span className={classnames("tracking-widest ", color)}>{text}</span>
-      <span className="w-0 h-[1px] bg-black-800 transition-w duration-500 sm:group-hover:w-full"></span>
+      <span className={classNames("tracking-widest ", `text-${color}`)}>
+        {text}
+      </span>
+      <span
+        className={classNames(
+          "w-0 h-[1px] transition-w duration-500 sm:group-hover:w-full",
+          `bg-${color}`
+        )}
+      ></span>
     </Link>
   );
 }

@@ -34,7 +34,7 @@ function HandEmoji() {
   );
 }
 
-function Logo({ color }: { color?: string }): JSX.Element {
+function Logo({ color }: { color: string }): JSX.Element {
   return (
     <span
       className={classNames(

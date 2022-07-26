@@ -8,7 +8,7 @@
         color: theme(colors.black.800);
         @apply bg-background;
         overflow-x:hidden;
-        height:500vh
+        height:540vh
     }
     
     .stroke-header {
