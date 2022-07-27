@@ -2,15 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 100 + 140 + 200 + 100 + 100 */
+
 @layer base {
     body {
         font-family: "Space Grotesk";
         color: theme(colors.black.800);
         @apply bg-background;
         overflow-x:hidden;
-        height:640vh
+        min-height:640vh;
     }
-    
+
     html {
         scroll-behavior: smooth;
     }

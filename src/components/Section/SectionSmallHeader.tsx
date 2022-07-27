@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React from "react";
-import splitByLetter from "utils/splitByLetter";
+import splitByWord from "utils/splitByWord";
 
 function Word({
   children,
@@ -25,7 +25,7 @@ function SectionSmallHeader({
   nameOfSection: string;
   color: string;
 }): JSX.Element {
-  const nameOfSectionArr = splitByLetter(nameOfSection);
+  const nameOfSectionArr = splitByWord(nameOfSection);
   return (
     <h2 className="text-[14px]">
       {<Word color={color}>{sectionIndex}</Word>}

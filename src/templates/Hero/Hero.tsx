@@ -3,6 +3,7 @@ import Header from "components/Texts/Header";
 import { motion, useScroll, useTransform } from "framer-motion";
 import AnimatedHeader from "components/Texts/AnimatedHeader";
 import AnimatedLetter from "components/Texts/AnimatedLetter.tsx/AnimatedLetter";
+import SectionContainer from "components/Section/SectionContainer";
 
 function MainText() {
   const { scrollY } = useScroll();
@@ -56,9 +57,9 @@ function MainText() {
 
 function Hero(): JSX.Element {
   return (
-    <section className="w-full h-screen flex flex-col items-center justify-end p-mobileH lg:p-desktopH relative">
+    <SectionContainer className="flex flex-col justify-end h-screen">
       <MainText />
-    </section>
+    </SectionContainer>
   );
 }
 

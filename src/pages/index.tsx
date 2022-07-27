@@ -72,18 +72,25 @@ function IndexPage(): JSX.Element {
   const projectRef = useRef(null);
   const spacerRef = useRef(null);
   const footerRef = useRef(null);
+  const aboutRef = useRef(null);
 
   // ====================
   // Hooks
 
   const isSpacerInView = useInView(spacerRef, { amount: 0.6 });
   const isProjectInView = useInView(projectRef, { amount: 0.1 });
+  const isAboutInView = useInView(aboutRef);
   const isFooterInView = useInView(footerRef);
 
   useEffect(() => {
     if (isSpacerInView) {
       setColorsSchema(colors.darkBg);
-    } else if (!isSpacerInView && !isProjectInView && !isFooterInView) {
+    } else if (
+      !isSpacerInView &&
+      !isProjectInView &&
+      !isFooterInView &&
+      !isAboutInView
+    ) {
       setColorsSchema(colors.default);
     }
   }, [isSpacerInView]);
@@ -95,10 +102,10 @@ function IndexPage(): JSX.Element {
   }, [isProjectInView]);
 
   useEffect(() => {
-    if (isFooterInView) {
-      setColorsSchema(colors.darkBg);
+    if (isAboutInView) {
+      setColorsSchema(colors.lightBg);
     }
-  }, [isFooterInView]);
+  }, [isAboutInView]);
 
   // ====================
   // Transform
@@ -117,10 +124,10 @@ function IndexPage(): JSX.Element {
         <div id="projects" ref={projectRef} className="w-full z-20">
           <Projects />
         </div>
-        <div id="about-me" className="w-full z-20">
+        <div ref={aboutRef} id="about-me" className="w-full z-20">
           <AboutMe />
         </div>
-        <div ref={footerRef} className="mt-[200px] z-20 w-full h-full">
+        <div ref={footerRef} className="z-20 w-full h-full bg-black-800">
           <Footer />
         </div>
       </ParallaxScroll>
