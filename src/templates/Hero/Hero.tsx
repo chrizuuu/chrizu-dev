@@ -57,7 +57,7 @@ function MainText() {
 
 function Hero(): JSX.Element {
   return (
-    <SectionContainer className="flex flex-col justify-end h-screen">
+    <SectionContainer className="flex flex-col items-center justify-end h-screen">
       <MainText />
     </SectionContainer>
   );

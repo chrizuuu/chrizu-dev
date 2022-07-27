@@ -107,6 +107,12 @@ function IndexPage(): JSX.Element {
     }
   }, [isAboutInView]);
 
+  useEffect(() => {
+    if (isFooterInView) {
+      setColorsSchema(colors.darkBg);
+    }
+  }, [isFooterInView]);
+
   // ====================
   // Transform
 
@@ -127,9 +133,10 @@ function IndexPage(): JSX.Element {
         <div ref={aboutRef} id="about-me" className="w-full z-20">
           <AboutMe />
         </div>
-        <div ref={footerRef} className="z-20 w-full h-full bg-black-800">
+        <div ref={footerRef} className="z-20 w-full h-full">
           <Footer />
         </div>
+        <div className="z-20 h-screen w-full"></div>
       </ParallaxScroll>
     </MainTemplate>
   );

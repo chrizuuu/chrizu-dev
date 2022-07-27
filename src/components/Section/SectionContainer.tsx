@@ -11,7 +11,7 @@ function SectionContainer({
   return (
     <section
       className={classNames(
-        "p-mobileH lg:p-desktopH my-0 mx-auto lg:mx-[100px]",
+        "px-mobileH lg:px-desktopH my-0 mx-auto",
         className
       )}
     >
