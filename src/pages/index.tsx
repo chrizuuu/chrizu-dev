@@ -4,8 +4,9 @@ import MainTemplate from "templates/MainTemplate/MainTemplate";
 import Hero from "templates/Hero/Hero";
 import Projects from "templates/Projects/Projects";
 import Footer from "components/Footer/Footer";
-import useScrollPos from "hooks/useScrollPos";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import ParallaxScroll from "components/ParallaxScroll/ParallaxScroll";
+import AboutMe from "templates/AboutMe/AboutMe";
 
 function Dot({ backgroundColor }: { backgroundColor?: string }) {
   const { scrollY } = useScroll();
@@ -46,25 +47,6 @@ function Dot({ backgroundColor }: { backgroundColor?: string }) {
     ></motion.div>
   );
 }
-
-function ScrollInner({ children }: { children: React.ReactNode }) {
-  const { scrollY } = useScroll();
-  const scrollPos = useScrollPos();
-
-  const y = useTransform(
-    scrollY,
-    [0, document.documentElement.clientHeight],
-    [0, -scrollPos]
-  );
-
-  return (
-    <motion.div className="z-10" style={{ y }}>
-      {children}
-    </motion.div>
-  );
-}
-
-ScrollInner.displayName = "Scroll Inner";
 
 const colors = {
   default: {
@@ -130,16 +112,18 @@ function IndexPage(): JSX.Element {
       <motion.div className="w-full z-20">
         <Hero />
       </motion.div>
-      <ScrollInner>
+      <ParallaxScroll>
         <div ref={spacerRef} className="h-[140vh] w-full z-20" />
-        <div ref={projectRef} className="w-full z-20">
+        <div id="projects" ref={projectRef} className="w-full z-20">
           <Projects />
         </div>
-
+        <div id="about-me" className="w-full z-20">
+          <AboutMe />
+        </div>
         <div ref={footerRef} className="mt-[200px] z-20 w-full h-full">
           <Footer />
         </div>
-      </ScrollInner>
+      </ParallaxScroll>
     </MainTemplate>
   );
 }

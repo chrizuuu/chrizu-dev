@@ -8,7 +8,11 @@
         color: theme(colors.black.800);
         @apply bg-background;
         overflow-x:hidden;
-        height:540vh
+        height:640vh
+    }
+    
+    html {
+        scroll-behavior: smooth;
     }
     
     .stroke-header {
