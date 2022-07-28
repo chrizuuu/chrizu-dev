@@ -20,14 +20,16 @@ function SectionSmallHeader({
   sectionIndex,
   nameOfSection,
   color,
+  className,
 }: {
   sectionIndex: string;
   nameOfSection: string;
   color: string;
+  className?: string;
 }): JSX.Element {
   const nameOfSectionArr = splitByWord(nameOfSection);
   return (
-    <h2 className="text-[14px]">
+    <h2 className={classNames(className, "text-[18px]")}>
       {<Word color={color}>{sectionIndex}</Word>}
       <span
         className={classNames(

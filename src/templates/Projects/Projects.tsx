@@ -1,6 +1,9 @@
-import SectionCard from "components/Section/SectionCard/SectionCard";
-import SectionCardsLayout from "components/Section/SectionCardsLayout";
 import React from "react";
+import SectionCard from "components/Section/SectionCard/SectionCard";
+import SectionSmallHeader from "components/Section/SectionSmallHeader";
+import SectionHeader from "components/Section/SectionHeader";
+import SectionCardsLayout from "components/Section/SectionCardsLayout";
+import SectionContainer from "components/Section/SectionContainer";
 
 const data = [
   {
@@ -28,7 +31,13 @@ const data = [
 
 function Projects(): JSX.Element {
   return (
-    <section className="w-screen h-[200vh] p-mobilePadding lg:px-desktopPadding flex flex-col items-center">
+    <SectionContainer className="h-[200vh] flex flex-col">
+      <SectionSmallHeader
+        color="black-800"
+        sectionIndex={"01"}
+        nameOfSection="Projects"
+      />
+      <SectionHeader color="black-800">Projects</SectionHeader>
       <SectionCardsLayout>
         {data.map(
           ({
@@ -51,7 +60,7 @@ function Projects(): JSX.Element {
           }
         )}
       </SectionCardsLayout>
-    </section>
+    </SectionContainer>
   );
 }
 

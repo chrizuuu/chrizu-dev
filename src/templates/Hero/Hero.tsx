@@ -10,7 +10,7 @@ function MainText() {
   const windowHeight = window.screen.availHeight;
   const windowWidth = window.screen.availWidth;
 
-  const scale = useTransform(
+  const branchTextScale = useTransform(
     scrollY,
     [windowHeight, 2 * windowHeight],
     [1, 1.5]
@@ -22,7 +22,7 @@ function MainText() {
     [1, 0.25]
   );
 
-  const left = useTransform(
+  const branchTextLeft = useTransform(
     scrollY,
     [windowHeight, 2 * windowHeight, 4 * windowHeight],
     [0, 120, windowWidth + 400]
@@ -37,7 +37,11 @@ function MainText() {
   return (
     <h1 className="w-full relative">
       <motion.span
-        style={{ scale, left, opacity: branchTextOpacity }}
+        style={{
+          scale: branchTextScale,
+          left: branchTextLeft,
+          opacity: branchTextOpacity,
+        }}
         className="inline-block relative"
       >
         <Header className="stroke-header">{"Web "}</Header>

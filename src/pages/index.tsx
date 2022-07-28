@@ -91,6 +91,7 @@ function IndexPage(): JSX.Element {
       !isFooterInView &&
       !isAboutInView
     ) {
+      console.log("defuakt");
       setColorsSchema(colors.default);
     }
   }, [isSpacerInView]);
@@ -127,12 +128,15 @@ function IndexPage(): JSX.Element {
       </motion.div>
       <ParallaxScroll>
         <div ref={spacerRef} className="h-[140vh] w-full z-20" />
-        <div id="projects" ref={projectRef} className="w-full z-20">
-          <Projects />
-        </div>
+        <div
+          id="projects"
+          ref={projectRef}
+          className="w-full z-20 h-[200vh]"
+        ></div>
         <div ref={aboutRef} id="about-me" className="w-full z-20">
           <AboutMe />
         </div>
+        <div ref={spacerRef} className="h-[140vh] w-full z-20" />
         <div ref={footerRef} className="z-20 w-full h-full">
           <Footer />
         </div>

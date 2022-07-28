@@ -19,14 +19,16 @@ function Word({
 function SectionHeader({
   children,
   color,
+  className,
 }: {
   children: string;
   color: string;
+  className?: string;
 }): JSX.Element {
   const words = splitByWord(children);
 
   return (
-    <span className="text-[28px] lg:text-[48px]">
+    <span className={classNames("text-[48px] lg:text-[64px]", className)}>
       {words.map((word, index) => {
         return (
           <React.Fragment key={index}>
