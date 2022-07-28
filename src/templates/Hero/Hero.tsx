@@ -2,13 +2,11 @@ import React from "react";
 import Header from "components/Texts/Header";
 import { motion, useScroll, useTransform } from "framer-motion";
 import AnimatedHeader from "components/Texts/AnimatedHeader";
-import AnimatedLetter from "components/Texts/AnimatedLetter.tsx/AnimatedLetter";
 import SectionContainer from "components/Section/SectionContainer";
 
 function MainText() {
   const { scrollY } = useScroll();
   const windowHeight = window.screen.availHeight;
-  const windowWidth = window.screen.availWidth;
 
   const branchTextScale = useTransform(
     scrollY,
@@ -25,7 +23,7 @@ function MainText() {
   const branchTextLeft = useTransform(
     scrollY,
     [windowHeight, 2 * windowHeight, 4 * windowHeight],
-    [0, 120, windowWidth + 400]
+    ["0vw", "8vw", "140vw"]
   );
 
   const opacity = useTransform(
@@ -34,7 +32,7 @@ function MainText() {
     [1, 0]
   );
 
-  return (
+  /*
     <h1 className="w-full relative">
       <motion.span
         style={{
@@ -54,6 +52,29 @@ function MainText() {
       <span className="w-full inline-block text-center"></span>
       <motion.span style={{ opacity }} className="w-full relative block">
         <AnimatedHeader>{"Developer"}</AnimatedHeader>
+      </motion.span>
+    </h1>
+  */
+
+  return (
+    <h1 className="w-full relative">
+      <motion.span
+        style={{
+          scale: branchTextScale,
+          left: branchTextLeft,
+          opacity: branchTextOpacity,
+        }}
+        className="inline-block relative"
+      >
+        <Header className="stroke-header">{"Frontend "}</Header>
+        <Header className="stroke-header">{" Developer"}</Header>
+      </motion.span>
+      <motion.span style={{ opacity }} className="relative block">
+        <AnimatedHeader>{"Krzysztof  "}</AnimatedHeader>
+      </motion.span>
+      <span className="w-full inline-block text-center"></span>
+      <motion.span style={{ opacity }} className="w-full relative block">
+        <AnimatedHeader>{"Bonecki"}</AnimatedHeader>
       </motion.span>
     </h1>
   );

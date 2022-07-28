@@ -1,31 +1,30 @@
 import React from "react";
 import classnames from "classnames";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+
+function SocialName({ children }: { children: string }) {
+  return (
+    <span className="inline-block text-[18px] font-bold uppercase hover:translate-y-[-2px]  transition-transform duration-600">
+      {children}
+    </span>
+  );
+}
 
 function SocialList({ className }: { className?: string }): JSX.Element {
   return (
-    <div id="social-list" className={classnames("w-[28px]", className)}>
-      <ul className="flex flex-col items-center gap-[30px]">
-        <li className="w-[24px] h-[24px]">
+    <div id="social-list" className={classnames(className)}>
+      <ul className="flex flex-row gap-[30px]">
+        <li>
           <a
             href="https://github.com/chrizuuu"
             target="_blank"
             rel="noreferrer"
           >
-            <GitHubIcon className="hover:fill-primary hover:translate-y-[-2px] transition-fill transition-transform duration-600" />
+            <SocialName>Github</SocialName>
           </a>
         </li>
-        <li className="w-[24px] h-[24px]">
+        <li>
           <a target="_blank" rel="nofollow">
-            <LinkedInIcon className="hover:fill-primary hover:translate-y-[-2px] transition-fill transition-transform duration-600" />
-          </a>
-        </li>
-
-        <li className="w-[24px] h-[24px]">
-          <a target="_blank" rel="nofollow">
-            <EmailOutlinedIcon className="hover:fill-primary hover:translate-y-[-2px] transition-fill transition-transform duration-600" />
+            <SocialName>Linkedin</SocialName>
           </a>
         </li>
       </ul>

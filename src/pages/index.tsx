@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
 import MainTemplate from "templates/MainTemplate/MainTemplate";
 import Hero from "templates/Hero/Hero";
-import Projects from "templates/Projects/Projects";
 import Footer from "components/Footer/Footer";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import ParallaxScroll from "components/ParallaxScroll/ParallaxScroll";

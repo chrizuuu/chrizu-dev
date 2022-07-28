@@ -14,7 +14,7 @@ module.exports = {
     colors: {
       transparent: "transparent",
       black: {
-        100: "rgba(0,0,0,0.1)",
+        100: "rgba(0,0,0,0.04)",
         500: "rgba(29,29,29,0.5)",
         800: "rgb(29,29,29)",
         900: "rgb(0,0,0)",
@@ -34,7 +34,7 @@ module.exports = {
     extend: {
       spacing: {
         mobileH: "20px",
-        desktopH: "12.5vw",
+        desktopH: "8vw",
         mobilePadding: "40px",
         desktopPadding: "100px",
       },

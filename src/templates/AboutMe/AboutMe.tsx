@@ -24,7 +24,7 @@ function BackgroundLetter({
       onAnimationComplete={markAnimationAsComplete}
       className={classNames(
         className,
-        "absolute text-[25vw] font-bold leading-none text-black-500"
+        "text-[50vh] font-bold leading-none text-black-100"
       )}
     >
       {children}
@@ -32,21 +32,22 @@ function BackgroundLetter({
   );
 }
 
-function BackgroundText() {
+function BackgroundTextPartOne() {
   return (
-    <span className="hidden lg:flex relative flex-col opacity-[0.25]">
-      <BackgroundLetter className="left-[-12.5vw]">W</BackgroundLetter>
-      <BackgroundLetter className="left-[10vw] top-[]">H</BackgroundLetter>
-      <BackgroundLetter className="left-[27.5vw] top-[]">O</BackgroundLetter>
-      <BackgroundLetter className="left-[32.5vw] top-[22.5vw]">
-        I
-      </BackgroundLetter>
-      <BackgroundLetter className="left-[40vw] top-[22.5vw]">
-        A
-      </BackgroundLetter>
-      <BackgroundLetter className="left-[55vw] top-[22.5vw]">
-        M
-      </BackgroundLetter>
+    <span className="hidden lg:flex flex-row gap-[20px] absolute left-[-8vw] top-[10%]">
+      <BackgroundLetter className="">W</BackgroundLetter>
+      <BackgroundLetter className="">H</BackgroundLetter>
+      <BackgroundLetter className="">O</BackgroundLetter>
+    </span>
+  );
+}
+
+function BackgroundTextPartTwo() {
+  return (
+    <span className="hidden lg:flex flex-row gap-[20px] absolute right-[-8vw]">
+      <BackgroundLetter className="">I</BackgroundLetter>
+      <BackgroundLetter className="">A</BackgroundLetter>
+      <BackgroundLetter className="">M</BackgroundLetter>
     </span>
   );
 }
@@ -57,21 +58,21 @@ function WhoIAm() {
       <SectionHeader color="black-800" className="hidden">
         Who I Am
       </SectionHeader>
-      <BackgroundText />
+      <BackgroundTextPartOne />
       <div className="w-full flex flex-col gap-[20px] xl:w-[40vw] xl:ml-auto relative">
         <span className="font-bold text-[28px] pb-5">Krzysztof Bonecki</span>
         <SectionText color="black-800">
-          Hello! My name is Brittany and I enjoy creating things that live on
-          the internet. My interest in web development started back in 2012 when
-          I decided to try editing custom Tumblr themes — turns out hacking
-          together a custom reblog button taught me a lot about HTML & CSS!
-          Fast-forward to today, and I’ve had the privilege of working at an
-          advertising agency, a start-up, a huge corporation, and a student-led
-          design studio. My main focus these days is building accessible,
-          inclusive products and digital experiences at Upstatement for a
-          variety of clients. I also recently launched a course that covers
-          everything you need to build a web app with the Spotify API using Node
-          & React.
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industrys standard dummy text ever
+          since the 1500s, when an unknown printer took a galleyLorem Ipsum is
+          simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industrys standard dummy text ever since the 1500s,
+          when an unknown printer took a galley Lorem Ipsum is simply dummy text
+          of the printing and typesetting industry. Lorem Ipsum has been the
+          industrys standard dummy text ever since the 1500s, when an unknown
+          printer took a galleyLorem Ipsum is simply dummy text of the printing
+          and typesetting industry. Lorem Ipsum has been the industrys standard
+          dummy text ever since the 1500s, when an unknown printer took a galley
         </SectionText>
       </div>
     </div>
@@ -80,9 +81,11 @@ function WhoIAm() {
 
 function SkilLSet() {
   return (
-    <div className="pt-[100px]">
-      <SectionHeader color="black-800 flex-1">My skill set</SectionHeader>
-      <div className="w-full flex flex-col gap-[20px] lg:w-[40vw] lg:mr-auto">
+    <div className="pt-[100px] relative">
+      <BackgroundTextPartTwo />
+      <div className="w-full flex flex-col gap-[20px] xl:w-[40vw] xl:mr-auto">
+        <span className="font-bold text-[28px] pb-5">My skill set</span>
+
         <SectionText color="black-800">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industrys standard dummy text ever
@@ -110,6 +113,10 @@ function AboutMe(): JSX.Element {
         nameOfSection="About me"
         className="pb-5"
       />
+      <SectionHeader color="black-800 flex-1 pb-[80px]">
+        Briefly about me
+      </SectionHeader>
+
       <WhoIAm />
       <SkilLSet />
     </SectionContainer>

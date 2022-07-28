@@ -18,7 +18,7 @@
     }
     
     .stroke-header {
-        @apply text-white-900;
+        @apply text-background;
         text-shadow:
         -1px -1px 0 theme(colors.black.800),  
         1px -1px 0 theme(colors.black.800), 
@@ -27,10 +27,12 @@
         transition: color .3s;
     }
 
+    /*
     .stroke-header:hover {
         text-shadow: none;
         @apply text-black-800;
     }
+    */
 
     .stroke-white-header {
         @apply text-black-800;
