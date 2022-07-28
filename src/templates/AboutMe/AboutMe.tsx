@@ -113,7 +113,7 @@ function AboutMe(): JSX.Element {
         nameOfSection="About me"
         className="pb-5"
       />
-      <SectionHeader color="black-800 flex-1 pb-[80px]">
+      <SectionHeader color="black-800 pb-[80px]">
         Briefly about me
       </SectionHeader>
 
