@@ -34,7 +34,7 @@ function BackgroundLetter({
 
 function BackgroundTextPartOne() {
   return (
-    <span className="hidden lg:flex flex-row gap-[20px] absolute left-[-8vw] top-[10%]">
+    <span className="hidden lg:flex flex-row gap-[20px] absolute left-0 top-[10%]">
       <BackgroundLetter className="">W</BackgroundLetter>
       <BackgroundLetter className="">H</BackgroundLetter>
       <BackgroundLetter className="">O</BackgroundLetter>
@@ -44,7 +44,7 @@ function BackgroundTextPartOne() {
 
 function BackgroundTextPartTwo() {
   return (
-    <span className="hidden lg:flex flex-row gap-[20px] absolute right-[-8vw]">
+    <span className="hidden lg:flex flex-row gap-[20px] absolute right-0">
       <BackgroundLetter className="">I</BackgroundLetter>
       <BackgroundLetter className="">A</BackgroundLetter>
       <BackgroundLetter className="">M</BackgroundLetter>

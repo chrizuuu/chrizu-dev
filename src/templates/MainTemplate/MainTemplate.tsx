@@ -23,7 +23,11 @@ function MainTemplate({
     <>
       {displayNavbar && <Navbar color={navbarColor} />}
       {displaySocialList && (
-        <SocialList className={"hidden fixed bottom-[40px] right-[8vw] z-20"} />
+        <SocialList
+          className={
+            "hidden lg:block fixed bottom-[40px] right-defaultSpacing z-20"
+          }
+        />
       )}
       <motion.main
         style={{ y: smoothScroll }}

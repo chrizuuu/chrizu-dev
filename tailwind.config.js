@@ -34,7 +34,7 @@ module.exports = {
     extend: {
       spacing: {
         mobileH: "20px",
-        desktopH: "8vw",
+        defaultSpacing: "8vw",
         mobilePadding: "40px",
         desktopPadding: "100px",
       },

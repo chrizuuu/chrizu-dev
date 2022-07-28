@@ -10,10 +10,7 @@ function SectionContainer({
 }): JSX.Element {
   return (
     <section
-      className={classNames(
-        "px-mobileH lg:px-desktopH my-0 mx-auto",
-        className
-      )}
+      className={classNames("px-defaultSpacing my-0 mx-auto", className)}
     >
       {children}
     </section>

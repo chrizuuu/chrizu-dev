@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 function SocialName({ children }: { children: string }) {
   return (
-    <span className="inline-block text-[18px] font-bold uppercase hover:translate-y-[-2px]  transition-transform duration-600">
+    <span className="inline-block text-[18px] text-black-900 font-bold lowercase hover:translate-y-[-2px]  transition-transform duration-600">
       {children}
     </span>
   );
