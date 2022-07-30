@@ -24,7 +24,7 @@ function BackgroundLetter({
       onAnimationComplete={markAnimationAsComplete}
       className={classNames(
         className,
-        "text-[50vh] font-bold leading-none text-black-100"
+        "inline-block text-[50vh] font-bold text-black-100"
       )}
     >
       {children}
@@ -34,7 +34,7 @@ function BackgroundLetter({
 
 function BackgroundTextPartOne() {
   return (
-    <span className="hidden lg:flex flex-row gap-[20px] absolute left-0 top-[10%]">
+    <span className="hidden lg:flex flex-row gap-[20px] absolute left-[-5vw]">
       <BackgroundLetter className="">W</BackgroundLetter>
       <BackgroundLetter className="">H</BackgroundLetter>
       <BackgroundLetter className="">O</BackgroundLetter>
@@ -44,7 +44,7 @@ function BackgroundTextPartOne() {
 
 function BackgroundTextPartTwo() {
   return (
-    <span className="hidden lg:flex flex-row gap-[20px] absolute right-0">
+    <span className="hidden lg:flex flex-row gap-[20px] absolute right-[-5vw]">
       <BackgroundLetter className="">I</BackgroundLetter>
       <BackgroundLetter className="">A</BackgroundLetter>
       <BackgroundLetter className="">M</BackgroundLetter>
@@ -85,8 +85,7 @@ function SkilLSet() {
       <BackgroundTextPartTwo />
       <div className="w-full flex flex-col gap-[20px] xl:w-[40vw] xl:mr-auto">
         <span className="font-bold text-[28px] pb-5">My skill set</span>
-
-        <SectionText color="black-800">
+        <SectionText color="black-800 ">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industrys standard dummy text ever
           since the 1500s, when an unknown printer took a galleyLorem Ipsum is
@@ -106,7 +105,7 @@ function SkilLSet() {
 
 function AboutMe(): JSX.Element {
   return (
-    <SectionContainer className="h-[200vh] flex flex-col justify-start relative ">
+    <SectionContainer className="h-[200vh] flex flex-col justify-start relative">
       <SectionSmallHeader
         color="black-800"
         sectionIndex={"02"}

@@ -93,7 +93,7 @@ function MainText() {
           left: branchTextLeft,
           opacity: branchTextOpacity,
         }}
-        className="inline-flex flex-wrap relative"
+        className="flex flex-col relative"
       >
         <span className="inline-block">
           <AnimatedHeader className="stroke-header">
@@ -118,7 +118,7 @@ function MainText() {
 
 function Hero(): JSX.Element {
   return (
-    <SectionContainer className="w-full flex flex-col  justify-end h-screen">
+    <SectionContainer className="w-full flex flex-col justify-end h-screen pb-mobilePadding lg:pb-[60px]">
       <MainText />
       <BackgroundText>KB</BackgroundText>
     </SectionContainer>

@@ -25,7 +25,7 @@ module.exports = {
         900: "rgb(255,255,255)",
       },
       primary: "rgba(100, 154, 210, 1)",
-      background: "rgb(245,245,245)",
+      background: "rgb(255,255,255)",
     },
     screens: {
       xs: "475px",

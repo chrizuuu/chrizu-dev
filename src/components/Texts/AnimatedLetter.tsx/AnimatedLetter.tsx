@@ -6,9 +6,11 @@ import useAnimatedLetter from "./useAnimatedLetter";
 function AnimatedLetter({
   letter,
   className,
+  fontSize,
 }: {
   letter: string;
   className?: string;
+  fontSize?: string;
 }): JSX.Element {
   const { animateControls, rubberBand, markAnimationAsComplete } =
     useAnimatedLetter();
@@ -19,7 +21,9 @@ function AnimatedLetter({
       onHoverStart={rubberBand}
       onAnimationComplete={markAnimationAsComplete}
       className={classnames(
-        "inline-block text-5xl xs:text-6xl md:text-8xl lg:text-[120px] xl:text-[160px] 2xl:text-[180px] font-bold",
+        "inline-block font-bold",
+        fontSize ??
+          "text-5xl xs:text-6xl md:text-8xl lg:text-[110px] xl:text-[150px] 2xl:text-[180px]",
         className
       )}
     >
