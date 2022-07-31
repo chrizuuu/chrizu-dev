@@ -9,19 +9,20 @@ function MainTemplate({
   displayNavbar = true,
   displaySocialList = true,
   className,
-  navbarColor,
+  color,
 }: {
   children: React.ReactNode;
   displayNavbar?: boolean;
   displaySocialList?: boolean;
-  className: string;
-  navbarColor: string;
+  className?: string;
+  color: string;
 }): JSX.Element {
   return (
     <>
-      {displayNavbar && <Navbar color={navbarColor} />}
+      {displayNavbar && <Navbar color={color} />}
       {displaySocialList && (
         <SocialList
+          color={color}
           className={
             "hidden lg:block fixed bottom-[40px] right-defaultSpacing z-20"
           }

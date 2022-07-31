@@ -16,8 +16,8 @@ function BackgroundText({
 
   const right = useTransform(
     scrollY,
-    [windowHeight, 2 * windowHeight, 4 * windowHeight],
-    ["0vw", "8vw", "140vw"]
+    [0, 1.5 * windowHeight],
+    ["0vw", "140vw"]
   );
 
   return (
@@ -39,19 +39,19 @@ function MainText() {
 
   const branchTextScale = useTransform(
     scrollY,
-    [windowHeight, 2 * windowHeight],
+    [windowHeight / 3, 1.5 * windowHeight],
     [1, 1.5]
   );
 
   const branchTextOpacity = useTransform(
     scrollY,
-    [windowHeight, 2 * windowHeight],
-    [1, 0.25]
+    [windowHeight, 1.5 * windowHeight],
+    [1, 0.1]
   );
 
   const branchTextLeft = useTransform(
     scrollY,
-    [windowHeight, 2 * windowHeight, 4 * windowHeight],
+    [windowHeight / 3, windowHeight, 1.8 * windowHeight],
     ["0vw", "8vw", "140vw"]
   );
 

@@ -7,6 +7,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import SmoothScroll from "components/SmoothScroll/SmoothScroll";
 import AboutMe from "templates/AboutMe/AboutMe";
 import Projects from "templates/Projects/Projects";
+import useScrollPos from "hooks/useScrollPos";
 
 function Dot({ backgroundColor }: { backgroundColor?: string }) {
   const { scrollY } = useScroll();
@@ -63,7 +64,7 @@ const colors = {
   },
 };
 
-function IndexPage(): JSX.Element {
+function Test(): JSX.Element {
   // ====================
   // Local State
   const [colorsSchema, setColorsSchema] = useState(colors.default);
@@ -119,10 +120,10 @@ function IndexPage(): JSX.Element {
   return (
     <MainTemplate className="fixed top-0 left-0" color={colorsSchema.color}>
       <Dot backgroundColor={`bg-${colorsSchema.bg}`} />
-      <motion.div className="w-full z-20">
-        <Hero />
-      </motion.div>
       <SmoothScroll>
+        <motion.div className="w-full z-20">
+          <Hero />
+        </motion.div>
         <div ref={spacerRef} className="h-[100vh] w-full z-20" />
         <div ref={aboutRef} id="about-me" className="w-full z-20">
           <AboutMe />
@@ -138,4 +139,4 @@ function IndexPage(): JSX.Element {
   );
 }
 
-export default IndexPage;
+export default Test;

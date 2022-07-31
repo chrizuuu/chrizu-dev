@@ -1,6 +1,6 @@
 import React from "react";
 import StyledLink from "components/StyledLink/StyledLink";
-import SocialListHorizontal from "components/SocialList/SocialListHorizontal";
+import SocialList from "components/SocialList/SocialList";
 
 function MobileMenu({ isOpen }: { isOpen: boolean }): JSX.Element | null {
   if (!isOpen) {
@@ -20,7 +20,7 @@ function MobileMenu({ isOpen }: { isOpen: boolean }): JSX.Element | null {
             <StyledLink text="contact" route="/" />
           </li>
         </ul>
-        <SocialListHorizontal className={"absolute bottom-[30px]"} />
+        <SocialList color="white-900" className={"absolute bottom-[30px]"} />
       </div>
     </nav>
   );

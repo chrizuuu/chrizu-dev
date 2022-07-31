@@ -1,17 +1,28 @@
 import React from "react";
-import classnames from "classnames";
+import classNames from "classnames";
 
-function SocialName({ children }: { children: string }) {
+function SocialName({ children, color }: { children: string; color: string }) {
   return (
-    <span className="inline-block text-[18px] text-black-900 font-bold lowercase hover:translate-y-[-2px]  transition-transform duration-600">
+    <span
+      className={classNames(
+        "inline-block text-[18px] font-bold hover:translate-y-[-2px]  transition-transform duration-600",
+        `text-${color}`
+      )}
+    >
       {children}
     </span>
   );
 }
 
-function SocialList({ className }: { className?: string }): JSX.Element {
+function SocialList({
+  className,
+  color,
+}: {
+  className?: string;
+  color: string;
+}): JSX.Element {
   return (
-    <div id="social-list" className={classnames(className)}>
+    <div id="social-list" className={classNames(className)}>
       <ul className="flex flex-row gap-[30px]">
         <li>
           <a
@@ -19,12 +30,12 @@ function SocialList({ className }: { className?: string }): JSX.Element {
             target="_blank"
             rel="noreferrer"
           >
-            <SocialName>Github</SocialName>
+            <SocialName color={color}>Github</SocialName>
           </a>
         </li>
         <li>
           <a target="_blank" rel="nofollow">
-            <SocialName>Linkedin</SocialName>
+            <SocialName color={color}>Linkedin</SocialName>
           </a>
         </li>
       </ul>
