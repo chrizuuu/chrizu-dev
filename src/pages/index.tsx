@@ -50,16 +50,16 @@ function Dot({ backgroundColor }: { backgroundColor?: string }) {
 
 const colors = {
   default: {
-    bg: "black-800",
-    color: "black-800",
+    bg: "black-900",
+    color: "black-900",
   },
   darkBg: {
-    bg: "black-800",
+    bg: "black-900",
     color: "white-900",
   },
   lightBg: {
     bg: "background",
-    color: "black-800",
+    color: "black-900",
   },
 };
 
@@ -119,20 +119,20 @@ function IndexPage(): JSX.Element {
   return (
     <MainTemplate className="fixed top-0 left-0" color={colorsSchema.color}>
       <Dot backgroundColor={`bg-${colorsSchema.bg}`} />
-      <motion.div className="w-full z-20">
-        <Hero />
-      </motion.div>
       <SmoothScroll>
-        <div ref={spacerRef} className="h-[100vh] w-full z-20" />
-        <div ref={aboutRef} id="about-me" className="w-full z-20">
+        <motion.div className="w-full">
+          <Hero />
+        </motion.div>
+        <section ref={spacerRef} className="h-[100vh] w-full z-20" />
+        <section ref={aboutRef} id="about-me" className="w-full z-20">
           <AboutMe />
-        </div>
-        <div id="projects" ref={projectRef} className="w-full z-20">
+        </section>
+        <section id="projects" ref={projectRef} className="w-full z-20">
           <Projects />
-        </div>
-        <div ref={footerRef} className="z-20 w-full h-full">
+        </section>
+        <section id="footer" ref={footerRef} className="z-20 w-full h-full">
           <Footer />
-        </div>
+        </section>
       </SmoothScroll>
     </MainTemplate>
   );

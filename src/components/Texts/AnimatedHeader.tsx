@@ -13,18 +13,13 @@ function AnimatedHeader({
 }): JSX.Element {
   const stringArray = splitByLetter(children);
   return (
-    <>
+    <span className={className}>
       {stringArray.map((letter, index) => {
         return (
-          <AnimatedLetter
-            key={index}
-            letter={letter}
-            className={className}
-            fontSize={fontSize}
-          />
+          <AnimatedLetter key={index} letter={letter} fontSize={fontSize} />
         );
       })}
-    </>
+    </span>
   );
 }
 

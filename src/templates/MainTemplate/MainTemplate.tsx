@@ -24,7 +24,7 @@ function MainTemplate({
         <SocialList
           color={color}
           className={
-            "hidden lg:block fixed bottom-[40px] right-defaultSpacing z-20"
+            "hidden lg:block fixed bottom-desktopPadding right-defaultSpacing z-20"
           }
         />
       )}

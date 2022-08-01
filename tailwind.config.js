@@ -36,7 +36,7 @@ module.exports = {
         mobileH: "20px",
         defaultSpacing: "8vw",
         mobilePadding: "40px",
-        desktopPadding: "100px",
+        desktopPadding: "60px",
       },
     },
   },

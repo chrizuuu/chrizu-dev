@@ -9,7 +9,7 @@ function StyledLink({
 }: {
   text: string;
   route: string;
-  color?: string;
+  color: string;
 }): JSX.Element {
   return (
     <Link

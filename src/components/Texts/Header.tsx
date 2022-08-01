@@ -13,7 +13,7 @@ function Header({
   return (
     <span
       className={classnames(
-        "font-bold",
+        "font-bold text-left",
         fontSize ??
           "text-5xl  xs:text-6xl md:text-8xl lg:text-[110px] xl:text-[150px] 2xl:text-[180px]",
         className
