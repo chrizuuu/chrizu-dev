@@ -41,7 +41,7 @@ function Logo({ color }: { color: string }): JSX.Element {
   return (
     <span
       className={classNames(
-        "flex flex-row gap-[10px] text-2xl font-bold transition-colors duration-300",
+        "flex flex-row gap-[10px] text-2xl font-bold transition-colors duration-300 ",
         color
       )}
     >

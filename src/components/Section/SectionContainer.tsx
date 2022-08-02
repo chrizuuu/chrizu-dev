@@ -9,11 +9,9 @@ function SectionContainer({
   className?: string;
 }): JSX.Element {
   return (
-    <section
-      className={classNames("px-defaultSpacing my-0 mx-auto", className)}
-    >
+    <div className={classNames("px-defaultSpacing my-0 mx-auto", className)}>
       {children}
-    </section>
+    </div>
   );
 }
 

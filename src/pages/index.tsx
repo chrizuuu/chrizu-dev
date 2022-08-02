@@ -7,6 +7,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import SmoothScroll from "components/SmoothScroll/SmoothScroll";
 import AboutMe from "templates/AboutMe/AboutMe";
 import Projects from "templates/Projects/Projects";
+import useScrollPos from "hooks/useScrollPos";
 
 function Dot({ backgroundColor }: { backgroundColor?: string }) {
   const { scrollY } = useScroll();
@@ -114,15 +115,15 @@ function IndexPage(): JSX.Element {
   }, [isFooterInView]);
 
   // ====================
-  // Transform
+  // TransformY Hero section
 
   return (
     <MainTemplate className="fixed top-0 left-0" color={colorsSchema.color}>
       <Dot backgroundColor={`bg-${colorsSchema.bg}`} />
       <SmoothScroll>
-        <motion.div className="w-full">
+        <section className="w-full h-[100vh]">
           <Hero />
-        </motion.div>
+        </section>
         <section ref={spacerRef} className="h-[100vh] w-full z-20" />
         <section ref={aboutRef} id="about-me" className="w-full z-20">
           <AboutMe />

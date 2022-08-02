@@ -66,13 +66,7 @@ function WhoIAm() {
           industry. Lorem Ipsum has been the industrys standard dummy text ever
           since the 1500s, when an unknown printer took a galleyLorem Ipsum is
           simply dummy text of the printing and typesetting industry. Lorem
-          Ipsum has been the industrys standard dummy text ever since the 1500s,
-          when an unknown printer took a galley Lorem Ipsum is simply dummy text
-          of the printing and typesetting industry. Lorem Ipsum has been the
-          industrys standard dummy text ever since the 1500s, when an unknown
-          printer took a galleyLorem Ipsum is simply dummy text of the printing
-          and typesetting industry. Lorem Ipsum has been the industrys standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
+          Ipsum has bee
         </SectionText>
       </div>
     </div>
@@ -91,12 +85,7 @@ function SkilLSet() {
           since the 1500s, when an unknown printer took a galleyLorem Ipsum is
           simply dummy text of the printing and typesetting industry. Lorem
           Ipsum has been the industrys standard dummy text ever since the 1500s,
-          when an unknown printer took a galley Lorem Ipsum is simply dummy text
-          of the printing and typesetting industry. Lorem Ipsum has been the
-          industrys standard dummy text ever since the 1500s, when an unknown
-          printer took a galleyLorem Ipsum is simply dummy text of the printing
-          and typesetting industry. Lorem Ipsum has been the industrys standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
+          whe
         </SectionText>
       </div>
     </div>
