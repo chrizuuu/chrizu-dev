@@ -7,7 +7,6 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import SmoothScroll from "components/SmoothScroll/SmoothScroll";
 import AboutMe from "templates/AboutMe/AboutMe";
 import Projects from "templates/Projects/Projects";
-import useScrollPos from "hooks/useScrollPos";
 
 function Dot({ backgroundColor }: { backgroundColor?: string }) {
   const { scrollY } = useScroll();
@@ -19,22 +18,22 @@ function Dot({ backgroundColor }: { backgroundColor?: string }) {
 
   const width = useTransform(
     scrollY,
-    [0, windowHeight],
+    [0, 0.75 * windowHeight],
     [0, 1.5 * maxDimension]
   );
   const height = useTransform(
     scrollY,
-    [0, windowHeight],
+    [0, 0.75 * windowHeight],
     [0, 1.5 * maxDimension]
   );
   const left = useTransform(
     scrollY,
-    [windowHeight / 2, windowHeight],
+    [windowHeight / 2, 0.75 * windowHeight],
     ["0%", "50%"]
   );
   const top = useTransform(
     scrollY,
-    [windowHeight / 2, windowHeight],
+    [windowHeight / 2, 0.75 * windowHeight],
     ["0%", "50%%"]
   );
 
@@ -116,15 +115,27 @@ function IndexPage(): JSX.Element {
 
   // ====================
   // TransformY Hero section
+  const { scrollY } = useScroll();
+  const windowHeight = window.screen.availHeight;
+
+  const yHero = useTransform(
+    scrollY,
+    [0.75 * windowHeight, windowHeight],
+    [0, -windowHeight]
+  );
 
   return (
     <MainTemplate className="fixed top-0 left-0" color={colorsSchema.color}>
       <Dot backgroundColor={`bg-${colorsSchema.bg}`} />
+      <motion.section style={{ y: yHero }} className="w-full h-[100vh]">
+        <Hero />
+      </motion.section>
       <SmoothScroll>
-        <section className="w-full h-[100vh]">
-          <Hero />
-        </section>
-        <section ref={spacerRef} className="h-[100vh] w-full z-20" />
+        <section
+          ref={spacerRef}
+          id="space"
+          className="w-full h-[50vh]"
+        ></section>
         <section ref={aboutRef} id="about-me" className="w-full z-20">
           <AboutMe />
         </section>

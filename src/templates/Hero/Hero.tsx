@@ -34,7 +34,7 @@ const topTextVariants = {
 };
 
 const topTextAni = {
-  initial: { opacity: 0, y: 100 },
+  initial: { opacity: 0, y: "50%" },
   animate: {
     y: 0,
     opacity: 1,
@@ -68,7 +68,7 @@ function MainTextTop() {
 const bottomTextVariants = {
   animate: {
     transition: {
-      delayChildren: 1.2,
+      delayChildren: 1.1,
       staggerChildren: 0.08,
     },
   },
@@ -105,7 +105,7 @@ function MainTextBottom() {
 
 function MainText() {
   return (
-    <h1 className="w-full relative m-auto">
+    <h1 className="w-full relative m-auto z-10">
       <MainTextTop />
       <MainTextBottom />
     </h1>
@@ -115,10 +115,12 @@ function MainText() {
 function Hero(): JSX.Element {
   return (
     <AnimatePresence>
-      <SectionContainer className="w-full flex flex-col justify-end h-screen pb-mobilePadding lg:pb-[60px]">
-        <MainText />
-        <BackgroundText />
-      </SectionContainer>
+      <div className="flex items-center w-full h-full">
+        <SectionContainer className="mx-0 my-auto">
+          <MainText />
+          <BackgroundText />
+        </SectionContainer>
+      </div>
     </AnimatePresence>
   );
 }

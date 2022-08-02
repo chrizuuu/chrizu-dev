@@ -10,7 +10,7 @@
         color: theme(colors.black.800);
         @apply bg-background;
         overflow-x:hidden;
-        min-height:900vh;
+        min-height:850vh;
     }
 
     html {
