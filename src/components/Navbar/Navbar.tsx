@@ -3,6 +3,7 @@ import Logo from "components/Logo/Logo";
 import StyledLink from "components/StyledLink/StyledLink";
 import MobileMenuToggle from "components/MobileMenu/MobileMenuToggle";
 import MobileMenu from "components/MobileMenu/MobileMenu";
+import { AnimatePresence, motion } from "framer-motion";
 
 function Navbar({ color }: { color: string }): JSX.Element {
   const [isMobileMenuOpen, toggleMenu] = useState(false);
@@ -10,25 +11,35 @@ function Navbar({ color }: { color: string }): JSX.Element {
   return (
     <>
       <nav className="fixed top-[20px] left-defaultSpacing right-defaultSpacing h-[80px] z-30">
-        <div className="w-full h-full flex items-center justify-between">
-          <Logo color={fontColor} />
-          <MobileMenuToggle
-            color={color}
-            isMenuOpen={isMobileMenuOpen}
-            onClick={() => toggleMenu(!isMobileMenuOpen)}
-          />
-          <ul className="hidden sm:flex flex-row items-center gap-x-[20px] relative">
-            <li>
-              <StyledLink color={color} text="projects" route="/" />
-            </li>
-            <li>
-              <StyledLink color={color} text="about me" route="/" />
-            </li>
-            <li>
-              <StyledLink color={color} text="contact" route="/" />
-            </li>
-          </ul>
-        </div>
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              ease: "easeInOut",
+              duration: 1,
+            }}
+            className="w-full h-full flex items-center justify-between"
+          >
+            <Logo color={fontColor} />
+            <MobileMenuToggle
+              color={color}
+              isMenuOpen={isMobileMenuOpen}
+              onClick={() => toggleMenu(!isMobileMenuOpen)}
+            />
+            <ul className="hidden sm:flex flex-row items-center gap-x-[20px] relative">
+              <li>
+                <StyledLink color={color} text="projects" route="/" />
+              </li>
+              <li>
+                <StyledLink color={color} text="about me" route="/" />
+              </li>
+              <li>
+                <StyledLink color={color} text="contact" route="/" />
+              </li>
+            </ul>
+          </motion.div>
+        </AnimatePresence>
       </nav>
       <MobileMenu isOpen={isMobileMenuOpen} />
     </>
