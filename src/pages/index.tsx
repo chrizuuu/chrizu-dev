@@ -121,7 +121,7 @@ function IndexPage(): JSX.Element {
   const yHero = useTransform(
     scrollY,
     [0.75 * windowHeight, windowHeight],
-    [0, -windowHeight]
+    [0, -1.5 * windowHeight]
   );
 
   return (

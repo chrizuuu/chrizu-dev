@@ -1,38 +1,37 @@
 import React from "react";
 import AnimatedHeader from "components/Texts/AnimatedHeader";
 import SocialList from "components/SocialList/SocialList";
-import Header from "components/Texts/Header";
 import { Link } from "gatsby";
 
 function FooterContact() {
   return (
-    <div className="mr-auto">
+    <div className="flex flex-col items-center">
+      <h3 className="text-white-700 text-lg sm:text-3xl text-center block pb-[20px]">
+        Got a project or proposal?
+      </h3>
       <Link to="/" className="group">
         <AnimatedHeader
-          fontSize="text-5xl xs:text-7xl md:text-8xl lg:text-[9.5rem] xl:text-[12rem] 2xl:text-[14.5rem]"
+          fontSize="text-4xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
           className="text-white-900 after:w-full after:bg-white-900 after:h-1 after:block after:group-hover:scale-x-0 after:duration-500"
         >
           {"ContactMe"}
         </AnimatedHeader>
       </Link>
-      <a href="mailto:chrizudev@gmail.com">
-        <Header
-          className="text-white-300"
-          fontSize="text-3xl  xs:text-4xl md:text-4xl lg:text-5xl xl:text-7xl"
-        >
-          chrizudev@gmail.com
-        </Header>
-      </a>
     </div>
   );
 }
 function SubFooter() {
   return (
-    <div className="container flex flex-col items-center lg:flex-row px-defaultSpacing">
-      <span className="text-white-900 pb-[10px] lg:pb-0">
+    <div className="flex flex-col gap-y-2 items-center justify-between lg:flex-row px-defaultSpacing">
+      <SocialList color="white-900 lg:order-1" />
+      <a className="lg:order-3" href="mailto:chrizudev@gmail.com">
+        <span className="text-white-900 pb-[10px] lg:pb-0">
+          chrizudev@gmail.com
+        </span>
+      </a>
+      <span className="text-white-900  pb-[10px] lg:pb-0 lg:order-2">
         © 2022 Krzysztof Bonecki
       </span>
-      <SocialList color="white-900" className={"block lg:hidden"} />
     </div>
   );
 }

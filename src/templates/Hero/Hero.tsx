@@ -51,7 +51,7 @@ function MainTextTop() {
       initial="initial"
       animate="animate"
       variants={topTextVariants}
-      className="flex flex-col relative"
+      className="flex flex-row flex-wrap gap-x-[40px] relative"
     >
       <motion.span variants={topTextAni} className="inline-block">
         <AnimatedHeader className="stroke-header">{"Frontend "}</AnimatedHeader>
@@ -116,9 +116,8 @@ function Hero(): JSX.Element {
   return (
     <AnimatePresence>
       <div className="flex items-center w-full h-full">
-        <SectionContainer className="mx-0 my-auto">
+        <SectionContainer className="my-auto">
           <MainText />
-          <BackgroundText />
         </SectionContainer>
       </div>
     </AnimatePresence>

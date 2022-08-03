@@ -46,7 +46,7 @@ function Logo({ color }: { color: string }): JSX.Element {
       )}
     >
       <Link to="/">
-        <span>Krzysztof B.</span>
+        <span>Krzysztof Bonecki</span>
       </Link>
     </span>
   );

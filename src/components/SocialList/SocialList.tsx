@@ -5,7 +5,7 @@ function SocialName({ children, color }: { children: string; color: string }) {
   return (
     <span
       className={classNames(
-        "inline-block text-[18px] font-bold hover:translate-y-[-2px]  transition-transform duration-600",
+        "inline-block font-bold hover:translate-y-[-2px]  transition-transform duration-600",
         `text-${color}`
       )}
     >
