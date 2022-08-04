@@ -1,27 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import classNames from "classnames";
 import AnimatedHeader from "components/Texts/AnimatedHeader";
 import SectionContainer from "components/Section/SectionContainer";
-
-function BackgroundText({ className }: { className?: string }): JSX.Element {
-  return (
-    <motion.span
-      initial={{ opacity: 0, y: -180 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        ease: "easeInOut",
-        duration: 1,
-      }}
-      className={classNames(
-        className,
-        `text-[max(80vw,30vh)] lg:text-[max(100vh,45vw)] font-bold leading-[100vh] text-black-100 absolute top-[60px] right-0`
-      )}
-    >
-      KB
-    </motion.span>
-  );
-}
 
 const topTextVariants = {
   animate: {
@@ -51,14 +31,22 @@ function MainTextTop() {
       initial="initial"
       animate="animate"
       variants={topTextVariants}
-      className="flex flex-row flex-wrap gap-x-[40px] relative"
+      className="flex flex-col relative"
     >
       <motion.span variants={topTextAni} className="inline-block">
-        <AnimatedHeader className="stroke-header">{"Frontend "}</AnimatedHeader>
+        <AnimatedHeader
+          fontSize="text-[14vw]"
+          className="uppercase leading-[14vw]"
+        >
+          {"Front-end "}
+        </AnimatedHeader>
       </motion.span>
       <motion.span variants={topTextAni} className="inline-block">
-        <AnimatedHeader className="stroke-header">
-          {"Developer "}
+        <AnimatedHeader
+          fontSize="text-[14vw]"
+          className="uppercase leading-[14vw]"
+        >
+          {"Developer,"}
         </AnimatedHeader>
       </motion.span>
     </motion.span>
@@ -93,11 +81,28 @@ function MainTextBottom() {
       initial="initial"
       animate="animate"
     >
-      <motion.span variants={bottomTextAni} className="relative block">
-        <AnimatedHeader>{"Krzysztof  "}</AnimatedHeader>
-      </motion.span>
-      <motion.span variants={bottomTextAni} className="w-full relative block">
-        <AnimatedHeader>{"Bonecki"}</AnimatedHeader>
+      <motion.span
+        variants={bottomTextAni}
+        className="relative flex flex-row flex-wrap gap-x-[40px]"
+      >
+        <AnimatedHeader
+          fontSize="text-[14vw]"
+          className="stroke-header uppercase leading-[14vw]"
+        >
+          {"Student"}
+        </AnimatedHeader>
+        <AnimatedHeader
+          fontSize="text-[14vw]"
+          className="stroke-header uppercase leading-[14vw]"
+        >
+          {"and"}
+        </AnimatedHeader>
+        <AnimatedHeader
+          fontSize="text-[14vw]"
+          className="stroke-header uppercase leading-[14vw]"
+        >
+          {"minimalist"}
+        </AnimatedHeader>
       </motion.span>
     </motion.span>
   );
@@ -115,11 +120,11 @@ function MainText() {
 function Hero(): JSX.Element {
   return (
     <AnimatePresence>
-      <div className="flex items-center w-full h-full">
-        <SectionContainer className="my-auto">
+      <SectionContainer className="h-full my-auto">
+        <div className="flex items-center w-full h-full">
           <MainText />
-        </SectionContainer>
-      </div>
+        </div>
+      </SectionContainer>
     </AnimatePresence>
   );
 }

@@ -117,24 +117,31 @@ function IndexPage(): JSX.Element {
   // TransformY Hero section
   const { scrollY } = useScroll();
   const windowHeight = window.screen.availHeight;
+  const maxDimension = Math.max(
+    window.screen.availHeight,
+    window.screen.availWidth
+  );
 
   const yHero = useTransform(
     scrollY,
-    [0.75 * windowHeight, windowHeight],
-    [0, -1.5 * windowHeight]
+    [0.75 * windowHeight, 1.3 * windowHeight],
+    [0, -1.2 * maxDimension]
   );
 
   return (
     <MainTemplate className="fixed top-0 left-0" color={colorsSchema.color}>
       <Dot backgroundColor={`bg-${colorsSchema.bg}`} />
-      <motion.section style={{ y: yHero }} className="w-full h-[100vh]">
+      <motion.section
+        style={{ y: yHero }}
+        className="w-full h-[100vh] relative top-[40vh]"
+      >
         <Hero />
       </motion.section>
       <SmoothScroll>
         <section
           ref={spacerRef}
           id="space"
-          className="w-full h-[50vh]"
+          className="w-full h-[100vh]"
         ></section>
         <section ref={aboutRef} id="about-me" className="w-full z-20">
           <AboutMe />
