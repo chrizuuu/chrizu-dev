@@ -41,7 +41,7 @@ function Dot({ backgroundColor }: { backgroundColor?: string }) {
     <motion.div
       style={{ width, height, top, left }}
       className={classNames(
-        "absolute rounded-full transition-all duration-200 top-[50vh] translate-x-[-50%] translate-y-[-50%]",
+        "absolute rounded-full transition-all duration-500 top-[50vh] translate-x-[-50%] translate-y-[-50%]",
         backgroundColor
       )}
     ></motion.div>
@@ -67,6 +67,7 @@ function IndexPage(): JSX.Element {
   // ====================
   // Local State
   const [colorsSchema, setColorsSchema] = useState(colors.default);
+
   // ====================
   // Refs
   const projectRef = useRef(null);
@@ -76,11 +77,10 @@ function IndexPage(): JSX.Element {
 
   // ====================
   // Hooks
-
   const isSpacerInView = useInView(spacerRef, { amount: 0.6 });
   const isProjectInView = useInView(projectRef, { amount: 0.1 });
   const isAboutInView = useInView(aboutRef);
-  const isFooterInView = useInView(footerRef);
+  const isFooterInView = useInView(footerRef, { amount: 1 });
 
   useEffect(() => {
     if (isSpacerInView) {
@@ -149,9 +149,9 @@ function IndexPage(): JSX.Element {
         <section id="projects" ref={projectRef} className="w-full z-20">
           <Projects />
         </section>
-        <section id="footer" ref={footerRef} className="z-20 w-full h-full">
+        <motion.section id="footer" ref={footerRef} className="z-20 w-full">
           <Footer />
-        </section>
+        </motion.section>
       </SmoothScroll>
     </MainTemplate>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedHeader from "components/Texts/AnimatedHeader";
 import SectionContainer from "components/Section/SectionContainer";
+import Header from "components/Texts/Header";
 
 const topTextVariants = {
   animate: {
@@ -35,16 +36,16 @@ function MainTextTop() {
     >
       <motion.span variants={topTextAni} className="inline-block">
         <AnimatedHeader
-          fontSize="text-[14vw]"
-          className="uppercase leading-[14vw]"
+          fontSize="text-[14vw] lg:text-[12.5vw]"
+          className="uppercase leading-[14vw] lg:leading-[12.5vw]"
         >
           {"Front-end "}
         </AnimatedHeader>
       </motion.span>
       <motion.span variants={topTextAni} className="inline-block">
         <AnimatedHeader
-          fontSize="text-[14vw]"
-          className="uppercase leading-[14vw]"
+          fontSize="text-[14vw] lg:text-[12.5vw]"
+          className="uppercase leading-[14vw] lg:leading-[12.5vw]"
         >
           {"Developer,"}
         </AnimatedHeader>
@@ -83,26 +84,26 @@ function MainTextBottom() {
     >
       <motion.span
         variants={bottomTextAni}
-        className="relative flex flex-row flex-wrap gap-x-[40px]"
+        className="relative flex flex-row flex-wrap gap-[40px]"
       >
-        <AnimatedHeader
-          fontSize="text-[14vw]"
-          className="stroke-header uppercase leading-[14vw]"
+        <Header
+          fontSize="text-[14vw] lg:text-[12.5vw]"
+          className="stroke-header uppercase leading-[14vw] lg:leading-[12.5vw]"
         >
           {"Student"}
-        </AnimatedHeader>
-        <AnimatedHeader
-          fontSize="text-[14vw]"
-          className="stroke-header uppercase leading-[14vw]"
+        </Header>
+        <Header
+          fontSize="text-[14vw] lg:text-[12.5vw]"
+          className="stroke-header uppercase leading-[14vw] lg:leading-[12.5vw]"
         >
           {"and"}
-        </AnimatedHeader>
-        <AnimatedHeader
-          fontSize="text-[14vw]"
-          className="stroke-header uppercase leading-[14vw]"
+        </Header>
+        <Header
+          fontSize="text-[14vw] lg:text-[12.5vw]"
+          className="stroke-header uppercase leading-[14vw] lg:leading-[12.5vw]"
         >
           {"minimalist"}
-        </AnimatedHeader>
+        </Header>
       </motion.span>
     </motion.span>
   );

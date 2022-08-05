@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 // markup
 function NotFoundPage(): JSX.Element {
   return (
-    <MainTemplate>
+    <MainTemplate color="black-900">
       <div className="w-screen h-screen p-mobileH lg:p-desktopH flex flex-col items-center justify-center bg-white-900">
         <Header className="text-center">404</Header>
         <Link to="/">

@@ -38,7 +38,7 @@ function SubFooter() {
 
 function Footer(): JSX.Element {
   return (
-    <footer className="w-screen h-screen relative flex flex-col justify-between py-mobilePadding lg:py-desktopPadding">
+    <footer className="w-screen h-screen relative flex flex-col justify-between py-mobilePadding lg:py-desktopPadding bg-black-900">
       <div className="w-full flex-1 flex flex-col justify-center px-defaultSpacing gap-[20px]">
         <FooterContact />
       </div>

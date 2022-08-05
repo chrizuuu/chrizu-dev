@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "components/Navbar/Navbar";
 import SocialList from "components/SocialList/SocialList";
 import classNames from "classnames";
-import { AnimatePresence, motion } from "framer-motion";
 
 function MainTemplate({
   children,
@@ -18,12 +17,10 @@ function MainTemplate({
   color: string;
 }): JSX.Element {
   return (
-    <AnimatePresence>
+    <>
       {displayNavbar && <Navbar color={color} />}
-      <motion.main className={classNames("w-full h-full", className)}>
-        {children}
-      </motion.main>
-    </AnimatePresence>
+      <main className={classNames("w-full h-full", className)}>{children}</main>
+    </>
   );
 }
 
