@@ -26,22 +26,14 @@ function Dot({ backgroundColor }: { backgroundColor?: string }) {
     [0, 0.75 * windowHeight],
     [0, 1.5 * maxDimension]
   );
-  const left = useTransform(
-    scrollY,
-    [windowHeight / 2, 0.75 * windowHeight],
-    ["0%", "50%"]
-  );
-  const top = useTransform(
-    scrollY,
-    [windowHeight / 2, 0.75 * windowHeight],
-    ["0%", "50%%"]
-  );
+  const left = useTransform(scrollY, [0, 0.9 * windowHeight], ["0%", "50%"]);
+  const top = useTransform(scrollY, [0, 0.9 * windowHeight], ["0%", "50%%"]);
 
   return (
     <motion.div
       style={{ width, height, top, left }}
       className={classNames(
-        "absolute rounded-full transition-all duration-500 top-[50vh] translate-x-[-50%] translate-y-[-50%]",
+        "absolute rounded-full transition-colors duration-500 ease-linear top-[50vh] translate-x-[-50%] translate-y-[-50%]",
         backgroundColor
       )}
     ></motion.div>
