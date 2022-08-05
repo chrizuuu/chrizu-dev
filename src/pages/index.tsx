@@ -125,7 +125,7 @@ function IndexPage(): JSX.Element {
       <Dot backgroundColor={`bg-${colorsSchema.bg}`} />
       <motion.section
         style={{ y: yHero }}
-        className="w-full h-[100vh] relative top-[40vh]"
+        className="w-full h-[100vh] relative lg:top-[50vh] 2xl:top-[30vh]"
       >
         <Hero />
       </motion.section>

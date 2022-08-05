@@ -34,18 +34,18 @@ function MainTextTop() {
       variants={topTextVariants}
       className="flex flex-col relative"
     >
-      <motion.span variants={topTextAni} className="inline-block">
+      <motion.span variants={topTextAni}>
         <AnimatedHeader
-          fontSize="text-[14vw] lg:text-[12.5vw]"
-          className="uppercase leading-[14vw] lg:leading-[12.5vw]"
+          fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw] leading-[14vw]"
+          className="inline-block uppercase"
         >
           {"Front-end "}
         </AnimatedHeader>
       </motion.span>
-      <motion.span variants={topTextAni} className="inline-block">
+      <motion.span variants={topTextAni}>
         <AnimatedHeader
-          fontSize="text-[14vw] lg:text-[12.5vw]"
-          className="uppercase leading-[14vw] lg:leading-[12.5vw]"
+          fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw] leading-[14vw]"
+          className="inline-block uppercase"
         >
           {"Developer,"}
         </AnimatedHeader>
@@ -82,25 +82,22 @@ function MainTextBottom() {
       initial="initial"
       animate="animate"
     >
-      <motion.span
-        variants={bottomTextAni}
-        className="relative flex flex-row flex-wrap gap-[40px]"
-      >
+      <motion.span variants={bottomTextAni} className="relative flex flex-col">
         <Header
-          fontSize="text-[14vw] lg:text-[12.5vw]"
-          className="stroke-header uppercase leading-[14vw] lg:leading-[12.5vw]"
+          fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw]"
+          className="stroke-header uppercase leading-[14vw]"
         >
-          {"Student"}
+          {"Student "}
         </Header>
         <Header
-          fontSize="text-[14vw] lg:text-[12.5vw]"
-          className="stroke-header uppercase leading-[14vw] lg:leading-[12.5vw]"
+          fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw]"
+          className="stroke-header uppercase leading-[14vw]"
         >
-          {"and"}
+          {" and"}
         </Header>
         <Header
-          fontSize="text-[14vw] lg:text-[12.5vw]"
-          className="stroke-header uppercase leading-[14vw] lg:leading-[12.5vw]"
+          fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw]"
+          className="stroke-header uppercase leading-[14vw]"
         >
           {"minimalist"}
         </Header>

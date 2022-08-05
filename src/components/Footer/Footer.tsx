@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import AnimatedHeader from "components/Texts/AnimatedHeader";
 import SocialList from "components/SocialList/SocialList";
 import { Link } from "gatsby";
 
 function FooterContact() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
-    <div className="flex flex-col items-center">
+    <motion.div
+      ref={ref}
+      style={{
+        transform: isInView ? "none" : "translateY(50%)",
+        opacity: isInView ? 1 : 0,
+        transition: "all 0.6s linear 0.3s",
+      }}
+      className="flex flex-col items-center"
+    >
       <h3 className="text-white-700 text-lg sm:text-3xl text-center block pb-[20px]">
         Got a project or proposal?
       </h3>
@@ -17,12 +28,22 @@ function FooterContact() {
           {"ContactMe"}
         </AnimatedHeader>
       </Link>
-    </div>
+    </motion.div>
   );
 }
 function SubFooter() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
-    <div className="flex flex-col gap-y-2 items-center justify-between lg:flex-row px-defaultSpacing">
+    <motion.div
+      style={{
+        transform: isInView ? "none" : "translateY(50%)",
+        opacity: isInView ? 1 : 0,
+        transition: "all 0.6s linear 0.6s",
+      }}
+      ref={ref}
+      className="flex flex-col gap-y-2 items-center justify-between lg:flex-row px-defaultSpacing"
+    >
       <SocialList color="white-900 lg:order-1" />
       <a className="lg:order-3" href="mailto:chrizudev@gmail.com">
         <span className="text-white-900 pb-[10px] lg:pb-0">
@@ -32,7 +53,7 @@ function SubFooter() {
       <span className="text-white-900  pb-[10px] lg:pb-0 lg:order-2">
         © 2022 Krzysztof Bonecki
       </span>
-    </div>
+    </motion.div>
   );
 }
 
