@@ -11,13 +11,13 @@ function MobileMenu({ isOpen }: { isOpen: boolean }): JSX.Element | null {
       <div className="w-full h-full relative flex flex-col items-center justify-center text-[24px]">
         <ul className="flex flex-col items-center gap-y-[30px] relative">
           <li>
-            <StyledLink color="white-900" text="projects" route="/" />
+            <StyledLink color="white-900" text="About me" route="/" />
           </li>
           <li>
-            <StyledLink color="white-900" text="about me" route="/" />
+            <StyledLink color="white-900" text="Projects" route="/" />
           </li>
           <li>
-            <StyledLink color="white-900" text="contact" route="/" />
+            <StyledLink color="white-900" text="Contact" route="/" />
           </li>
         </ul>
         <SocialList color="white-900" className={"absolute bottom-[30px]"} />

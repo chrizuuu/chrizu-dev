@@ -29,13 +29,13 @@ function Navbar({ color }: { color: string }): JSX.Element {
             />
             <ul className="hidden sm:flex flex-row items-center gap-x-[20px] relative">
               <li>
-                <StyledLink color={color} text="projects" route="/" />
+                <StyledLink color={color} text="About me" route="/" />
               </li>
               <li>
-                <StyledLink color={color} text="about me" route="/" />
+                <StyledLink color={color} text="Projects" route="/" />
               </li>
               <li>
-                <StyledLink color={color} text="contact" route="/" />
+                <StyledLink color={color} text="Contact" route="/" />
               </li>
             </ul>
           </motion.div>

@@ -7,27 +7,33 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import SmoothScroll from "components/SmoothScroll/SmoothScroll";
 import AboutMe from "templates/AboutMe/AboutMe";
 import Projects from "templates/Projects/Projects";
+import useWindowSize from "hooks/useWindowsSize";
 
 function Dot({ backgroundColor }: { backgroundColor?: string }) {
   const { scrollY } = useScroll();
-  const windowHeight = window.screen.availHeight;
-  const maxDimension = Math.max(
-    window.screen.availHeight,
-    window.screen.availWidth
-  );
+  const windowSize = useWindowSize();
+  const maxDimension = Math.max(windowSize.width, windowSize.height);
 
   const width = useTransform(
     scrollY,
-    [0, 0.75 * windowHeight],
+    [0, 0.75 * windowSize.height],
     [0, 1.5 * maxDimension]
   );
   const height = useTransform(
     scrollY,
-    [0, 0.75 * windowHeight],
+    [0, 0.75 * windowSize.height],
     [0, 1.5 * maxDimension]
   );
-  const left = useTransform(scrollY, [0, 0.9 * windowHeight], ["0%", "50%"]);
-  const top = useTransform(scrollY, [0, 0.9 * windowHeight], ["0%", "50%%"]);
+  const left = useTransform(
+    scrollY,
+    [0, 0.9 * windowSize.height],
+    ["0%", "50%"]
+  );
+  const top = useTransform(
+    scrollY,
+    [0, 0.9 * windowSize.height],
+    ["0%", "50%%"]
+  );
 
   return (
     <motion.div
@@ -69,9 +75,9 @@ function IndexPage(): JSX.Element {
 
   // ====================
   // Hooks
-  const isSpacerInView = useInView(spacerRef, { amount: 0.6 });
+  const isSpacerInView = useInView(spacerRef, { amount: 0.5 });
+  const isAboutInView = useInView(aboutRef, { amount: "some" });
   const isProjectInView = useInView(projectRef, { amount: 0.1 });
-  const isAboutInView = useInView(aboutRef);
   const isFooterInView = useInView(footerRef, { amount: 1 });
 
   useEffect(() => {
@@ -108,15 +114,12 @@ function IndexPage(): JSX.Element {
   // ====================
   // TransformY Hero section
   const { scrollY } = useScroll();
-  const windowHeight = window.screen.availHeight;
-  const maxDimension = Math.max(
-    window.screen.availHeight,
-    window.screen.availWidth
-  );
+  const windowSize = useWindowSize();
+  const maxDimension = Math.max(windowSize.height, windowSize.width);
 
   const yHero = useTransform(
     scrollY,
-    [0.75 * windowHeight, 1.3 * windowHeight],
+    [0.75 * windowSize.height, 1.3 * windowSize.height],
     [0, -1.2 * maxDimension]
   );
 
