@@ -8,7 +8,7 @@ function SectionHeader({
   className,
 }: {
   children: string;
-  color: string;
+  color?: string;
   className?: string;
 }): JSX.Element {
   const ref = useRef(null);
@@ -18,11 +18,11 @@ function SectionHeader({
       style={{
         opacity: isInView ? 1 : 0,
         transform: isInView ? "none" : "translateY(50%)",
-        transition: "all 0.4s linear 1s",
+        transition: "all 0.4s linear 0.7s",
       }}
       ref={ref}
       className={classNames(
-        "text-[48px] lg:text-[64px] font-bold leading-none",
+        "text-[36px] md:text-[48px] lg:text-[64px] font-bold leading-none",
         className,
         `text-${color}`
       )}

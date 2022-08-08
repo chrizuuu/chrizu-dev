@@ -24,7 +24,7 @@ function BackgroundLetter({
       onAnimationComplete={markAnimationAsComplete}
       className={classNames(
         className,
-        "inline-block text-[50vh] font-bold text-white-700 opacity-10"
+        "inline-block text-[50vh] font-bold opacity-[0.07]"
       )}
     >
       {children}
@@ -34,7 +34,7 @@ function BackgroundLetter({
 
 function BackgroundTextPartOne() {
   return (
-    <span className="hidden lg:flex flex-row gap-[20px] absolute left-[-5vw] z-10">
+    <span className="hidden xl:flex flex-row gap-[20px] absolute left-[-5vw] z-10">
       <BackgroundLetter className="">W</BackgroundLetter>
       <BackgroundLetter className="">H</BackgroundLetter>
       <BackgroundLetter className="">O</BackgroundLetter>
@@ -44,7 +44,7 @@ function BackgroundTextPartOne() {
 
 function BackgroundTextPartTwo() {
   return (
-    <span className="hidden lg:flex flex-row gap-[20px] absolute right-[-5vw] z-10">
+    <span className="hidden xl:flex flex-row gap-[20px] absolute right-[-5vw] z-10">
       <BackgroundLetter className="">I</BackgroundLetter>
       <BackgroundLetter className="">A</BackgroundLetter>
       <BackgroundLetter className="">M</BackgroundLetter>
@@ -55,15 +55,9 @@ function BackgroundTextPartTwo() {
 function WhoIAm() {
   return (
     <div className="relative pt-5">
-      <SectionHeader color="white-700" className="hidden">
-        Who I Am
-      </SectionHeader>
       <BackgroundTextPartOne />
-      <div className="w-full flex flex-col gap-[20px] lg:w-[60vw] 2xl:w-[40vw] lg:ml-auto relative">
-        <span className="font-bold text-[28px] pb-5 text-white-900 lg:text-right">
-          Krzysztof Bonecki
-        </span>
-        <SectionText color="white-700" className="lg:text-right">
+      <div className="w-full flex flex-col gap-[20px] xl:w-[60vw] 2xl:w-[40vw] lg:ml-auto relative">
+        <SectionText className="xl:text-right opacity-70">
           {
             "  I'm a 22-year-old student at Uniwersytet im. Adama Mickiewicza w Poznania chilo. As I've grown as a developer, I've worked alongside senior designers and developers who have raised my standards for whats expected of any web application. Through these experiences, I've had the opportunity to create memorable products that are not only enjoyable to use but are written in code that's maintainable and easy to understand."
           }
@@ -96,15 +90,12 @@ function SkilLSet() {
   return (
     <div className="pt-[100px] relative">
       <BackgroundTextPartTwo />
-      <div
-        ref={ref}
-        className="w-full flex flex-col gap-[20px] lg:w-[60vw] 2xl:w-[40vw] xl:mr-auto"
-      >
-        <span className="font-bold text-[28px] pb-5 text-white-900">
+      <div className="w-full flex flex-col gap-[20px] lg:w-[60vw] 2xl:w-[40vw] xl:mr-auto">
+        <span className="font-bold text-[24px] lg:text-[28px] pb-5">
           My skill set
         </span>
 
-        <SectionText color="white-700">
+        <SectionText className="opacity-70">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industrys standard dummy text ever
           since the 1500s, when an unknown printer took a galleyLorem Ipsum is
@@ -113,60 +104,25 @@ function SkilLSet() {
           whe
         </SectionText>
         <motion.ul
+          ref={ref}
           variants={skillSetContainer}
           initial="hidden"
           animate={isInView ? "inView" : "hidden"}
-          className="flex flex-wrap gap-[60px] pt-[40px]"
+          className="flex flex-wrap gap-[20px] lg:gap-[60px] pt-[40px] opacity-[0.7]"
         >
-          <motion.li variants={skillSetItem} className="text-white-700">
-            Javascript
-          </motion.li>
-          <motion.li
-            variants={skillSetItem}
-            className="text-white-700 opacity-50"
-          >
-            Typescript
-          </motion.li>
-          <motion.li variants={skillSetItem} className="text-white-700">
-            React
-          </motion.li>
-          <motion.li variants={skillSetItem} className="text-white-700">
-            React Native
-          </motion.li>
-          <motion.li
-            variants={skillSetItem}
-            className="text-white-700 opacity-50"
-          >
-            Gatsby
-          </motion.li>
-          <motion.li variants={skillSetItem} className="text-white-700">
-            React Query
-          </motion.li>
-          <motion.li variants={skillSetItem} className="text-white-700">
-            Framer motion
-          </motion.li>
-          <motion.li
-            variants={skillSetItem}
-            className="text-white-700 opacity-50"
-          >
-            Redux
-          </motion.li>
-          <motion.li
-            variants={skillSetItem}
-            className="text-white-700 opacity-50"
-          >
-            Realm
-          </motion.li>
-          <motion.li variants={skillSetItem} className="text-white-700">
-            watermelonDB
-          </motion.li>
-          <motion.li variants={skillSetItem} className="text-white-700">
-            TailwindCSS
-          </motion.li>
-          <motion.li variants={skillSetItem} className="text-white-700">
-            Styled Components
-          </motion.li>
-          <motion.li variants={skillSetItem} className="text-white-700">
+          <motion.li variants={skillSetItem}>Javascript</motion.li>
+          <motion.li variants={skillSetItem}>Typescript</motion.li>
+          <motion.li variants={skillSetItem}>React</motion.li>
+          <motion.li variants={skillSetItem}>React Native</motion.li>
+          <motion.li variants={skillSetItem}>Gatsby</motion.li>
+          <motion.li variants={skillSetItem}>React Query</motion.li>
+          <motion.li variants={skillSetItem}>Framer motion</motion.li>
+          <motion.li variants={skillSetItem}>Redux</motion.li>
+          <motion.li variants={skillSetItem}>Realm</motion.li>
+          <motion.li variants={skillSetItem}>watermelonDB</motion.li>
+          <motion.li variants={skillSetItem}>TailwindCSS</motion.li>
+          <motion.li variants={skillSetItem}>Styled Components</motion.li>
+          <motion.li variants={skillSetItem}>
             Firebase Auth + Firestore
           </motion.li>
         </motion.ul>
@@ -174,18 +130,20 @@ function SkilLSet() {
     </div>
   );
 }
-
-function AboutMe(): JSX.Element {
+function AboutMe({ color }: { color: string }): JSX.Element {
   return (
-    <SectionContainer className="h-[200vh] flex flex-col justify-start relative">
+    <SectionContainer
+      className={classNames(
+        "w-full h-full flex flex-col justify-center relative transition-colors text-white-900 lg:text-inherit"
+      )}
+    >
       <SectionSmallHeader
-        color="white-700"
+        color={color}
         sectionIndex={"01"}
         nameOfSection="About me"
         className="pb-5"
       />
-      <SectionHeader color="white-700">Briefly about me</SectionHeader>
-
+      <SectionHeader>Briefly about me</SectionHeader>
       <WhoIAm />
       <SkilLSet />
     </SectionContainer>

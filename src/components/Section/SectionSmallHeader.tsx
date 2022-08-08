@@ -32,12 +32,15 @@ function SectionSmallHeader({
   const ref = useRef(null);
   const isInView = useInView(ref);
   return (
-    <motion.h2 ref={ref} className={classNames(className, "text-[18px]")}>
+    <motion.h2
+      ref={ref}
+      className={classNames(className, "text-[18px] flex flex-row")}
+    >
       <motion.span
         style={{
           opacity: isInView ? 1 : 0,
           transform: isInView ? "none" : "translateY(50%)",
-          transition: "all 0.4s linear 0.3s",
+          transition: "all 0.4s linear",
         }}
       >
         <Word color={color}>{sectionIndex}</Word>
@@ -45,18 +48,18 @@ function SectionSmallHeader({
       <motion.span
         style={{
           scaleX: isInView ? 1 : 0,
-          transition: "all 0.4s linear 0.6s",
+          transition: "transform 0.4s linear 0.3s",
         }}
         className={classNames(
-          "w-[90px] lg:w-[160px] h-[1px] inline-block mx-[10px] lg:mx-[32px]",
-          `bg-white-900`
+          "w-[90px] lg:w-[160px] h-[1px] my-auto inline-block mx-[10px] lg:mx-[32px]",
+          `bg-${color}`
         )}
       />
       <motion.div
         style={{
           opacity: isInView ? 1 : 0,
           transform: isInView ? "none" : "translateY(50%)",
-          transition: "all 0.4s linear 0.9s",
+          transition: "all 0.4s linear 0.6s",
         }}
         className="inline-block"
       >

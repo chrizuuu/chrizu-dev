@@ -7,7 +7,7 @@ function SectionText({
   className,
 }: {
   children: string;
-  color: string;
+  color?: string;
   className?: string;
 }): JSX.Element {
   return (

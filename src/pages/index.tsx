@@ -39,7 +39,7 @@ function Dot({ backgroundColor }: { backgroundColor?: string }) {
     <motion.div
       style={{ width, height, top, left }}
       className={classNames(
-        "absolute rounded-full transition-colors duration-500 ease-linear top-[50vh] translate-x-[-50%] translate-y-[-50%]",
+        "hidden lg:block absolute rounded-full transition-colors duration-500 ease-linear top-[50vh] translate-x-[-50%] translate-y-[-50%]",
         backgroundColor
       )}
     ></motion.div>
@@ -68,42 +68,48 @@ function IndexPage(): JSX.Element {
 
   // ====================
   // Refs
+  const heroRef = useRef(null);
   const projectRef = useRef(null);
   const spacerRef = useRef(null);
   const footerRef = useRef(null);
   const aboutRef = useRef(null);
 
-  // ====================
   // Hooks
-  const isSpacerInView = useInView(spacerRef, { amount: 0.5 });
-  const isAboutInView = useInView(aboutRef, { amount: "some" });
-  const isProjectInView = useInView(projectRef, { amount: 0.1 });
-  const isFooterInView = useInView(footerRef, { amount: 1 });
+  const { scrollY } = useScroll();
+  const windowSize = useWindowSize();
+  const isHeroInView = useInView(heroRef);
+  const isSpacerInView = useInView(spacerRef);
+  const isAboutInView = useInView(aboutRef, {
+    amount: windowSize.width > 1024 ? 0.25 : 0.5,
+  });
+  const isProjectInView = useInView(projectRef, {
+    amount: windowSize.width > 1024 ? 0.24 : 0.1,
+  });
+  const isFooterInView = useInView(footerRef, { amount: 0.99 });
+
+  useEffect(() => {
+    if (isHeroInView) {
+      setColorsSchema(colors.default);
+    }
+  }, [isHeroInView]);
 
   useEffect(() => {
     if (isSpacerInView) {
       setColorsSchema(colors.darkBg);
-    } else if (
-      !isSpacerInView &&
-      !isProjectInView &&
-      !isFooterInView &&
-      !isAboutInView
-    ) {
-      setColorsSchema(colors.default);
     }
   }, [isSpacerInView]);
-
-  useEffect(() => {
-    if (isProjectInView) {
-      setColorsSchema(colors.lightBg);
-    }
-  }, [isProjectInView]);
 
   useEffect(() => {
     if (isAboutInView) {
       setColorsSchema(colors.darkBg);
     }
   }, [isAboutInView]);
+
+  useEffect(() => {
+    if (isProjectInView) {
+      setColorsSchema(colors.lightBg);
+    }
+  }, [isProjectInView]);
 
   useEffect(() => {
     if (isFooterInView) {
@@ -113,22 +119,24 @@ function IndexPage(): JSX.Element {
 
   // ====================
   // TransformY Hero section
-  const { scrollY } = useScroll();
-  const windowSize = useWindowSize();
   const maxDimension = Math.max(windowSize.height, windowSize.width);
 
   const yHero = useTransform(
     scrollY,
     [0.75 * windowSize.height, 1.3 * windowSize.height],
-    [0, -1.2 * maxDimension]
+    [0, -1.5 * maxDimension]
   );
 
   return (
-    <MainTemplate className="fixed top-0 left-0" color={colorsSchema.color}>
+    <MainTemplate
+      className="lg:fixed lg:top-0 lg:left-0"
+      color={colorsSchema.color}
+    >
       <Dot backgroundColor={`bg-${colorsSchema.bg}`} />
       <motion.section
+        ref={heroRef}
         style={{ y: yHero }}
-        className="w-full h-[100vh] relative lg:top-[50vh] 2xl:top-[30vh]"
+        className="w-full h-[100vh] relative lg:top-[50vh] 2xl:top-[30vh] bg-background lg:bg-transparent"
       >
         <Hero />
       </motion.section>
@@ -136,12 +144,23 @@ function IndexPage(): JSX.Element {
         <section
           ref={spacerRef}
           id="space"
-          className="w-full h-[100vh]"
+          className="hidden lg:block w-full lg:h-[50vh] pb-defaultSpacing"
         ></section>
-        <section ref={aboutRef} id="about-me" className="w-full z-20">
-          <AboutMe />
+        <section
+          ref={aboutRef}
+          id="about-me"
+          className={classNames(
+            "w-full h-auto py-defaultSpacing lg:py-0 lg:h-[200vh] z-20 bg-black-900 lg:bg-transparent",
+            `text-${colorsSchema.color}`
+          )}
+        >
+          <AboutMe color={colorsSchema.color} />
         </section>
-        <section id="projects" ref={projectRef} className="w-full z-20">
+        <section
+          id="projects"
+          ref={projectRef}
+          className="w-full z-20 py-defaultSpacing lg:p-0 bg-background lg:bg-transparent"
+        >
           <Projects />
         </section>
         <motion.section id="footer" ref={footerRef} className="z-20 w-full">

@@ -13,6 +13,7 @@ module.exports = {
   theme: {
     colors: {
       transparent: "transparent",
+      inherit: "inherit",
       black: {
         100: "rgba(0,0,0,0.04)",
         500: "rgba(29,29,29,0.5)",

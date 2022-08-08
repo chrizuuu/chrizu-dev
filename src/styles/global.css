@@ -2,15 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 100 + 140 + 200 + 100 + 100 */
-
 @layer base {
     body {
         font-family: "Space Grotesk";
         color: theme(colors.black.800);
         @apply bg-background;
         overflow-x:hidden;
-        min-height:900vh;
+        @apply lg:h-[850vh];
     }
 
     html {
@@ -110,12 +108,3 @@
         max-width:700px;
     }
 }
-
-
-/*
-
-        grid-template-columns: [first] 600px [second] 300px;
-        grid-template-rows: auto;
-        justify-content: space-between;
-
-        */
