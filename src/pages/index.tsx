@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
 import MainTemplate from "templates/MainTemplate/MainTemplate";
-import Hero from "templates/Hero/Hero";
+import Hero from "components/Hero/Hero";
 import Footer from "components/Footer/Footer";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import SmoothScroll from "components/SmoothScroll/SmoothScroll";
-import AboutMe from "templates/AboutMe/AboutMe";
+import AboutMe from "components/AboutMe/AboutMe";
 import Projects from "templates/Projects/Projects";
 import useWindowSize from "hooks/useWindowsSize";
 

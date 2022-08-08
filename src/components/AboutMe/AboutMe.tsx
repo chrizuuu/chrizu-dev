@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import SectionSmallHeader from "components/Section/SectionSmallHeader";
 import SectionHeader from "components/Section/SectionHeader";
 import SectionText from "components/Section/SectionText";
@@ -73,14 +73,37 @@ function WhoIAm() {
   );
 }
 
+const skillSetContainer = {
+  inView: {
+    transition: {
+      delayChildren: 0.8,
+      staggerChildren: 0.1,
+      duration: 0.2,
+      ease: "easeIn",
+    },
+  },
+};
+
+const skillSetItem = {
+  hidden: { opacity: 0, x: -100 },
+  inView: { opacity: 1, x: 0 },
+};
+
 function SkilLSet() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
     <div className="pt-[100px] relative">
       <BackgroundTextPartTwo />
-      <div className="w-full flex flex-col gap-[20px] lg:w-[60vw] 2xl:w-[40vw] xl:mr-auto">
+      <div
+        ref={ref}
+        className="w-full flex flex-col gap-[20px] lg:w-[60vw] 2xl:w-[40vw] xl:mr-auto"
+      >
         <span className="font-bold text-[28px] pb-5 text-white-900">
           My skill set
         </span>
+
         <SectionText color="white-700">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industrys standard dummy text ever
@@ -89,19 +112,61 @@ function SkilLSet() {
           Ipsum has been the industrys standard dummy text ever since the 1500s,
           whe
         </SectionText>
-        <motion.ul className="flex flex-wrap gap-[60px] pt-[40px]">
-          <motion.li className=" text-white-700">Javascript+</motion.li>
-          <motion.li className="text-white-700">HTML & CSS</motion.li>
-          <motion.li className="text-white-700">React</motion.li>
-          <motion.li className="text-white-700">React Native</motion.li>
-          <motion.li className="text-white-700">Gatsby</motion.li>
-          <motion.li className="text-white-700">React Query</motion.li>
-          <motion.li className="text-white-700">Framer motion</motion.li>
-          <motion.li className="text-white-700">Redux</motion.li>
-          <motion.li className="text-white-700">TailwindCSS</motion.li>
-          <motion.li className="text-white-700">Styled Components</motion.li>
-          <motion.li className="text-white-700">Git</motion.li>
-          <motion.li className="text-white-700">
+        <motion.ul
+          variants={skillSetContainer}
+          initial="hidden"
+          animate={isInView ? "inView" : "hidden"}
+          className="flex flex-wrap gap-[60px] pt-[40px]"
+        >
+          <motion.li variants={skillSetItem} className="text-white-700">
+            Javascript
+          </motion.li>
+          <motion.li
+            variants={skillSetItem}
+            className="text-white-700 opacity-50"
+          >
+            Typescript
+          </motion.li>
+          <motion.li variants={skillSetItem} className="text-white-700">
+            React
+          </motion.li>
+          <motion.li variants={skillSetItem} className="text-white-700">
+            React Native
+          </motion.li>
+          <motion.li
+            variants={skillSetItem}
+            className="text-white-700 opacity-50"
+          >
+            Gatsby
+          </motion.li>
+          <motion.li variants={skillSetItem} className="text-white-700">
+            React Query
+          </motion.li>
+          <motion.li variants={skillSetItem} className="text-white-700">
+            Framer motion
+          </motion.li>
+          <motion.li
+            variants={skillSetItem}
+            className="text-white-700 opacity-50"
+          >
+            Redux
+          </motion.li>
+          <motion.li
+            variants={skillSetItem}
+            className="text-white-700 opacity-50"
+          >
+            Realm
+          </motion.li>
+          <motion.li variants={skillSetItem} className="text-white-700">
+            watermelonDB
+          </motion.li>
+          <motion.li variants={skillSetItem} className="text-white-700">
+            TailwindCSS
+          </motion.li>
+          <motion.li variants={skillSetItem} className="text-white-700">
+            Styled Components
+          </motion.li>
+          <motion.li variants={skillSetItem} className="text-white-700">
             Firebase Auth + Firestore
           </motion.li>
         </motion.ul>
