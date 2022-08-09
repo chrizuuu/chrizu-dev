@@ -10,7 +10,7 @@ const config: GatsbyConfig = {
     title: `Krzysztof Bonecki - portfolio`,
     description: "Krzysztof Bonecki - portfolio",
     author: "@chrizuuu",
-    siteUrl: "http://krzysztofbonecki.com",
+    siteUrl: "https://krzysztofbonecki.com",
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -23,6 +23,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-postcss",
+    "gatsby-transformer-remark",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -30,6 +31,20 @@ const config: GatsbyConfig = {
         path: `${__dirname}/src/images`,
       },
       __key: "images",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "content",
+        path: `${__dirname}/content/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/content/projects`,
+      },
     },
     {
       resolve: `gatsby-plugin-typescript`,

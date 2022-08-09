@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import Logo from "components/Logo/Logo";
 import StyledLink from "components/StyledLink/StyledLink";
 import MobileMenuToggle from "components/MobileMenu/MobileMenuToggle";
@@ -9,17 +9,9 @@ function Navbar({ color }: { color: string }): JSX.Element {
   const [isMobileMenuOpen, toggleMenu] = useState(false);
   const fontColor = isMobileMenuOpen ? "text-white-900" : `text-${color}`;
 
-  const ref = useRef(null);
-  useEffect(() => {
-    console.log(ref);
-  }, [ref]);
-
   return (
     <>
-      <nav
-        ref={ref}
-        className="fixed top-[20px] left-defaultSpacing right-defaultSpacing h-[80px] z-30"
-      >
+      <nav className="fixed top-[20px] left-defaultSpacing right-defaultSpacing h-[80px] z-30">
         <AnimatePresence>
           <motion.div
             initial={{ opacity: 0 }}
