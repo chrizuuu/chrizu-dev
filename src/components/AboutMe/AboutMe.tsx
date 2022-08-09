@@ -59,7 +59,7 @@ function WhoIAm() {
       <div className="w-full flex flex-col gap-[20px] xl:w-[60vw] 2xl:w-[40vw] lg:ml-auto relative">
         <SectionText className="xl:text-right opacity-70">
           {
-            "  I'm a 22-year-old student at Uniwersytet im. Adama Mickiewicza w Poznania chilo. As I've grown as a developer, I've worked alongside senior designers and developers who have raised my standards for whats expected of any web application. Through these experiences, I've had the opportunity to create memorable products that are not only enjoyable to use but are written in code that's maintainable and easy to understand."
+            "  Lorem Ipsum is simply dummy text of the printing and typesettingLorem Ipsum is simply dummy text of the printing and typesettingLorem Ipsum is simply dummy text of the printing and typesettingLorem Ipsum is simply dummy text of the printing and typesettingLorem Ipsum is simply dummy text of the printing and typesettingLorem Ipsum is simply dummy text of the printing and typesettingLorem Ipsum is simply dummy text of the p"
           }
         </SectionText>
       </div>
@@ -144,8 +144,10 @@ function AboutMe({ color }: { color: string }): JSX.Element {
         className="pb-5"
       />
       <SectionHeader>Briefly about me</SectionHeader>
-      <WhoIAm />
-      <SkilLSet />
+      <div className="flex flex-col gap-y-[35vh]">
+        <WhoIAm />
+        <SkilLSet />
+      </div>
     </SectionContainer>
   );
 }

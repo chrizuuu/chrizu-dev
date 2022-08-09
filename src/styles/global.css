@@ -8,7 +8,7 @@
         color: theme(colors.black.800);
         @apply bg-background;
         overflow-x:hidden;
-        @apply lg:h-[850vh];
+        @apply lg:h-[980vh];
     }
 
     html {

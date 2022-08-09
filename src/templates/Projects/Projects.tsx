@@ -31,7 +31,7 @@ const data = [
 
 function Projects(): JSX.Element {
   return (
-    <SectionContainer className="h-[400vh] flex flex-col justify-center">
+    <SectionContainer className="h-full flex flex-col justify-center">
       {data.map(({ name, tagline }: { name: string; tagline: string }) => {
         return (
           <div

@@ -8,43 +8,7 @@ import SmoothScroll from "components/SmoothScroll/SmoothScroll";
 import AboutMe from "components/AboutMe/AboutMe";
 import Projects from "templates/Projects/Projects";
 import useWindowSize from "hooks/useWindowsSize";
-
-function Dot({ backgroundColor }: { backgroundColor?: string }) {
-  const { scrollY } = useScroll();
-  const windowSize = useWindowSize();
-  const maxDimension = Math.max(windowSize.width, windowSize.height);
-
-  const width = useTransform(
-    scrollY,
-    [0, 0.75 * windowSize.height],
-    [0, 1.5 * maxDimension]
-  );
-  const height = useTransform(
-    scrollY,
-    [0, 0.75 * windowSize.height],
-    [0, 1.5 * maxDimension]
-  );
-  const left = useTransform(
-    scrollY,
-    [0, 0.9 * windowSize.height],
-    ["0%", "50%"]
-  );
-  const top = useTransform(
-    scrollY,
-    [0, 0.9 * windowSize.height],
-    ["0%", "50%%"]
-  );
-
-  return (
-    <motion.div
-      style={{ width, height, top, left }}
-      className={classNames(
-        "hidden lg:block absolute rounded-full transition-colors duration-500 ease-linear top-[50vh] translate-x-[-50%] translate-y-[-50%]",
-        backgroundColor
-      )}
-    ></motion.div>
-  );
-}
+import AnimatedDot from "components/AnimatedDot/AnimatedDot";
 
 const colors = {
   default: {
@@ -77,45 +41,21 @@ function IndexPage(): JSX.Element {
   // Hooks
   const { scrollY } = useScroll();
   const windowSize = useWindowSize();
-  const isHeroInView = useInView(heroRef);
-  const isSpacerInView = useInView(spacerRef);
-  const isAboutInView = useInView(aboutRef, {
-    amount: windowSize.width > 1024 ? 0.25 : 0.5,
-  });
-  const isProjectInView = useInView(projectRef, {
-    amount: windowSize.width > 1024 ? 0.24 : 0.1,
-  });
+  const isAboutInView = useInView(aboutRef, { amount: 0.1 });
+  const isProjectInView = useInView(projectRef, { amount: 0.1 });
   const isFooterInView = useInView(footerRef, { amount: 0.99 });
 
   useEffect(() => {
-    if (isHeroInView) {
+    if (!isAboutInView && !isProjectInView && !isFooterInView) {
       setColorsSchema(colors.default);
-    }
-  }, [isHeroInView]);
-
-  useEffect(() => {
-    if (isSpacerInView) {
+    } else if (isAboutInView && !isProjectInView) {
       setColorsSchema(colors.darkBg);
-    }
-  }, [isSpacerInView]);
-
-  useEffect(() => {
-    if (isAboutInView) {
-      setColorsSchema(colors.darkBg);
-    }
-  }, [isAboutInView]);
-
-  useEffect(() => {
-    if (isProjectInView) {
+    } else if (isProjectInView && !isAboutInView) {
       setColorsSchema(colors.lightBg);
-    }
-  }, [isProjectInView]);
-
-  useEffect(() => {
-    if (isFooterInView) {
+    } else if (isFooterInView) {
       setColorsSchema(colors.darkBg);
     }
-  }, [isFooterInView]);
+  }, [isAboutInView, isProjectInView, isFooterInView]);
 
   // ====================
   // TransformY Hero section
@@ -123,7 +63,7 @@ function IndexPage(): JSX.Element {
 
   const yHero = useTransform(
     scrollY,
-    [0.75 * windowSize.height, 1.3 * windowSize.height],
+    [windowSize.height, 1.8 * windowSize.height],
     [0, -1.5 * maxDimension]
   );
 
@@ -132,7 +72,7 @@ function IndexPage(): JSX.Element {
       className="lg:fixed lg:top-0 lg:left-0"
       color={colorsSchema.color}
     >
-      <Dot backgroundColor={`bg-${colorsSchema.bg}`} />
+      <AnimatedDot backgroundColor={`bg-${colorsSchema.bg}`} />
       <motion.section
         ref={heroRef}
         style={{ y: yHero }}
@@ -144,13 +84,13 @@ function IndexPage(): JSX.Element {
         <section
           ref={spacerRef}
           id="space"
-          className="hidden lg:block w-full lg:h-[50vh] pb-defaultSpacing"
+          className="hidden lg:block w-full lg:h-[100vh] pb-defaultSpacing"
         ></section>
         <section
           ref={aboutRef}
           id="about-me"
           className={classNames(
-            "w-full h-auto py-defaultSpacing lg:py-0 lg:h-[200vh] z-20 bg-black-900 lg:bg-transparent",
+            "w-full h-auto py-defaultSpacing lg:py-0 lg:h-[240vh] z-20 bg-black-900 lg:bg-transparent",
             `text-${colorsSchema.color}`
           )}
         >
@@ -159,7 +99,7 @@ function IndexPage(): JSX.Element {
         <section
           id="projects"
           ref={projectRef}
-          className="w-full z-20 py-defaultSpacing lg:p-0 bg-background lg:bg-transparent"
+          className="w-full lg:h-[440vh] z-20 py-defaultSpacing lg:p-0 bg-background lg:bg-transparent"
         >
           <Projects />
         </section>
