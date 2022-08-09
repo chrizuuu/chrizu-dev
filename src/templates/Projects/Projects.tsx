@@ -3,8 +3,8 @@ import SectionSmallHeader from "components/Section/SectionSmallHeader";
 import SectionText from "components/Section/SectionText";
 import SectionContainer from "components/Section/SectionContainer";
 import Header from "components/Texts/Header";
-import SectionCardImage from "components/Section/SectionCard/SectionCardImage";
 import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 function Projects(): JSX.Element {
   const data = useStaticQuery(graphql`
@@ -21,6 +21,12 @@ function Projects(): JSX.Element {
               technologies
               tagline
               description
+              main_image {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+              main_image_alt
             }
           }
         }
@@ -33,7 +39,15 @@ function Projects(): JSX.Element {
       {projectData &&
         projectData.map(({ node }) => {
           const { frontmatter } = node;
-          const { index, title, tagline, description } = frontmatter;
+          const {
+            index,
+            title,
+            tagline,
+            description,
+            main_image,
+            main_image_alt,
+          } = frontmatter;
+          const image = getImage(main_image);
           return (
             <div
               key={index}
@@ -54,7 +68,11 @@ function Projects(): JSX.Element {
                 <SectionText color="black-800 ">{description}</SectionText>
               </div>
               <div className="lg:w-[60vw]">
-                <SectionCardImage />
+                {image && (
+                  <div className="border-[1px] border-black-500 rotate-2">
+                    <GatsbyImage image={image} alt={main_image_alt} />
+                  </div>
+                )}
               </div>
             </div>
           );
