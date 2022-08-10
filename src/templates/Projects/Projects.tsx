@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import SectionSmallHeader from "components/Section/SectionSmallHeader";
 import SectionText from "components/Section/SectionText";
 import SectionContainer from "components/Section/SectionContainer";
@@ -8,9 +8,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import SectionHeader from "components/Section/SectionHeader";
 import SectionLinkBtn from "components/Section/SectionLinkBtn";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import useScrollPos from "hooks/useScrollPos";
-import useWindowSize from "hooks/useWindowsSize";
+import { motion, useInView } from "framer-motion";
 
 interface ProjectData {
   index: string;
@@ -22,6 +20,16 @@ interface ProjectData {
   main_image: any;
   main_image_alt: string;
 }
+
+const buttonsVariants = {
+  initial: { opacity: 0, y: "50%" },
+  inView: { opacity: 1, y: 0 },
+};
+
+const imageVariant = {
+  initial: { y: "50%" },
+  inView: { y: 0 },
+};
 
 function ProjectItem({ project }: { project: ProjectData }) {
   const {
@@ -35,16 +43,6 @@ function ProjectItem({ project }: { project: ProjectData }) {
     main_image_alt,
   } = project;
   const image = getImage(main_image);
-
-  // Refs
-  // ===========================================================================
-  const buttonsRef = useRef(null);
-  const imageRef = useRef(null);
-
-  // Hooks
-  // ===========================================================================
-  const isButtonsInView = useInView(buttonsRef, { once: true });
-  const isImageInView = useInView(imageRef, { once: true });
 
   return (
     <div
@@ -64,13 +62,17 @@ function ProjectItem({ project }: { project: ProjectData }) {
           {title}
         </Header>
         <SectionText color="black-800 ">{description}</SectionText>
-        <div ref={buttonsRef} className="flex gap-[20px] pt-[40px]">
+        <div className="flex gap-[20px] pt-[40px]">
           {repo && (
             <motion.span
-              style={{
-                opacity: isButtonsInView ? 1 : 0,
-                transform: isButtonsInView ? "none" : "translateY(25%)",
-                transition: "all 0.4s ease-out 0.4s",
+              variants={buttonsVariants}
+              viewport={{ once: true }}
+              initial="initial"
+              whileInView="inView"
+              transition={{
+                duration: 0.4,
+                delay: 0.4,
+                ease: "easeOut",
               }}
             >
               <SectionLinkBtn
@@ -84,10 +86,14 @@ function ProjectItem({ project }: { project: ProjectData }) {
           )}
           {live && (
             <motion.span
-              style={{
-                opacity: isButtonsInView ? 1 : 0,
-                transform: isButtonsInView ? "none" : "translateY(25%)",
-                transition: "all 0.4s ease-out 0.8s",
+              variants={buttonsVariants}
+              viewport={{ once: true }}
+              initial="initial"
+              whileInView="inView"
+              transition={{
+                duration: 0.4,
+                delay: 0.8,
+                ease: "easeOut",
               }}
             >
               <SectionLinkBtn
@@ -102,14 +108,18 @@ function ProjectItem({ project }: { project: ProjectData }) {
         </div>
       </div>
       <motion.div
-        style={{
-          transform: isImageInView ? "none" : "translateY(50%)",
-          transition: "all 1s linear",
+        variants={imageVariant}
+        viewport={{ once: true }}
+        initial="initial"
+        whileInView="inView"
+        transition={{
+          duration: 1,
+          ease: "linear",
         }}
         className="lg:w-[60vw]"
       >
         {image && (
-          <a ref={imageRef} target="_blank" rel="noreferrer" href={live}>
+          <a target="_blank" rel="noreferrer" href={live}>
             <div className="group relative border-[1px] border-black-100 rotate-2 rounded hover:rotate-0 transition-transform duration-500">
               <GatsbyImage image={image} alt={main_image_alt} />
             </div>
