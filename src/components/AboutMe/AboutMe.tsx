@@ -144,7 +144,7 @@ function AboutMe({ color }: { color: string }): JSX.Element {
         className="pb-5"
       />
       <SectionHeader>Briefly about me</SectionHeader>
-      <div className="flex flex-col gap-y-[35vh]">
+      <div className="flex flex-col lg:gap-y-[35vh]">
         <WhoIAm />
         <SkilLSet />
       </div>
