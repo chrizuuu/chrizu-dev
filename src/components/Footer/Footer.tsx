@@ -1,20 +1,26 @@
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import AnimatedHeader from "components/Texts/AnimatedHeader";
 import SocialList from "components/SocialList/SocialList";
 import { Link } from "gatsby";
 
 function FooterContact() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
   return (
     <motion.div
-      ref={ref}
-      style={{
-        transform: isInView ? "none" : "translateY(50%)",
-        opacity: isInView ? 1 : 0,
-        transition: "all 0.6s linear 0.3s",
+      initial={{
+        opacity: 0,
+        y: "50%",
       }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        duration: 0.6,
+        delay: 0.3,
+        ease: "linear",
+      }}
+      viewport={{ once: true }}
       className="flex flex-col items-center"
     >
       <h3 className="text-white-700 text-lg sm:text-3xl text-center block pb-[20px]">
@@ -32,16 +38,22 @@ function FooterContact() {
   );
 }
 function SubFooter() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
   return (
     <motion.div
-      style={{
-        transform: isInView ? "none" : "translateY(50%)",
-        opacity: isInView ? 1 : 0,
-        transition: "all 0.6s linear 0.6s",
+      initial={{
+        opacity: 0,
+        y: "50%",
       }}
-      ref={ref}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        duration: 0.6,
+        delay: 0.6,
+        ease: "linear",
+      }}
+      viewport={{ once: true }}
       className="flex flex-col gap-y-2 items-center justify-between lg:flex-row px-defaultSpacing"
     >
       <SocialList color="white-900 lg:order-1" />

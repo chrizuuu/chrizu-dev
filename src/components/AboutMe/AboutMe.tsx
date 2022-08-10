@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import SectionSmallHeader from "components/Section/SectionSmallHeader";
 import SectionHeader from "components/Section/SectionHeader";
 import SectionText from "components/Section/SectionText";
@@ -84,9 +84,6 @@ const skillSetItem = {
 };
 
 function SkilLSet() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   return (
     <div className="pt-[100px] relative">
       <BackgroundTextPartTwo />
@@ -104,10 +101,10 @@ function SkilLSet() {
           whe
         </SectionText>
         <motion.ul
-          ref={ref}
           variants={skillSetContainer}
+          viewport={{ once: true }}
           initial="hidden"
-          animate={isInView ? "inView" : "hidden"}
+          whileInView={"inView"}
           className="flex flex-wrap gap-[20px] lg:gap-[60px] pt-[40px] opacity-[0.7]"
         >
           <motion.li variants={skillSetItem}>Javascript</motion.li>

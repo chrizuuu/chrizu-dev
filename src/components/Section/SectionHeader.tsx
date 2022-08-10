@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import classNames from "classnames";
 
 function SectionHeader({
@@ -11,16 +11,21 @@ function SectionHeader({
   color?: string;
   className?: string;
 }): JSX.Element {
-  const ref = useRef(null);
-  const isInView = useInView(ref);
   return (
     <motion.span
-      style={{
-        opacity: isInView ? 1 : 0,
-        transform: isInView ? "none" : "translateY(50%)",
-        transition: "all 0.4s linear 0.7s",
+      initial={{
+        opacity: 0,
+        y: "50%",
       }}
-      ref={ref}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        duration: 0.4,
+        delay: 0.7,
+        ease: "linear",
+      }}
       className={classNames(
         "text-[36px] md:text-[48px] lg:text-[64px] font-bold leading-none",
         className,

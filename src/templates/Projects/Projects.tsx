@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useRef } from "react";
+import React from "react";
 import SectionSmallHeader from "components/Section/SectionSmallHeader";
 import SectionText from "components/Section/SectionText";
 import SectionContainer from "components/Section/SectionContainer";
@@ -8,7 +8,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import SectionHeader from "components/Section/SectionHeader";
 import SectionLinkBtn from "components/Section/SectionLinkBtn";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface ProjectData {
   index: string;
