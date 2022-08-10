@@ -4,14 +4,21 @@ import StyledLink from "components/StyledLink/StyledLink";
 import MobileMenuToggle from "components/MobileMenu/MobileMenuToggle";
 import MobileMenu from "components/MobileMenu/MobileMenu";
 import { AnimatePresence, motion } from "framer-motion";
+import useIsScrollDown from "hooks/useIsScrollDown";
 
 function Navbar({ color }: { color: string }): JSX.Element {
   const [isMobileMenuOpen, toggleMenu] = useState(false);
   const fontColor = isMobileMenuOpen ? "text-white-900" : `text-${color}`;
+  const isScrollDown = useIsScrollDown();
 
   return (
     <>
-      <nav className="fixed top-[20px] left-defaultSpacing right-defaultSpacing h-[80px] z-30">
+      <motion.nav
+        className="fixed top-[20px] left-defaultSpacing right-defaultSpacing h-[80px] z-30 transition-all duration-300"
+        style={{
+          y: isScrollDown ? "-160px" : 0,
+        }}
+      >
         <AnimatePresence>
           <motion.div
             initial={{ opacity: 0 }}
@@ -41,13 +48,13 @@ function Navbar({ color }: { color: string }): JSX.Element {
             </ul>
           </motion.div>
         </AnimatePresence>
-      </nav>
+      </motion.nav>
       <MobileMenu isOpen={isMobileMenuOpen} />
     </>
   );
 }
 
-export default Navbar;
+export default React.memo(Navbar);
 
 /*
 

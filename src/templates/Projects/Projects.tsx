@@ -92,7 +92,7 @@ function ProjectItem({ project }: { project: ProjectData }) {
               whileInView="inView"
               transition={{
                 duration: 0.4,
-                delay: 0.8,
+                delay: 0.6,
                 ease: "easeOut",
               }}
             >
