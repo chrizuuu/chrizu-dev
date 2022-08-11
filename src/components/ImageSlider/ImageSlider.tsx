@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import classNames from "classnames";
+import useWindowSize from "hooks/useWindowsSize";
 
 function ImageSlider({
   mainImage,
@@ -14,7 +15,10 @@ function ImageSlider({
   slideImages: Array<IGatsbyImageData>;
 }): JSX.Element {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const [isAutoPlay, setIsAutoPlay] = useState(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const windowSize = useWindowSize();
+  const ref = useRef(null);
+  const isInView = useInView(ref);
 
   const resetTimeout = (timeoutId: ReturnType<typeof setTimeout> | null) => {
     if (timeoutId) {
@@ -25,14 +29,14 @@ function ImageSlider({
   useEffect(() => {
     let timeoutId: null | ReturnType<typeof setTimeout> = null;
 
-    if (isAutoPlay) {
+    if (isPlaying) {
       resetTimeout(timeoutId);
       timeoutId = setTimeout(
         () =>
           setCurrentSlide((prevSlide) =>
             prevSlide === slideImages.length - 1 ? 0 : prevSlide + 1
           ),
-        2000
+        2500
       );
     } else {
       resetTimeout(timeoutId);
@@ -41,16 +45,31 @@ function ImageSlider({
     return () => {
       resetTimeout(timeoutId);
     };
-  }, [currentSlide, isAutoPlay]);
+  }, [currentSlide, isPlaying]);
+
+  useEffect(() => {
+    if (isInView && windowSize.width < 1024) {
+      setIsPlaying(true);
+    } else if (!isInView) {
+      setIsPlaying(false);
+    }
+  }, [isInView]);
 
   return (
     <div
-      onMouseEnter={() => setIsAutoPlay(true)}
-      onMouseLeave={() => setIsAutoPlay(false)}
-      className="group relative rotate-2 rounded hover:rotate-0 transition-transform duration-500"
+      ref={ref}
+      onMouseEnter={() => {
+        setIsPlaying(true);
+      }}
+      onMouseLeave={() => {
+        if (windowSize.width > 1024) {
+          setIsPlaying(false);
+        }
+      }}
+      className="group relative rounded lg:hover:rotate-0 lg:rotate-2 lg:transition-transform lg:duration-500"
     >
       {slideImages.length ? (
-        <div className="overflow-hidden absolute top-0 bottom-0 left-0 right-0 z-10 scale-0 group-hover:scale-100 duration-500 transition-transform">
+        <div className="overflow-hidden absolute top-0 bottom-0 left-0 right-0 z-10 lg:scale-0 lg:group-hover:scale-100 lg:duration-500 lg:transition-transform">
           <AnimatePresence>
             {slideImages.map((image, index) => {
               return (
@@ -75,7 +94,7 @@ function ImageSlider({
       <div
         className={classNames(
           slideImages.length &&
-            "group-hover:opacity-0 transition-opacity duration-500",
+            "opacity-0 lg:opacity-100 lg:group-hover:opacity-0 lg:transition-opacity lg:duration-500",
           "border-[1px] border-black-100 -z-10"
         )}
       >
