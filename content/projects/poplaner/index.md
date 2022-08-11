@@ -7,5 +7,7 @@ description: "Lorem Ipsum is simply dummy text of the printing and typesetting i
 main_image: "./gutenbergreader.png"
 main_image_alt: "PoPlaner app"
 repo: "https://github.com/chrizuuu/poplaner"
+images: []
+
 ---
 

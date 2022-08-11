@@ -8,5 +8,7 @@ main_image: "./gutenbergreader.png"
 main_image_alt: "Gutenberg Reader app"
 live: 'https://gutenbergreader.web.app'
 repo: "https://github.com/chrizuuu/GutenbergReader"
+images: []
+
 ---
 

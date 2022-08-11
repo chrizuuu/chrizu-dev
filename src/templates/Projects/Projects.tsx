@@ -5,10 +5,11 @@ import SectionText from "components/Section/SectionText";
 import SectionContainer from "components/Section/SectionContainer";
 import Header from "components/Texts/Header";
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { IGatsbyImageData, getImage } from "gatsby-plugin-image";
 import SectionHeader from "components/Section/SectionHeader";
 import SectionLinkBtn from "components/Section/SectionLinkBtn";
 import { motion } from "framer-motion";
+import ImageSlider from "components/ImageSlider/ImageSlider";
 
 interface ProjectData {
   index: string;
@@ -19,6 +20,7 @@ interface ProjectData {
   description: string;
   main_image: any;
   main_image_alt: string;
+  images: Array<IGatsbyImageData>;
 }
 
 const buttonsVariants = {
@@ -41,8 +43,17 @@ function ProjectItem({ project }: { project: ProjectData }) {
     description,
     main_image,
     main_image_alt,
+    images,
   } = project;
   const image = getImage(main_image);
+  const slideImages: Array<IGatsbyImageData> = [];
+
+  images.forEach((img) => {
+    const sharpImage = getImage(img);
+    if (sharpImage) {
+      slideImages.push(sharpImage);
+    }
+  });
 
   return (
     <div
@@ -120,9 +131,13 @@ function ProjectItem({ project }: { project: ProjectData }) {
       >
         {image && (
           <a target="_blank" rel="noreferrer" href={live}>
-            <div className="group relative border-[1px] border-black-100 rotate-2 rounded hover:rotate-0 transition-transform duration-500">
-              <GatsbyImage image={image} alt={main_image_alt} />
-            </div>
+            <ImageSlider
+              mainImage={{
+                image: image,
+                alt: main_image_alt,
+              }}
+              slideImages={slideImages}
+            />
           </a>
         )}
       </motion.div>
@@ -154,6 +169,11 @@ function Projects(): JSX.Element {
                 }
               }
               main_image_alt
+              images {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
             }
           }
         }

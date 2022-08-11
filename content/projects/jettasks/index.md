@@ -8,4 +8,5 @@ main_image: "./jettasks.png"
 main_image_alt: "JetTasks app"
 live: 'http://185.217.126.104:3000/'
 repo: "https://github.com/Keynotech/EngineeringProjectWeb"
+images: ["./images/jettasks.png", "./images/jettasks2.png","./images/jettasks3.png"]
 ---

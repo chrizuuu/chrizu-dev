@@ -8,5 +8,6 @@ main_image: "./krzysztofbonecki.png"
 main_image_alt: "krzysztofbonecki.com"
 live: 'https://krzysztofbonecki.com'
 repo: "https://github.com/chrizuuu/chrizu-dev"
+images: []
 ---
 
