@@ -13,7 +13,7 @@ function MobileMenuToggle({
   return (
     <button
       onClick={onClick}
-      className={`sm:hidden flex flex-col gap-[8px] fixed right-defaultSpacing`}
+      className={`sm:hidden flex flex-col gap-[8px] right-defaultSpacing`}
     >
       <span
         className={classnames(

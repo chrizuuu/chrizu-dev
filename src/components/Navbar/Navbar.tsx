@@ -14,7 +14,7 @@ function Navbar({ color }: { color: string }): JSX.Element {
   return (
     <>
       <motion.nav
-        className="fixed top-[20px] left-defaultSpacing right-defaultSpacing h-[80px] z-30 transition-all duration-300"
+        className="fixed left-defaultSpacing top-[20px] right-defaultSpacing h-[80px] z-30 transition-all duration-300"
         style={{
           y: isScrollDown ? "-160px" : 0,
         }}

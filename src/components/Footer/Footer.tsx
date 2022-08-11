@@ -4,6 +4,7 @@ import AnimatedHeader from "components/Texts/AnimatedHeader";
 import SocialList from "components/SocialList/SocialList";
 import { Link } from "gatsby";
 import classNames from "classnames";
+import { error } from "console";
 
 function FooterContact() {
   return (
@@ -37,6 +38,12 @@ function FooterContact() {
       </a>
     </motion.div>
   );
+}
+
+async function copyTextToClipboard(text: string) {
+  if ("clipboard" in navigator) {
+    return await navigator.clipboard.writeText(text);
+  }
 }
 
 function CopyableEmail() {
@@ -73,8 +80,9 @@ function CopyableEmail() {
         <button
           type="button"
           onClick={() => {
-            navigator.clipboard.writeText("chrizudev@gmail.com");
-            setIsCopied(!isCopied);
+            copyTextToClipboard("chrizudev@gmail.com").then(() =>
+              setIsCopied(true)
+            );
           }}
           className="text-white-900"
         >
