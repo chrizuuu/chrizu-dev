@@ -34,7 +34,11 @@ function SocialList({
           </a>
         </li>
         <li>
-          <a target="_blank" rel="nofollow">
+          <a
+            href="https://linkedin.com/in/krzysztof-bonecki-dev"
+            target="_blank"
+            rel="noreferrer"
+          >
             <SocialName color={color}>Linkedin</SocialName>
           </a>
         </li>

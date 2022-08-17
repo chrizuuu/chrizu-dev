@@ -8,7 +8,6 @@ import useIsScrollDown from "hooks/useIsScrollDown";
 
 function Navbar({ color }: { color: string }): JSX.Element {
   const [isMobileMenuOpen, toggleMenu] = useState(false);
-  const fontColor = isMobileMenuOpen ? "text-white-900" : `text-${color}`;
   const isScrollDown = useIsScrollDown();
 
   return (
@@ -16,7 +15,7 @@ function Navbar({ color }: { color: string }): JSX.Element {
       <motion.nav
         className="fixed left-defaultSpacing top-[20px] right-defaultSpacing h-[80px] z-30 transition-all duration-300"
         style={{
-          y: isScrollDown ? "-160px" : 0,
+          y: isScrollDown && !isMobileMenuOpen ? "-120px" : 0,
         }}
       >
         <AnimatePresence>
@@ -29,7 +28,9 @@ function Navbar({ color }: { color: string }): JSX.Element {
             }}
             className="w-full h-full flex items-center justify-between"
           >
-            <Logo color={fontColor} />
+            <Logo
+              color={isMobileMenuOpen ? "text-white-900" : `text-${color}`}
+            />
             <MobileMenuToggle
               color={color}
               isMenuOpen={isMobileMenuOpen}

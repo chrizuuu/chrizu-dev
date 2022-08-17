@@ -5,6 +5,7 @@ function useWindowSize(): { width: number; height: number } {
     width: 0,
     height: 0,
   });
+
   useEffect(() => {
     function handleResize() {
       setWindowSize({

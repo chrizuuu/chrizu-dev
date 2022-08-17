@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedHeader from "components/Texts/AnimatedHeader";
 import SocialList from "components/SocialList/SocialList";
-import { Link } from "gatsby";
 import classNames from "classnames";
-import { error } from "console";
 
 function FooterContact() {
   return (
@@ -25,7 +23,7 @@ function FooterContact() {
       viewport={{ once: true }}
       className="flex flex-col items-center"
     >
-      <h3 className="text-white-700 text-lg sm:text-3xl text-center block pb-[20px]">
+      <h3 className="text-white-700 text-lg sm:text-3xl text-center pb-[20px]">
         Got a project or proposal?
       </h3>
       <a href="mailto:chrizudev@gmail.com" className="group">
@@ -50,45 +48,41 @@ function CopyableEmail() {
   const [isCopied, setIsCopied] = useState(false);
 
   return (
-    <div
-      onMouseLeave={() => setIsCopied(false)}
-      className="group pb-[10px] lg:pb-0 lg:order-3 group overflow-hidden"
-    >
-      <div className="flex flex-col justify-center items-center lg:items-end relative">
-        <div className="flex flex-col items-end text-white-700 text-[12px] uppercase">
-          <div
-            className={classNames(
-              "transition-all duration-300",
-              isCopied
-                ? "opacity-0 -translate-y-full"
-                : "opacity-0 group-hover:opacity-60"
-            )}
-          >
-            Copy email
-          </div>
-          <div
-            className={classNames(
-              "absolute transition-all duration-300",
-              isCopied
-                ? "opacity-60 translate-y-0"
-                : "opacity-0 -translate-y-full"
-            )}
-          >
-            Copied email
-          </div>
-        </div>
-        <button
-          type="button"
-          onClick={() => {
-            copyTextToClipboard("chrizudev@gmail.com").then(() =>
-              setIsCopied(true)
-            );
-          }}
-          className="text-white-900"
+    <div className=" lg:order-3 group flex flex-col justify-center items-center lg:items-end relative">
+      <div className="flex w-full flex-col items-center lg:items-end absolute bottom-[1.5rem]  text-white-700 text-[12px] uppercase">
+        <div
+          className={classNames(
+            "transition-all duration-300",
+            isCopied
+              ? "opacity-0 -translate-y-full"
+              : "opacity-0 group-hover:opacity-60"
+          )}
         >
-          chrizudev@gmail.com
-        </button>
+          Copy email
+        </div>
+        <div
+          className={classNames(
+            "absolute transition-all duration-300",
+            isCopied
+              ? "opacity-60 translate-y-0"
+              : "opacity-0 -translate-y-full"
+          )}
+        >
+          Copied email
+        </div>
       </div>
+      <button
+        onMouseLeave={() => setIsCopied(false)}
+        type="button"
+        onClick={() => {
+          copyTextToClipboard("chrizudev@gmail.com").then(() =>
+            setIsCopied(true)
+          );
+        }}
+        className="text-white-900"
+      >
+        chrizudev@gmail.com
+      </button>
     </div>
   );
 }
@@ -110,11 +104,11 @@ function SubFooter() {
         ease: "linear",
       }}
       viewport={{ once: true }}
-      className="flex flex-col gap-y-2 items-center justify-between lg:flex-row px-defaultSpacing"
+      className="flex flex-col gap-y-5 items-center justify-between lg:flex-row px-defaultSpacing"
     >
       <SocialList color="white-900 lg:order-1" />
       <CopyableEmail />
-      <span className="text-white-900  pb-[10px] lg:pb-0 lg:order-2">
+      <span className="text-white-900 lg:order-2">
         © 2022 Krzysztof Bonecki
       </span>
     </motion.div>

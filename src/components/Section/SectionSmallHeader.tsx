@@ -1,21 +1,6 @@
 import classNames from "classnames";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
-import splitByWord from "utils/splitByWord";
-
-function Word({
-  children,
-  color,
-}: {
-  children: React.ReactNode;
-  color: string;
-}) {
-  return (
-    <span className={classNames(`inline-block font-bold text-${color}`)}>
-      {children}
-    </span>
-  );
-}
 
 function SectionSmallHeader({
   sectionIndex,
@@ -28,7 +13,6 @@ function SectionSmallHeader({
   color: string;
   className?: string;
 }): JSX.Element {
-  const nameOfSectionArr = splitByWord(nameOfSection);
   const ref = useRef(null);
   const isInView = useInView(ref);
   return (
@@ -42,8 +26,9 @@ function SectionSmallHeader({
           transform: isInView ? "none" : "translateY(50%)",
           transition: "all 0.4s linear",
         }}
+        className={classNames(`inline-block font-bold text-${color}`)}
       >
-        <Word color={color}>{sectionIndex}</Word>
+        {sectionIndex}
       </motion.span>
       <motion.span
         style={{
@@ -55,23 +40,16 @@ function SectionSmallHeader({
           `bg-${color}`
         )}
       />
-      <motion.div
+      <motion.span
         style={{
           opacity: isInView ? 1 : 0,
           transform: isInView ? "none" : "translateY(50%)",
           transition: "all 0.4s linear 0.6s",
         }}
-        className="inline-block"
+        className={classNames(`inline-block font-bold text-${color}`)}
       >
-        {nameOfSectionArr.map((word, index) => {
-          return (
-            <React.Fragment key={index}>
-              <Word color={color}>{word}</Word>
-              <span> </span>
-            </React.Fragment>
-          );
-        })}
-      </motion.div>
+        {nameOfSection}
+      </motion.span>
     </motion.h2>
   );
 }

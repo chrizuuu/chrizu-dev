@@ -22,6 +22,7 @@ function SmoothScroll({
   const scrollPos = useScrollPos();
   const windowSize = useWindowSize();
   const documentHeight = useDocumentHeight();
+
   let y: MotionValue | undefined = useTransform(
     scrollY,
     [0, documentHeight],

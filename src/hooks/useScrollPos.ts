@@ -1,17 +1,22 @@
 import { useEffect, useState } from "react";
-import { useScroll } from "framer-motion";
 
 function useScrollPos(): number {
-  const [scrollPos, setScrollPos] = useState(0);
-  const { scrollY } = useScroll();
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
 
   useEffect(() => {
-    return scrollY.onChange((latest) => {
-      setScrollPos(latest);
-    });
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  return scrollPos;
+  return scrollPosition;
 }
 
 export default useScrollPos;
