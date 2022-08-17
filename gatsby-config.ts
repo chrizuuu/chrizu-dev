@@ -9,8 +9,11 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `Krzysztof Bonecki - portfolio`,
     description: "Krzysztof Bonecki - portfolio",
-    author: "@chrizuuu",
+    author: "Krzysztof Bonecki",
+    image: `/kb-icon.png`,
     siteUrl: "https://krzysztofbonecki.com",
+    keywords:
+      "frontend developer, frontend web developer, junior front end developer, front end, react, react native,",
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin

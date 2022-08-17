@@ -7,7 +7,7 @@ import AnimatedHeader from "components/Texts/AnimatedHeader";
 // markup
 function NotFoundPage(): JSX.Element {
   return (
-    <MainTemplate color="black-900">
+    <MainTemplate color="black-900" title="404">
       <div className="w-screen h-screen p-mobileH lg:p-desktopH flex flex-col items-center justify-center bg-white-900">
         <AnimatedHeader className="text-center">404</AnimatedHeader>
         <Link to="/">

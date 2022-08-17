@@ -74,6 +74,7 @@ function IndexPage(): JSX.Element {
     >
       <AnimatedDot backgroundColor={`bg-${colorsSchema.bg}`} />
       <motion.section
+        id="hero"
         ref={heroRef}
         style={{ y: yHero }}
         className="w-full h-[100vh] relative lg:top-[50vh] 2xl:top-[30vh] bg-background lg:bg-transparent"
