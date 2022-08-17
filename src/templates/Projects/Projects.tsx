@@ -28,7 +28,7 @@ const buttonsVariants = {
   inView: { opacity: 1, y: 0 },
 };
 
-const imageVariant = {
+const imageVariants = {
   initial: { y: "50%" },
   inView: { y: 0 },
 };
@@ -119,7 +119,7 @@ function ProjectItem({ project }: { project: ProjectData }) {
         </div>
       </div>
       <motion.div
-        variants={imageVariant}
+        variants={imageVariants}
         viewport={{ once: true }}
         initial="initial"
         whileInView="inView"
@@ -182,7 +182,7 @@ function Projects(): JSX.Element {
   `);
   const projectData = data.projects.edges;
   return (
-    <SectionContainer className="h-full flex flex-col justify-center">
+    <SectionContainer className="h-full flex flex-col justify-center py-[50px] lg:py-0">
       <SectionSmallHeader
         sectionIndex={"02"}
         nameOfSection="Projects"

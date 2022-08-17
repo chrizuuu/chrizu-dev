@@ -14,13 +14,13 @@ function BackgroundLetter({
   children: string;
   className?: string;
 }): JSX.Element {
-  const { animateControls, rubberBand, markAnimationAsComplete } =
+  const { animateControls, rubberBandAnimation, markAnimationAsComplete } =
     useAnimatedLetter();
   return (
     <motion.span
       animate={animateControls}
-      onTap={rubberBand}
-      onHoverStart={rubberBand}
+      onTap={rubberBandAnimation}
+      onHoverStart={rubberBandAnimation}
       onAnimationComplete={markAnimationAsComplete}
       className={classNames(
         className,
@@ -115,7 +115,6 @@ function SkilLSet() {
           <motion.li variants={skillSetItem}>React Query</motion.li>
           <motion.li variants={skillSetItem}>Framer motion</motion.li>
           <motion.li variants={skillSetItem}>Redux</motion.li>
-          <motion.li variants={skillSetItem}>Realm</motion.li>
           <motion.li variants={skillSetItem}>watermelonDB</motion.li>
           <motion.li variants={skillSetItem}>TailwindCSS</motion.li>
           <motion.li variants={skillSetItem}>Styled Components</motion.li>
@@ -131,7 +130,7 @@ function AboutMe({ color }: { color: string }): JSX.Element {
   return (
     <SectionContainer
       className={classNames(
-        "w-full h-full flex flex-col justify-center relative transition-colors text-white-900 lg:text-inherit"
+        "w-full h-full flex flex-col justify-center relative transition-colors text-white-900 lg:text-inherit py-[50px] lg:py-0"
       )}
     >
       <SectionSmallHeader

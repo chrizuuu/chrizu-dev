@@ -4,13 +4,13 @@ import { useAnimationControls } from "framer-motion";
 function useAnimatedLetter(): {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   animateControls: any;
-  rubberBand: () => void;
+  rubberBandAnimation: () => void;
   markAnimationAsComplete: () => void;
 } {
   const [isAnimationPlaying, setIsAnimationPlaying] = useState(false);
   const animateControls = useAnimationControls();
 
-  const rubberBand = () => {
+  const rubberBandAnimation = () => {
     if (!isAnimationPlaying) {
       setIsAnimationPlaying(true);
       animateControls.start({
@@ -28,7 +28,7 @@ function useAnimatedLetter(): {
 
   const markAnimationAsComplete = () => setIsAnimationPlaying(false);
 
-  return { animateControls, rubberBand, markAnimationAsComplete };
+  return { animateControls, rubberBandAnimation, markAnimationAsComplete };
 }
 
 export default useAnimatedLetter;

@@ -12,13 +12,13 @@ function AnimatedLetter({
   className?: string;
   fontSize?: string;
 }): JSX.Element {
-  const { animateControls, rubberBand, markAnimationAsComplete } =
+  const { animateControls, rubberBandAnimation, markAnimationAsComplete } =
     useAnimatedLetter();
   return (
     <motion.span
       animate={animateControls}
-      onTap={rubberBand}
-      onHoverStart={rubberBand}
+      onTap={rubberBandAnimation}
+      onHoverStart={rubberBandAnimation}
       onAnimationComplete={markAnimationAsComplete}
       className={classnames(
         "inline-block font-bold",

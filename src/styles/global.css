@@ -25,13 +25,6 @@
         transition: color .3s;
     }
 
-    /*
-    .stroke-header:hover {
-        text-shadow: none;
-        @apply text-black-800;
-    }
-    */
-
     .stroke-white-header {
         @apply text-black-800;
         text-shadow:
@@ -56,55 +49,5 @@
 
     .menu-btn-bottomline-active {
         transform: translateY(-5.5px) rotateZ(315deg);
-    }
-    /* ======================================================== */
-    /* HeroSection: signature */
-
-    .signature::before, .signature::after {
-        @apply font-bold;
-        @apply text-black-100;
-        @apply text-2xl;
-        @apply md:text-3xl;
-        @apply relative;
-    }
-    .signature::before {
-        @apply right-2;
-    }
-
-    .signature::after {
-        @apply left-2;
-    }
-
-
-    .section-layout-grid {
-        display: flex; 
-        flex-direction:row;
-        flex-wrap:wrap;
-        justify-content:space-between;
-        align-items:center;
-        gap:40px;
-    }
-
-    .section-card{
-        display:flex;
-        flex-direction:row;
-        flex:1;
-        @apply bg-white-900;
-        border-radius:30px;
-    }
-
-    .section-card:nth-child(4n+1), .section-card:nth-child(4n) {
-        min-width: 400px;
-        max-width:700px;
-    }
-
-    .section-card:nth-child(4n+2), .section-card:nth-child(4n+3) {
-        min-width: 400px;
-        max-width:400px;
-    }
-
-    .section-card-active {
-        min-width: 700px;
-        max-width:700px;
     }
 }

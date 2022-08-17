@@ -14,7 +14,7 @@ const topTextVariants = {
   },
 };
 
-const topTextAni = {
+const topTextAnimation = {
   initial: { opacity: 0, y: "50%" },
   animate: {
     y: 0,
@@ -34,7 +34,7 @@ function MainTextTop() {
       variants={topTextVariants}
       className="flex flex-col relative"
     >
-      <motion.span variants={topTextAni}>
+      <motion.span variants={topTextAnimation}>
         <AnimatedHeader
           fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw] leading-[14vw]"
           className="inline-block uppercase"
@@ -42,7 +42,7 @@ function MainTextTop() {
           {"Front-end "}
         </AnimatedHeader>
       </motion.span>
-      <motion.span variants={topTextAni}>
+      <motion.span variants={topTextAnimation}>
         <AnimatedHeader
           fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw] leading-[14vw]"
           className="inline-block uppercase"
@@ -54,54 +54,39 @@ function MainTextTop() {
   );
 }
 
-const bottomTextVariants = {
-  animate: {
-    transition: {
-      delayChildren: 1.1,
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const bottomTextAni = {
-  initial: { opacity: 0, x: "-30vw" },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      ease: "easeInOut",
-      duration: 1.5,
-    },
-  },
-};
-
 function MainTextBottom() {
   return (
     <motion.span
-      variants={bottomTextVariants}
-      initial="initial"
-      animate="animate"
+      initial={{ opacity: 0, x: "-30vw" }}
+      animate={{
+        x: 0,
+        opacity: 1,
+        transition: {
+          ease: "easeInOut",
+          duration: 1.5,
+          delay: 1.1,
+        },
+      }}
+      className="relative flex flex-col"
     >
-      <motion.span variants={bottomTextAni} className="relative flex flex-col">
-        <Header
-          fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw]"
-          className="stroke-header uppercase leading-[14vw]"
-        >
-          {"Student "}
-        </Header>
-        <Header
-          fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw]"
-          className="stroke-header uppercase leading-[14vw]"
-        >
-          {" and"}
-        </Header>
-        <Header
-          fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw]"
-          className="stroke-header uppercase leading-[14vw]"
-        >
-          {"minimalist"}
-        </Header>
-      </motion.span>
+      <Header
+        fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw]"
+        className="stroke-header uppercase leading-[14vw]"
+      >
+        {"Student "}
+      </Header>
+      <Header
+        fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw]"
+        className="stroke-header uppercase leading-[14vw]"
+      >
+        {" and"}
+      </Header>
+      <Header
+        fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw]"
+        className="stroke-header uppercase leading-[14vw]"
+      >
+        {"minimalist"}
+      </Header>
     </motion.span>
   );
 }

@@ -14,10 +14,18 @@ function ImageSlider({
   };
   slideImages: Array<IGatsbyImageData>;
 }): JSX.Element {
+  // ====================
+  // Local State
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const windowSize = useWindowSize();
+
+  // ====================
+  // Ref
   const ref = useRef(null);
+
+  // ====================
+  // Hooks
+  const windowSize = useWindowSize();
   const isInView = useInView(ref);
 
   const resetTimeout = (timeoutId: ReturnType<typeof setTimeout> | null) => {
@@ -30,16 +38,14 @@ function ImageSlider({
     let timeoutId: null | ReturnType<typeof setTimeout> = null;
 
     if (isPlaying) {
-      resetTimeout(timeoutId);
       timeoutId = setTimeout(
         () =>
           setCurrentSlide((prevSlide) =>
             prevSlide === slideImages.length - 1 ? 0 : prevSlide + 1
           ),
-        2500
+        2000
       );
     } else {
-      resetTimeout(timeoutId);
       setCurrentSlide(0);
     }
     return () => {

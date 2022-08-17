@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import useIsScrollDown from "hooks/useIsScrollDown";
 
 function Navbar({ color }: { color: string }): JSX.Element {
-  const [isMobileMenuOpen, toggleMenu] = useState(false);
+  const [isMobileMenuOpen, toggleMobileMenu] = useState(false);
   const isScrollDown = useIsScrollDown();
 
   return (
@@ -34,7 +34,7 @@ function Navbar({ color }: { color: string }): JSX.Element {
             <MobileMenuToggle
               color={color}
               isMenuOpen={isMobileMenuOpen}
-              onClick={() => toggleMenu(!isMobileMenuOpen)}
+              onClick={() => toggleMobileMenu(!isMobileMenuOpen)}
             />
             <ul className="hidden sm:flex flex-row items-center gap-x-[20px] relative">
               <li>
@@ -70,7 +70,7 @@ export default React.memo(Navbar);
         <div className="fixed z-50 right-[40px] lg:right-[60px]">
           <MenuToggle
             isMenuOpen={isMenuOpen}
-            onClick={() => toggleMenu(!isMenuOpen)}
+            onClick={() => toggleMobileMenu(!isMenuOpen)}
           />
         </div>
       </div>
