@@ -18,12 +18,7 @@ function Navbar({
 
   return (
     <>
-      <motion.nav
-        className="fixed left-defaultSpacing top-[20px] right-defaultSpacing h-[80px] z-30 transition-all duration-300"
-        style={{
-          y: isScrollDown && !isMobileMenuOpen ? "-120px" : 0,
-        }}
-      >
+      <motion.nav className="fixed left-defaultSpacing top-[20px] right-defaultSpacing h-[80px] z-30 transition-all duration-300">
         <AnimatePresence>
           <motion.div
             initial={{ opacity: 0 }}

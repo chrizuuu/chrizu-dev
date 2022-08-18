@@ -3,12 +3,13 @@ import classNames from "classnames";
 import MainTemplate from "templates/MainTemplate/MainTemplate";
 import Hero from "components/Hero/Hero";
 import Footer from "components/Footer/Footer";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import SmoothScroll from "components/SmoothScroll/SmoothScroll";
 import AboutMe from "components/AboutMe/AboutMe";
 import Projects from "templates/Projects/Projects";
 import useWindowSize from "hooks/useWindowsSize";
 import AnimatedDot from "components/AnimatedDot/AnimatedDot";
+import useScrollPos from "hooks/useScrollPos";
 
 const colors = {
   default: {
@@ -25,38 +26,53 @@ const colors = {
   },
 };
 
-function IndexPage(): JSX.Element {
-  // ====================
-  // Local State
+const useColorSchema = () => {
+  const scrollPos = useScrollPos();
   const [colorsSchema, setColorsSchema] = useState(colors.default);
 
-  // ====================
-  // Refs
-  const heroRef = useRef(null);
-  const projectRef = useRef(null);
-  const spacerRef = useRef(null);
-  const footerRef = useRef(null);
-  const aboutRef = useRef(null);
-
-  // Hooks
-  const { scrollY } = useScroll();
-  const windowSize = useWindowSize();
-  const isAboutInView = useInView(aboutRef, { amount: 0.1 });
-  const isProjectInView = useInView(projectRef, { amount: 0.1 });
-  const isFooterInView = useInView(footerRef, { amount: 0.99 });
+  const spacerRef = useRef<number>(0);
+  const aboutRef = useRef<number>(0);
+  const projectRef = useRef<number>(0);
+  const footerRef = useRef<number>(0);
 
   useEffect(() => {
-    if (!isAboutInView && !isProjectInView && !isFooterInView) {
+    spacerRef.current =
+      document.getElementById("spacer")?.offsetTop || 99999999;
+    aboutRef.current =
+      document.getElementById("about-me")?.offsetTop || 99999999;
+    projectRef.current =
+      document.getElementById("projects")?.offsetTop || 99999999;
+    footerRef.current =
+      document.getElementById("footer")?.offsetTop || 99999999;
+  }, []);
+
+  useEffect(() => {
+    if (scrollPos < aboutRef.current) {
       setColorsSchema(colors.default);
-    } else if (isAboutInView && !isProjectInView) {
-      setColorsSchema(colors.darkBg);
-    } else if (isProjectInView && !isAboutInView) {
-      setColorsSchema(colors.lightBg);
-    } else if (isFooterInView) {
+    }
+    if (scrollPos > spacerRef.current) {
       setColorsSchema(colors.darkBg);
     }
-  }, [isAboutInView, isProjectInView, isFooterInView]);
+    if (scrollPos > aboutRef.current && scrollPos < projectRef.current) {
+      setColorsSchema(colors.darkBg);
+    } else if (
+      scrollPos > projectRef.current &&
+      scrollPos < footerRef.current
+    ) {
+      setColorsSchema(colors.lightBg);
+    } else if (scrollPos >= footerRef.current) {
+      setColorsSchema(colors.darkBg);
+    }
+  }, [scrollPos]);
 
+  return colorsSchema;
+};
+
+function IndexPage(): JSX.Element {
+  // Hooks
+  const colorsSchema = useColorSchema();
+  const { scrollY } = useScroll();
+  const windowSize = useWindowSize();
   // ====================
   // TransformY Hero section
   const maxDimension = Math.max(windowSize.height, windowSize.width);
@@ -75,7 +91,6 @@ function IndexPage(): JSX.Element {
       <AnimatedDot backgroundColor={`bg-${colorsSchema.bg}`} />
       <motion.section
         id="hero"
-        ref={heroRef}
         style={{ y: yHero }}
         className="w-full h-[100vh] relative lg:top-[50vh] 2xl:top-[30vh] bg-background lg:bg-transparent"
       >
@@ -83,12 +98,10 @@ function IndexPage(): JSX.Element {
       </motion.section>
       <SmoothScroll>
         <section
-          ref={spacerRef}
-          id="space"
+          id="spacer"
           className="hidden lg:block w-full lg:h-[100vh] pb-defaultSpacing"
         ></section>
         <section
-          ref={aboutRef}
           id="about-me"
           className={classNames(
             "w-full h-auto py-defaultSpacing lg:py-0 lg:h-[240vh] z-20 bg-black-900 lg:bg-transparent",
@@ -99,12 +112,11 @@ function IndexPage(): JSX.Element {
         </section>
         <section
           id="projects"
-          ref={projectRef}
           className="w-full lg:h-[440vh] z-20 py-defaultSpacing lg:p-0 bg-background lg:bg-transparent"
         >
           <Projects />
         </section>
-        <motion.section id="footer" ref={footerRef} className="z-20 w-full">
+        <motion.section id="footer" className="z-20 w-full">
           <Footer />
         </motion.section>
       </SmoothScroll>
