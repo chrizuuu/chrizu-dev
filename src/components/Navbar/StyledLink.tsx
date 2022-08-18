@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import classNames from "classnames";
 
 function StyledLink({
@@ -11,9 +10,17 @@ function StyledLink({
   route: string;
   color: string;
 }): JSX.Element {
+  const scrollTo = (idSection: string) => {
+    const element = document.getElementById(idSection);
+    const rect = element?.getBoundingClientRect();
+    if (rect) {
+      window.scrollBy(0, rect.y);
+    }
+  };
+
   return (
-    <Link
-      to={route}
+    <span
+      onClick={() => scrollTo(route)}
       className={
         "group flex flex-col justify-center items-center gap-0 h-[40px] hover:translate-y-[-4px] transition-transform duration-200"
       }
@@ -32,7 +39,7 @@ function StyledLink({
           `bg-${color}`
         )}
       ></span>
-    </Link>
+    </span>
   );
 }
 

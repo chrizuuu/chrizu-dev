@@ -189,7 +189,7 @@ function Projects(): JSX.Element {
         className="pb-5"
         color="black-900"
       />
-      <SectionHeader className="pb-[20vh]">
+      <SectionHeader className="pb-[20vh] lg:pb-[10vh]">
         {"Some Things I've Built"}
       </SectionHeader>
       {projectData &&

@@ -46,13 +46,21 @@ function Navbar({
                 />
                 <ul className="hidden sm:flex flex-row items-center gap-x-[20px] relative">
                   <li>
-                    <StyledLink color={color} text="About me" route="/" />
+                    <StyledLink
+                      color={color}
+                      text="About me"
+                      route="about-me"
+                    />
                   </li>
                   <li>
-                    <StyledLink color={color} text="Projects" route="/" />
+                    <StyledLink
+                      color={color}
+                      text="Projects"
+                      route="projects"
+                    />
                   </li>
                   <li>
-                    <StyledLink color={color} text="Contact" route="/" />
+                    <StyledLink color={color} text="Contact" route="footer" />
                   </li>
                 </ul>
               </>
