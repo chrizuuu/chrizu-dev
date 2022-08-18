@@ -58,16 +58,16 @@ function ProjectItem({ project }: { project: ProjectData }) {
   return (
     <div
       key={index}
-      className="w-full h-[100vh] flex flex-col gap-[40px] lg:gap-[80px] lg:flex-row lg:items-center"
+      className="w-full h-[100vh] flex flex-col gap-[40px] lg:gap-[80px] lg:flex-row lg:items-center justify-center"
     >
-      <div className="flex flex-col justify-center lg:w-[40vw] relative ">
+      <div className="flex flex-col justify-center lg:w-[40vw] relative">
         <SectionSmallHeader
           color="black-900"
           sectionIndex={tagline}
           nameOfSection={""}
         />
         <Header
-          fontSize="text-3xl xs:text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
+          fontSize="text-3xl xs:text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl pt-[20px] pb-[40px]"
           className="text-black-800"
         >
           {title}

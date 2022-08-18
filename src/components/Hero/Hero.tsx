@@ -36,7 +36,7 @@ function MainTextTop() {
     >
       <motion.span variants={topTextAnimation}>
         <AnimatedHeader
-          fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw] leading-[14vw]"
+          fontSize="text-[clamp(11.5vw,12.5vw,14vw)]"
           className="inline-block uppercase"
         >
           {"Front-end "}
@@ -44,7 +44,7 @@ function MainTextTop() {
       </motion.span>
       <motion.span variants={topTextAnimation}>
         <AnimatedHeader
-          fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw] leading-[14vw]"
+          fontSize="text-[clamp(11.5vw,12.5vw,14vw)]"
           className="inline-block uppercase"
         >
           {"Developer,"}
@@ -70,13 +70,13 @@ function MainTextBottom() {
       className="relative flex flex-col"
     >
       <Header
-        fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw]"
+        fontSize="text-[clamp(11.5vw,12.5vw,14vw)]"
         className="stroke-header uppercase leading-[14vw]"
       >
         {"Student "}
       </Header>
       <Header
-        fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw]"
+        fontSize="text-[clamp(11.5vw,12.5vw,14vw)]"
         className="stroke-header uppercase leading-[14vw]"
       >
         {" and"}

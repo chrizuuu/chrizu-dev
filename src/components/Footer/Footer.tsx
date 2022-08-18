@@ -28,7 +28,7 @@ function FooterContact() {
       </h3>
       <a href="mailto:chrizudev@gmail.com" className="group">
         <AnimatedHeader
-          fontSize="text-4xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
+          fontSize="text-[clamp(36px,10vw,128px)]"
           className="text-white-900 after:w-full after:bg-white-900 after:h-1 after:block after:group-hover:scale-x-0 after:duration-500"
         >
           {"ContactMe"}

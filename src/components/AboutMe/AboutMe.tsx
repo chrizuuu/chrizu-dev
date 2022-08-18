@@ -87,10 +87,8 @@ function SkilLSet() {
   return (
     <div className="pt-[100px] relative">
       <BackgroundTextPartTwo />
-      <div className="w-full flex flex-col gap-[20px] lg:w-[60vw] 2xl:w-[40vw] xl:mr-auto">
-        <span className="font-bold text-[24px] lg:text-[28px] pb-5">
-          My skill set
-        </span>
+      <div className="w-full flex flex-col gap-[20px] xl:w-[60vw] 2xl:w-[40vw]">
+        <SectionHeader> My skill set</SectionHeader>
 
         <SectionText className="opacity-70">
           Lorem Ipsum is simply dummy text of the printing and typesetting

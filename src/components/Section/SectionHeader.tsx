@@ -27,7 +27,7 @@ function SectionHeader({
         ease: "linear",
       }}
       className={classNames(
-        "text-[36px] md:text-[48px] lg:text-[64px] font-bold leading-none",
+        "text-[clamp(36px,4vw,8vh)] font-bold leading-none",
         className,
         `text-${color}`
       )}
