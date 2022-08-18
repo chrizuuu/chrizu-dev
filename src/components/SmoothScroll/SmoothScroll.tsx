@@ -33,7 +33,11 @@ function SmoothScroll({
     y = undefined;
   }
 
-  return <motion.div style={{ y }}>{children}</motion.div>;
+  return (
+    <motion.div id="scroll" style={{ y }}>
+      {children}
+    </motion.div>
+  );
 }
 
 export default SmoothScroll;

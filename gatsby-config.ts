@@ -10,7 +10,6 @@ const config: GatsbyConfig = {
     title: `Krzysztof Bonecki - portfolio`,
     description: "Krzysztof Bonecki - portfolio",
     author: "Krzysztof Bonecki",
-    image: `/kb-icon.png`,
     siteUrl: "https://krzysztofbonecki.com",
     keywords:
       "frontend developer, frontend web developer, junior front end developer, front end, react, react native,",
@@ -27,6 +26,35 @@ const config: GatsbyConfig = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-postcss",
     "gatsby-transformer-remark",
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Krzysztof Bonecki - portfolio`,
+        short_name: `Krzysztof Bonecki`,
+        start_url: `/`,
+        background_color: `#000`,
+        theme_color: `#000`,
+        display: `standalone`,
+        icon: `./src/images/favicon/favicon-32x32.png`,
+        icons: [
+          {
+            src: `./src/images/favicon/android-chrome-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `src/images/favicon/android-chrome-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+          {
+            src: `src/images/favicon/apple-touch-icon.png`,
+            sizes: `180x180`,
+            type: `image/png`,
+          },
+        ],
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {

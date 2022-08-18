@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import Logo from "components/Logo/Logo";
-import StyledLink from "components/StyledLink/StyledLink";
-import MobileMenuToggle from "components/MobileMenu/MobileMenuToggle";
-import MobileMenu from "components/MobileMenu/MobileMenu";
+import StyledLink from "components/Navbar/StyledLink";
+import MobileMenuToggle from "components/Navbar/MobileMenu/MobileMenuToggle";
+import MobileMenu from "components/Navbar/MobileMenu/MobileMenu";
 import { AnimatePresence, motion } from "framer-motion";
 import useIsScrollDown from "hooks/useIsScrollDown";
 
-function Navbar({ color }: { color: string }): JSX.Element {
+function Navbar({
+  color,
+  displayNavigation = true,
+}: {
+  color: string;
+  displayNavigation: boolean;
+}): JSX.Element {
   const [isMobileMenuOpen, toggleMobileMenu] = useState(false);
   const isScrollDown = useIsScrollDown();
 
@@ -31,26 +37,33 @@ function Navbar({ color }: { color: string }): JSX.Element {
             <Logo
               color={isMobileMenuOpen ? "text-white-900" : `text-${color}`}
             />
-            <MobileMenuToggle
-              color={color}
-              isMenuOpen={isMobileMenuOpen}
-              onClick={() => toggleMobileMenu(!isMobileMenuOpen)}
-            />
-            <ul className="hidden sm:flex flex-row items-center gap-x-[20px] relative">
-              <li>
-                <StyledLink color={color} text="About me" route="/" />
-              </li>
-              <li>
-                <StyledLink color={color} text="Projects" route="/" />
-              </li>
-              <li>
-                <StyledLink color={color} text="Contact" route="/" />
-              </li>
-            </ul>
+            {displayNavigation && (
+              <>
+                <MobileMenuToggle
+                  color={color}
+                  isMenuOpen={isMobileMenuOpen}
+                  onClick={() => toggleMobileMenu((prevState) => !prevState)}
+                />
+                <ul className="hidden sm:flex flex-row items-center gap-x-[20px] relative">
+                  <li>
+                    <StyledLink color={color} text="About me" route="/" />
+                  </li>
+                  <li>
+                    <StyledLink color={color} text="Projects" route="/" />
+                  </li>
+                  <li>
+                    <StyledLink color={color} text="Contact" route="/" />
+                  </li>
+                </ul>
+              </>
+            )}
           </motion.div>
         </AnimatePresence>
       </motion.nav>
-      <MobileMenu isOpen={isMobileMenuOpen} />
+      <MobileMenu
+        handleCloseMenu={() => toggleMobileMenu(false)}
+        isOpen={isMobileMenuOpen}
+      />
     </>
   );
 }

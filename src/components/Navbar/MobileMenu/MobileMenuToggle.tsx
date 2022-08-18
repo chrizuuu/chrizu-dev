@@ -12,6 +12,9 @@ function MobileMenuToggle({
 }): JSX.Element {
   return (
     <button
+      aria-label="menu-toggle"
+      name="menu"
+      type="button"
       onClick={onClick}
       className={`sm:hidden flex flex-col gap-[8px] right-defaultSpacing`}
     >

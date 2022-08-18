@@ -8,17 +8,21 @@ function MainTemplate({
   children,
   className,
   color,
+  displayNavigation = true,
 }: {
   title?: string;
   children: React.ReactNode;
   className?: string;
   color: string;
+  displayNavigation?: boolean;
 }): JSX.Element {
   return (
     <>
       <Seo title={title} />
-      <Navbar color={color} />
-      <main className={classNames("w-full h-full", className)}>{children}</main>
+      <Navbar color={color} displayNavigation={displayNavigation} />
+      <main id="main" className={classNames("w-full h-full", className)}>
+        {children}
+      </main>
     </>
   );
 }

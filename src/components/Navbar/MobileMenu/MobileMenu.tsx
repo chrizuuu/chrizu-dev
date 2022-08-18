@@ -1,7 +1,7 @@
 import React from "react";
-import StyledLink from "components/StyledLink/StyledLink";
 import SocialList from "components/SocialList/SocialList";
 import { AnimatePresence, motion } from "framer-motion";
+import classNames from "classnames";
 
 const linksContainerVariants = {
   animate: {
@@ -24,7 +24,52 @@ const linksItemVariants = {
   },
 };
 
-function MobileMenu({ isOpen }: { isOpen: boolean }): JSX.Element | null {
+function MenuLink({
+  route,
+  routeName,
+  onClick,
+}: {
+  route: string;
+  routeName: string;
+  onClick: () => void;
+}) {
+  const scrollIntoView = (idSection: string) => {
+    if (onClick) {
+      onClick();
+    }
+    const element = document.getElementById(idSection);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "start",
+      });
+    }
+  };
+  return (
+    <motion.li
+      variants={linksItemVariants}
+      onClick={() => scrollIntoView(route)}
+    >
+      <span
+        className={classNames(
+          "tracking-widest transition-colors duration-300",
+          `text-white-900`
+        )}
+      >
+        {routeName}
+      </span>
+    </motion.li>
+  );
+}
+
+function MobileMenu({
+  isOpen,
+  handleCloseMenu,
+}: {
+  isOpen: boolean;
+  handleCloseMenu: () => void;
+}): JSX.Element | null {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -54,16 +99,23 @@ function MobileMenu({ isOpen }: { isOpen: boolean }): JSX.Element | null {
               animate="animate"
               className="flex flex-col items-center gap-y-[30px] relative"
             >
-              <motion.li variants={linksItemVariants}>
-                <StyledLink color="white-900" text="About me" route="/" />
-              </motion.li>
-              <motion.li variants={linksItemVariants}>
-                <StyledLink color="white-900" text="Projects" route="/" />
-              </motion.li>
-              <motion.li variants={linksItemVariants}>
-                <StyledLink color="white-900" text="Contact" route="/" />
-              </motion.li>
+              <MenuLink
+                route="about-me"
+                routeName="About me"
+                onClick={handleCloseMenu}
+              />
+              <MenuLink
+                route="projects"
+                routeName="Projects"
+                onClick={handleCloseMenu}
+              />
+              <MenuLink
+                route="footer"
+                routeName="Contact"
+                onClick={handleCloseMenu}
+              />
             </motion.ul>
+
             <motion.div
               className={"absolute bottom-[30px]"}
               initial={{ opacity: 0, y: 50 }}
