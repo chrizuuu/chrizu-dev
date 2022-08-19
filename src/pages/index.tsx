@@ -34,47 +34,89 @@ const colors = {
 
 function ColorSwitcher({
   children,
-  onChangeColor,
+  onColorChange,
 }: {
   children: React.ReactNode;
-  onChangeColor: Dispatch<SetStateAction<{ bg: string; color: string }>>;
+  onColorChange: Dispatch<SetStateAction<{ bg: string; color: string }>>;
 }) {
   const scrollPos = useScrollPos();
-  const spacerRef = useRef<number | undefined>(0);
-  const aboutRef = useRef<number>(0);
-  const projectRef = useRef<number>(0);
-  const footerRef = useRef<number>(0);
+  const heroRef = useRef<{ top: number; bottom: number }>({
+    top: 0,
+    bottom: 0,
+  });
+  const aboutRef = useRef<{ top: number; bottom: number }>({
+    top: 0,
+    bottom: 0,
+  });
+  const projectRef = useRef<{ top: number; bottom: number }>({
+    top: 0,
+    bottom: 0,
+  });
+  const footerRef = useRef<{ top: number; bottom: number }>({
+    top: 0,
+    bottom: 0,
+  });
 
   useEffect(() => {
-    spacerRef.current =
-      document.getElementById("spacer")?.offsetTop || undefined;
-    aboutRef.current =
-      document.getElementById("about-me")?.offsetTop || 99999999;
-    projectRef.current =
-      document.getElementById("projects")?.offsetTop || 99999999;
-    footerRef.current =
-      document.getElementById("footer")?.offsetTop || 99999999;
+    const heroElem = document.getElementById("hero");
+    const aboutElem = document.getElementById("about-me");
+    const projectElem = document.getElementById("projects");
+    const footerElem = document.getElementById("footer");
+
+    if (heroElem) {
+      const heroPos = heroElem.getBoundingClientRect();
+      heroRef.current = {
+        top: Math.round(heroPos.top),
+        bottom: Math.round(heroPos.bottom),
+      };
+    }
+    if (aboutElem) {
+      const aboutPos = aboutElem.getBoundingClientRect();
+      aboutRef.current = {
+        top: Math.round(aboutPos.top),
+        bottom: Math.round(aboutPos.bottom),
+      };
+    }
+    if (projectElem) {
+      const projectPos = projectElem.getBoundingClientRect();
+      projectRef.current = {
+        top: Math.round(projectPos.top),
+        bottom: Math.round(projectPos.bottom),
+      };
+    }
+    if (footerElem) {
+      const footerPos = footerElem.getBoundingClientRect();
+      footerRef.current = {
+        top: Math.round(footerPos.top),
+        bottom: Math.round(footerPos.bottom),
+      };
+    }
   }, []);
 
   useEffect(() => {
-    if (spacerRef.current) {
-      if (scrollPos >= spacerRef.current && scrollPos < projectRef.current) {
-        onChangeColor(colors.darkBg);
-      } else if (scrollPos < spacerRef.current) {
-        onChangeColor(colors.default);
-      }
-    }
-    if (scrollPos >= aboutRef.current && scrollPos < projectRef.current) {
-      onChangeColor(colors.darkBg);
-    } else if (
-      scrollPos >= projectRef.current &&
-      scrollPos < footerRef.current
+    if (
+      scrollPos >= heroRef.current.top &&
+      scrollPos < heroRef.current.bottom
     ) {
-      onChangeColor(colors.lightBg);
-    } else if (scrollPos >= footerRef.current) {
-      onChangeColor(colors.darkBg);
+      onColorChange(colors.default);
+    } else if (
+      scrollPos >= aboutRef.current.top &&
+      scrollPos < aboutRef.current.bottom
+    ) {
+      onColorChange(colors.darkBg);
+    } else if (
+      scrollPos >= projectRef.current.top &&
+      scrollPos < projectRef.current.bottom
+    ) {
+      onColorChange(colors.lightBg);
+    } else if (
+      scrollPos >= footerRef.current.top &&
+      scrollPos <= footerRef.current.bottom
+    ) {
+      onColorChange(colors.darkBg);
     }
   }, [scrollPos]);
+
   return <div>{children}</div>;
 }
 
@@ -97,14 +139,12 @@ function IndexPage(): JSX.Element {
     [0, -1.5 * maxDimension]
   );
 
-  console.log("rerender");
-
   return (
     <MainTemplate
       className="lg:fixed lg:top-0 lg:left-0"
       color={colorsSchema.color}
     >
-      <ColorSwitcher onChangeColor={setColorsSchema}>
+      <ColorSwitcher onColorChange={setColorsSchema}>
         <AnimatedDot backgroundColor={`bg-${colorsSchema.bg}`} />
         <motion.section
           id="hero"

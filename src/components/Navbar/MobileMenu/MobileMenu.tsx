@@ -41,8 +41,7 @@ function MenuLink({
     if (element) {
       element.scrollIntoView({
         behavior: "smooth",
-        block: "nearest",
-        inline: "start",
+        block: "start",
       });
     }
   };
