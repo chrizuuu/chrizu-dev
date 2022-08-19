@@ -58,7 +58,7 @@ function ProjectItem({ project }: { project: ProjectData }) {
   return (
     <div
       key={index}
-      className="w-full h-[100vh] flex flex-col gap-[40px] lg:gap-[80px] lg:flex-row lg:items-center justify-center"
+      className="w-full lg:h-[100vh] flex flex-col gap-[40px] lg:gap-[80px] lg:flex-row lg:items-center justify-center"
     >
       <div className="flex flex-col justify-center lg:w-[40vw] relative">
         <SectionSmallHeader
@@ -182,21 +182,23 @@ function Projects(): JSX.Element {
   `);
   const projectData = data.projects.edges;
   return (
-    <SectionContainer className="h-full flex flex-col justify-center py-[10vh] lg:py-0">
+    <SectionContainer className="h-full flex flex-col justify-end py-defaultSpacing ">
       <SectionSmallHeader
         sectionIndex={"02"}
         nameOfSection="Projects"
         className="pb-5 pt-5"
         color="black-900"
       />
-      <SectionHeader className="pb-[20vh] lg:pb-[10vh]">
+      <SectionHeader className="pb-[10vh] lg:pb-[10vh]">
         {"Some Things I've Built"}
       </SectionHeader>
-      {projectData &&
-        projectData.map(({ node }: { node: any }) => {
-          const { frontmatter } = node;
-          return <ProjectItem project={frontmatter} key={node.id} />;
-        })}
+      <div className="flex flex-col gap-y-[140px] lg:gap-y-[20vh]">
+        {projectData &&
+          projectData.map(({ node }: { node: any }) => {
+            const { frontmatter } = node;
+            return <ProjectItem project={frontmatter} key={node.id} />;
+          })}
+      </div>
     </SectionContainer>
   );
 }

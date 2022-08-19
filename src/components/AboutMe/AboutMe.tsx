@@ -128,7 +128,7 @@ function AboutMe({ color }: { color: string }): JSX.Element {
   return (
     <SectionContainer
       className={classNames(
-        "w-full h-full flex flex-col justify-center relative transition-colors text-white-900 lg:text-inherit py-[50px] lg:py-0"
+        "w-full h-full flex flex-col justify-center py-defaultSpacing relative transition-colors text-white-900 lg:text-inherit lg:py-0"
       )}
     >
       <SectionSmallHeader

@@ -135,7 +135,7 @@ function IndexPage(): JSX.Element {
 
   const yHero = useTransform(
     scrollY,
-    [windowSize.height, 1.8 * windowSize.height],
+    [0.8 * windowSize.height, 2.2 * windowSize.height],
     [0, -1.5 * maxDimension]
   );
 
@@ -149,19 +149,19 @@ function IndexPage(): JSX.Element {
         <motion.section
           id="hero"
           style={{ y: yHero }}
-          className="w-full h-[100vh] relative lg:top-[50vh] 2xl:top-[30vh] bg-background lg:bg-transparent"
+          className="w-full h-[100vh] relative lg:top-[50vh] 2xl:top-[30vh] bg-background lg:bg-transparent "
         >
           <Hero />
         </motion.section>
         <SmoothScroll>
           <section
             id="spacer"
-            className="hidden lg:block w-full lg:h-[100vh] pb-defaultSpacing"
+            className="hidden lg:block w-full lg:h-[140vh] pb-defaultSpacing"
           ></section>
           <section
             id="about-me"
             className={classNames(
-              "w-full h-auto py-defaultSpacing lg:py-0 lg:h-[240vh] z-20 bg-black-900 lg:bg-transparent",
+              "w-full h-auto lg:h-[240vh] z-20 bg-black-900 lg:bg-transparent ",
               `text-${colorsSchema.color}`
             )}
           >
@@ -169,7 +169,7 @@ function IndexPage(): JSX.Element {
           </section>
           <section
             id="projects"
-            className="w-full lg:h-[440vh] z-20 py-defaultSpacing lg:p-0 bg-background lg:bg-transparent"
+            className="w-full lg:h-[440vh] z-20 bg-background lg:bg-transparent  "
           >
             <Projects />
           </section>
