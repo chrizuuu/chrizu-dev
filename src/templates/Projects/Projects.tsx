@@ -182,11 +182,11 @@ function Projects(): JSX.Element {
   `);
   const projectData = data.projects.edges;
   return (
-    <SectionContainer className="h-full flex flex-col justify-center py-[50px] lg:py-0">
+    <SectionContainer className="h-full flex flex-col justify-center py-[10vh] lg:py-0">
       <SectionSmallHeader
         sectionIndex={"02"}
         nameOfSection="Projects"
-        className="pb-5"
+        className="pb-5 pt-5"
         color="black-900"
       />
       <SectionHeader className="pb-[20vh] lg:pb-[10vh]">

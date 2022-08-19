@@ -1,4 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  SetStateAction,
+  Dispatch,
+} from "react";
 import classNames from "classnames";
 import MainTemplate from "templates/MainTemplate/MainTemplate";
 import Hero from "components/Hero/Hero";
@@ -26,18 +32,22 @@ const colors = {
   },
 };
 
-const useColorSchema = () => {
+function ColorSwitcher({
+  children,
+  onChangeColor,
+}: {
+  children: React.ReactNode;
+  onChangeColor: Dispatch<SetStateAction<{ bg: string; color: string }>>;
+}) {
   const scrollPos = useScrollPos();
-  const [colorsSchema, setColorsSchema] = useState(colors.default);
-
-  const spacerRef = useRef<number>(0);
+  const spacerRef = useRef<number | undefined>(0);
   const aboutRef = useRef<number>(0);
   const projectRef = useRef<number>(0);
   const footerRef = useRef<number>(0);
 
   useEffect(() => {
     spacerRef.current =
-      document.getElementById("spacer")?.offsetTop || 99999999;
+      document.getElementById("spacer")?.offsetTop || undefined;
     aboutRef.current =
       document.getElementById("about-me")?.offsetTop || 99999999;
     projectRef.current =
@@ -47,32 +57,36 @@ const useColorSchema = () => {
   }, []);
 
   useEffect(() => {
-    if (scrollPos < aboutRef.current) {
-      setColorsSchema(colors.default);
+    if (spacerRef.current) {
+      if (scrollPos >= spacerRef.current && scrollPos < projectRef.current) {
+        onChangeColor(colors.darkBg);
+      } else if (scrollPos < spacerRef.current) {
+        onChangeColor(colors.default);
+      }
     }
-    if (scrollPos > spacerRef.current) {
-      setColorsSchema(colors.darkBg);
-    }
-    if (scrollPos > aboutRef.current && scrollPos < projectRef.current) {
-      setColorsSchema(colors.darkBg);
+    if (scrollPos >= aboutRef.current && scrollPos < projectRef.current) {
+      onChangeColor(colors.darkBg);
     } else if (
       scrollPos >= projectRef.current &&
       scrollPos < footerRef.current
     ) {
-      setColorsSchema(colors.lightBg);
+      onChangeColor(colors.lightBg);
     } else if (scrollPos >= footerRef.current) {
-      setColorsSchema(colors.darkBg);
+      onChangeColor(colors.darkBg);
     }
   }, [scrollPos]);
-
-  return colorsSchema;
-};
+  return <div>{children}</div>;
+}
 
 function IndexPage(): JSX.Element {
+  // Local State
+  const [colorsSchema, setColorsSchema] = useState(colors.default);
+
+  // ====================
   // Hooks
-  const colorsSchema = useColorSchema();
   const { scrollY } = useScroll();
   const windowSize = useWindowSize();
+
   // ====================
   // TransformY Hero section
   const maxDimension = Math.max(windowSize.height, windowSize.width);
@@ -83,43 +97,47 @@ function IndexPage(): JSX.Element {
     [0, -1.5 * maxDimension]
   );
 
+  console.log("rerender");
+
   return (
     <MainTemplate
       className="lg:fixed lg:top-0 lg:left-0"
       color={colorsSchema.color}
     >
-      <AnimatedDot backgroundColor={`bg-${colorsSchema.bg}`} />
-      <motion.section
-        id="hero"
-        style={{ y: yHero }}
-        className="w-full h-[100vh] relative lg:top-[50vh] 2xl:top-[30vh] bg-background lg:bg-transparent"
-      >
-        <Hero />
-      </motion.section>
-      <SmoothScroll>
-        <section
-          id="spacer"
-          className="hidden lg:block w-full lg:h-[100vh] pb-defaultSpacing"
-        ></section>
-        <section
-          id="about-me"
-          className={classNames(
-            "w-full h-auto py-defaultSpacing lg:py-0 lg:h-[240vh] z-20 bg-black-900 lg:bg-transparent",
-            `text-${colorsSchema.color}`
-          )}
+      <ColorSwitcher onChangeColor={setColorsSchema}>
+        <AnimatedDot backgroundColor={`bg-${colorsSchema.bg}`} />
+        <motion.section
+          id="hero"
+          style={{ y: yHero }}
+          className="w-full h-[100vh] relative lg:top-[50vh] 2xl:top-[30vh] bg-background lg:bg-transparent"
         >
-          <AboutMe color={colorsSchema.color} />
-        </section>
-        <section
-          id="projects"
-          className="w-full lg:h-[440vh] z-20 py-defaultSpacing lg:p-0 bg-background lg:bg-transparent"
-        >
-          <Projects />
-        </section>
-        <motion.section id="footer" className="z-20 w-full">
-          <Footer />
+          <Hero />
         </motion.section>
-      </SmoothScroll>
+        <SmoothScroll>
+          <section
+            id="spacer"
+            className="hidden lg:block w-full lg:h-[100vh] pb-defaultSpacing"
+          ></section>
+          <section
+            id="about-me"
+            className={classNames(
+              "w-full h-auto py-defaultSpacing lg:py-0 lg:h-[240vh] z-20 bg-black-900 lg:bg-transparent",
+              `text-${colorsSchema.color}`
+            )}
+          >
+            <AboutMe color={colorsSchema.color} />
+          </section>
+          <section
+            id="projects"
+            className="w-full lg:h-[440vh] z-20 py-defaultSpacing lg:p-0 bg-background lg:bg-transparent"
+          >
+            <Projects />
+          </section>
+          <motion.section id="footer" className="z-20 w-full">
+            <Footer />
+          </motion.section>
+        </SmoothScroll>
+      </ColorSwitcher>
     </MainTemplate>
   );
 }
