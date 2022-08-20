@@ -127,7 +127,7 @@ function ProjectItem({ project }: { project: ProjectData }) {
           duration: 1,
           ease: "linear",
         }}
-        className="lg:w-[60vw]"
+        className="hidden lg:block lg:w-[60vw]"
       >
         {image && (
           <a target="_blank" rel="noreferrer" href={live}>
@@ -182,16 +182,16 @@ function Projects(): JSX.Element {
   `);
   const projectData = data.projects.edges;
   return (
-    <SectionContainer className="h-full flex flex-col justify-end py-defaultSpacing ">
-      <SectionSmallHeader
-        sectionIndex={"02"}
-        nameOfSection="Projects"
-        className="pb-5 pt-5"
-        color="black-900"
-      />
-      <SectionHeader className="pb-[10vh] lg:pb-[10vh]">
-        {"Some Things I've Built"}
-      </SectionHeader>
+    <SectionContainer className="h-full flex flex-col justify-end gap-[40vh] py-defaultSpacing ">
+      <div className="flex flex-col">
+        <SectionSmallHeader
+          sectionIndex={"02"}
+          nameOfSection="Projects"
+          className="pb-5 pt-5"
+          color="black-900"
+        />
+        <SectionHeader>{"Some Things I've Built"}</SectionHeader>
+      </div>
       <div className="flex flex-col gap-y-[140px] lg:gap-y-[20vh]">
         {projectData &&
           projectData.map(({ node }: { node: any }) => {

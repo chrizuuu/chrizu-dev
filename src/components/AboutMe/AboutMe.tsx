@@ -56,10 +56,10 @@ function WhoIAm() {
   return (
     <div className="relative pt-5">
       <BackgroundTextPartOne />
-      <div className="w-full flex flex-col gap-[20px] xl:w-[60vw] 2xl:w-[40vw] lg:ml-auto relative">
+      <div className="w-full flex flex-col xl:w-[60vw] 2xl:w-[40vw] lg:ml-auto relative">
         <SectionText className="xl:text-right opacity-70">
           {
-            "  Lorem Ipsum is simply dummy text of the printing and typesettingLorem Ipsum is simply dummy text of the printing and typesettingLorem Ipsum is simply dummy text of the printing and typesettingLorem Ipsum is simply dummy text of the printing and typesettingLorem Ipsum is simply dummy text of the printing and typesettingLorem Ipsum is simply dummy text of the printing and typesettingLorem Ipsum is simply dummy text of the p"
+            " Hello, I’m Krzysztof. Frontend developer, currently study computer science at the Adam Mickiewicz University in Poznań. As a developer I mainly focused on create intuitive and friendly user app. Personally, I’m dog lover, Personally, a dog lover, fan of good coffee and Counter Strike."
           }
         </SectionText>
       </div>
@@ -70,7 +70,7 @@ function WhoIAm() {
 const skillSetContainer = {
   inView: {
     transition: {
-      delayChildren: 0.8,
+      delayChildren: 0.5,
       staggerChildren: 0.1,
       duration: 0.2,
       ease: "easeIn",
@@ -88,15 +88,11 @@ function SkilLSet() {
     <div className="pt-[100px] relative">
       <BackgroundTextPartTwo />
       <div className="w-full flex flex-col gap-[20px] xl:w-[60vw] 2xl:w-[40vw]">
-        <SectionHeader> My skill set</SectionHeader>
+        <SectionHeader> Main skills</SectionHeader>
 
         <SectionText className="opacity-70">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industrys standard dummy text ever
-          since the 1500s, when an unknown printer took a galleyLorem Ipsum is
-          simply dummy text of the printing and typesetting industry. Lorem
-          Ipsum has been the industrys standard dummy text ever since the 1500s,
-          whe
+          Hello, I’m Krzysztof, Frontend developer, currently study computer
+          science at the Adam Mickiewicz University in Poznań.
         </SectionText>
         <motion.ul
           variants={skillSetContainer}
@@ -106,14 +102,11 @@ function SkilLSet() {
           className="flex flex-wrap gap-[20px] lg:gap-[60px] pt-[40px] opacity-[0.7]"
         >
           <motion.li variants={skillSetItem}>Javascript</motion.li>
-          <motion.li variants={skillSetItem}>Typescript</motion.li>
           <motion.li variants={skillSetItem}>React</motion.li>
           <motion.li variants={skillSetItem}>React Native</motion.li>
-          <motion.li variants={skillSetItem}>Gatsby</motion.li>
           <motion.li variants={skillSetItem}>React Query</motion.li>
           <motion.li variants={skillSetItem}>Framer motion</motion.li>
           <motion.li variants={skillSetItem}>Redux</motion.li>
-          <motion.li variants={skillSetItem}>watermelonDB</motion.li>
           <motion.li variants={skillSetItem}>TailwindCSS</motion.li>
           <motion.li variants={skillSetItem}>Styled Components</motion.li>
           <motion.li variants={skillSetItem}>

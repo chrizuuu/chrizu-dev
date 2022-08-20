@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Logo from "components/Logo/Logo";
-import StyledLink from "components/Navbar/StyledLink";
-import MobileMenuToggle from "components/Navbar/MobileMenu/MobileMenuToggle";
-import MobileMenu from "components/Navbar/MobileMenu/MobileMenu";
+import MobileMenuToggle from "components/Navbar/Menu/MenuToggle";
+import Menu from "components/Navbar/Menu/Menu";
 import { AnimatePresence, motion } from "framer-motion";
 import useIsScrollDown from "hooks/useIsScrollDown";
 
@@ -19,7 +18,7 @@ function Navbar({
   return (
     <>
       <motion.nav
-        className="fixed left-defaultSpacing top-[20px] right-defaultSpacing h-[80px] z-30 transition-all duration-300"
+        className="fixed left-[4vw] top-[20px] right-[4vw] h-[80px] z-30 transition-all duration-300"
         style={{
           y: isScrollDown && !isMobileMenuOpen ? "-120px" : 0,
         }}
@@ -44,31 +43,12 @@ function Navbar({
                   isMenuOpen={isMobileMenuOpen}
                   onClick={() => toggleMobileMenu((prevState) => !prevState)}
                 />
-                <ul className="hidden sm:flex flex-row items-center gap-x-[20px] relative">
-                  <li>
-                    <StyledLink
-                      color={color}
-                      text="About me"
-                      route="about-me"
-                    />
-                  </li>
-                  <li>
-                    <StyledLink
-                      color={color}
-                      text="Projects"
-                      route="projects"
-                    />
-                  </li>
-                  <li>
-                    <StyledLink color={color} text="Contact" route="footer" />
-                  </li>
-                </ul>
               </>
             )}
           </motion.div>
         </AnimatePresence>
       </motion.nav>
-      <MobileMenu
+      <Menu
         handleCloseMenu={() => toggleMobileMenu(false)}
         isOpen={isMobileMenuOpen}
       />

@@ -1,8 +1,14 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useTransform,
+  useScroll,
+} from "framer-motion";
 import AnimatedHeader from "components/Texts/AnimatedHeader";
 import SectionContainer from "components/Section/SectionContainer";
 import Header from "components/Texts/Header";
+import useWindowSize from "hooks/useWindowsSize";
 
 const topTextVariants = {
   animate: {
@@ -27,6 +33,20 @@ const topTextAnimation = {
 };
 
 function MainTextTop() {
+  const windowSize = useWindowSize();
+  const { scrollY } = useScroll();
+  const krzysztofTransform = useTransform(
+    scrollY,
+    [0.6 * windowSize.height, 1.8 * windowSize.height],
+    [0, -1.5 * windowSize.width]
+  );
+
+  const boneckiTransform = useTransform(
+    scrollY,
+    [0.8 * windowSize.height, 2 * windowSize.height],
+    [0, 1.5 * windowSize.width]
+  );
+
   return (
     <motion.span
       initial="initial"
@@ -34,20 +54,23 @@ function MainTextTop() {
       variants={topTextVariants}
       className="flex flex-col relative"
     >
-      <motion.span variants={topTextAnimation}>
+      <motion.span
+        style={{ x: krzysztofTransform }}
+        variants={topTextAnimation}
+      >
         <AnimatedHeader
-          fontSize="text-[clamp(11.5vw,12.5vw,14vw)]"
+          fontSize="text-[clamp(7vw,11.5vw,20vh)]"
           className="inline-block uppercase"
         >
-          {"Front-end "}
+          {"Krzysztof "}
         </AnimatedHeader>
       </motion.span>
-      <motion.span variants={topTextAnimation}>
+      <motion.span style={{ x: boneckiTransform }} variants={topTextAnimation}>
         <AnimatedHeader
-          fontSize="text-[clamp(11.5vw,12.5vw,14vw)]"
+          fontSize="text-[clamp(7vw,11.5vw,20vh)]"
           className="inline-block uppercase"
         >
-          {"Developer,"}
+          {"Bonecki"}
         </AnimatedHeader>
       </motion.span>
     </motion.span>
@@ -55,6 +78,20 @@ function MainTextTop() {
 }
 
 function MainTextBottom() {
+  const windowSize = useWindowSize();
+  const { scrollY } = useScroll();
+
+  const frontTransform = useTransform(
+    scrollY,
+    [1 * windowSize.height, 2.2 * windowSize.height],
+    [0, -1.5 * windowSize.width]
+  );
+
+  const devTransform = useTransform(
+    scrollY,
+    [1.2 * windowSize.height, 2.4 * windowSize.height],
+    [0, 1.5 * windowSize.width]
+  );
   return (
     <motion.span
       initial={{ opacity: 0, x: "-30vw" }}
@@ -69,24 +106,22 @@ function MainTextBottom() {
       }}
       className="relative flex flex-col"
     >
-      <Header
-        fontSize="text-[clamp(11.5vw,12.5vw,14vw)]"
-        className="stroke-header uppercase leading-[14vw]"
-      >
-        {"Student "}
-      </Header>
-      <Header
-        fontSize="text-[clamp(11.5vw,12.5vw,14vw)]"
-        className="stroke-header uppercase leading-[14vw]"
-      >
-        {" and"}
-      </Header>
-      <Header
-        fontSize="text-[14vw] lg:text-[12.5vw] 2xl:text-[11.5vw]"
-        className="stroke-header uppercase leading-[14vw]"
-      >
-        {"minimalist"}
-      </Header>
+      <motion.span style={{ x: frontTransform }}>
+        <Header
+          fontSize="text-[clamp(7vw,11.5vw,20vh)]"
+          className="stroke-header uppercase"
+        >
+          {"Front-end "}
+        </Header>
+      </motion.span>
+      <motion.span style={{ x: devTransform }}>
+        <Header
+          fontSize="text-[clamp(7vw,11.5vw,20vh)]"
+          className="stroke-header uppercase "
+        >
+          {"Developer"}
+        </Header>
+      </motion.span>
     </motion.span>
   );
 }
@@ -103,7 +138,7 @@ function MainText() {
 function Hero(): JSX.Element {
   return (
     <AnimatePresence>
-      <SectionContainer className="h-full my-auto">
+      <SectionContainer className="h-full py-[80px] lg:py-0">
         <div className="flex items-center w-full h-full">
           <MainText />
         </div>
