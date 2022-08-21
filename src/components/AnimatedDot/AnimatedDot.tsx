@@ -21,7 +21,7 @@ function AnimatedDot({
   const left = useTransform(
     scrollY,
     [0, 0.9 * windowSize.height],
-    ["20%", "50%"]
+    ["30%", "50%"]
   );
   const top = useTransform(
     scrollY,
@@ -33,7 +33,7 @@ function AnimatedDot({
     <motion.div
       style={{ width: size, height: size, top, left }}
       className={classNames(
-        "hidden lg:block absolute rounded-full transition-colors duration-500 ease-linear top-[50vh] translate-x-[-50%] translate-y-[-50%]",
+        "hidden lg:block absolute rounded-full transition-colors duration-500 ease-linear top-[35vh] translate-x-[-50%] translate-y-[-50%]",
         backgroundColor
       )}
     ></motion.div>

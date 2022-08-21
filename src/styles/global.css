@@ -1,14 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "./typography.css";
 
 @layer base {
     body {
-        font-family: "Space Grotesk";
+        font-family: "Roboto", sans-serif;
         color: theme(colors.black.800);
         @apply bg-background;
         overflow-x:hidden;
-        @apply lg:h-[1020vh];
+        @apply lg:h-[820vh];
     }
 
     html {

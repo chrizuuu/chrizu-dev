@@ -10,6 +10,7 @@ import SectionHeader from "components/Section/SectionHeader";
 import SectionLinkBtn from "components/Section/SectionLinkBtn";
 import { motion } from "framer-motion";
 import ImageSlider from "components/ImageSlider/ImageSlider";
+import AnimatedHeader from "components/Texts/AnimatedHeader";
 
 interface ProjectData {
   index: string;
@@ -58,20 +59,20 @@ function ProjectItem({ project }: { project: ProjectData }) {
   return (
     <div
       key={index}
-      className="w-full lg:h-[100vh] flex flex-col gap-[40px] lg:gap-[80px] lg:flex-row lg:items-center justify-center"
+      className="w-full lg:h-[50vh] flex flex-col justify-center"
     >
-      <div className="flex flex-col justify-center lg:w-[40vw] relative">
+      <div className="flex flex-col justify-center lg:w-[50vw] relative">
         <SectionSmallHeader
           color="black-900"
           sectionIndex={tagline}
           nameOfSection={""}
         />
-        <Header
-          fontSize="text-3xl xs:text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl pt-[20px] pb-[40px]"
+        <AnimatedHeader
+          fontSize="text-3xl xs:text-4xl md:text-6xl lg:text-7xl pt-[20px] pb-[40px]"
           className="text-black-800"
         >
           {title}
-        </Header>
+        </AnimatedHeader>
         <SectionText color="black-800 ">{description}</SectionText>
         <div className="flex gap-[20px] pt-[40px]">
           {repo && (
@@ -118,29 +119,6 @@ function ProjectItem({ project }: { project: ProjectData }) {
           )}
         </div>
       </div>
-      <motion.div
-        variants={imageVariants}
-        viewport={{ once: true }}
-        initial="initial"
-        whileInView="inView"
-        transition={{
-          duration: 1,
-          ease: "linear",
-        }}
-        className="hidden lg:block lg:w-[60vw]"
-      >
-        {image && (
-          <a target="_blank" rel="noreferrer" href={live}>
-            <ImageSlider
-              mainImage={{
-                image: image,
-                alt: main_image_alt,
-              }}
-              slideImages={slideImages}
-            />
-          </a>
-        )}
-      </motion.div>
     </div>
   );
 }
@@ -192,7 +170,7 @@ function Projects(): JSX.Element {
         />
         <SectionHeader>{"Some Things I've Built"}</SectionHeader>
       </div>
-      <div className="flex flex-col gap-y-[140px] lg:gap-y-[20vh]">
+      <div className="flex flex-col  gap-y-[min(20vh,120px)]">
         {projectData &&
           projectData.map(({ node }: { node: any }) => {
             const { frontmatter } = node;

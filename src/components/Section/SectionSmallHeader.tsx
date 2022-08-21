@@ -18,10 +18,7 @@ function SectionSmallHeader({
   return (
     <motion.h2
       ref={ref}
-      className={classNames(
-        className,
-        "text-[clamp(18px,1vw,2vh)] flex flex-row"
-      )}
+      className={classNames(className, "text-[16px] flex flex-row")}
     >
       <motion.span
         style={{

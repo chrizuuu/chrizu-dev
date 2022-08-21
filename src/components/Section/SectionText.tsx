@@ -13,7 +13,7 @@ function SectionText({
   return (
     <span
       className={classNames(
-        `text-[clamp(14px,2vw,3vh)] inline-block font-normal text-${color}`,
+        `text-[16px] inline-block font-normal text-${color}`,
         className
       )}
     >

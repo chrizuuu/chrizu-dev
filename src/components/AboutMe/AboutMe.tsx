@@ -56,11 +56,13 @@ function WhoIAm() {
   return (
     <div className="relative pt-5">
       <BackgroundTextPartOne />
-      <div className="w-full flex flex-col xl:w-[60vw] 2xl:w-[40vw] lg:ml-auto relative">
+      <div className="w-full flex flex-col lg:w-[40vw] lg:ml-auto relative">
         <SectionText className="xl:text-right opacity-70">
-          {
-            " Hello, I’m Krzysztof. Frontend developer, currently study computer science at the Adam Mickiewicz University in Poznań. As a developer I mainly focused on create intuitive and friendly user app. Personally, I’m dog lover, Personally, a dog lover, fan of good coffee and Counter Strike."
-          }
+          My name is Krzysztof and I’am frontend developer. Currently I studied
+          computer science on Adam Mickiewicz University (last term). Since 2020
+          I have systematically learning about front technologies. When I’m not
+          typing next line of code, you’ll find me cooking, playing with my dog
+          or in counter strike’s queue.
         </SectionText>
       </div>
     </div>
@@ -91,8 +93,9 @@ function SkilLSet() {
         <SectionHeader> Main skills</SectionHeader>
 
         <SectionText className="opacity-70">
-          Hello, I’m Krzysztof, Frontend developer, currently study computer
-          science at the Adam Mickiewicz University in Poznań.
+          Most of the projects in my portfolio are personal, but I also have
+          commercial experience in building landing pages. Tech stack I have
+          been working with:
         </SectionText>
         <motion.ul
           variants={skillSetContainer}
@@ -102,7 +105,9 @@ function SkilLSet() {
           className="flex flex-wrap gap-[20px] lg:gap-[60px] pt-[40px] opacity-[0.7]"
         >
           <motion.li variants={skillSetItem}>Javascript</motion.li>
+          <motion.li variants={skillSetItem}>Typescript</motion.li>
           <motion.li variants={skillSetItem}>React</motion.li>
+          <motion.li variants={skillSetItem}>Gatsby</motion.li>
           <motion.li variants={skillSetItem}>React Native</motion.li>
           <motion.li variants={skillSetItem}>React Query</motion.li>
           <motion.li variants={skillSetItem}>Framer motion</motion.li>

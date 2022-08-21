@@ -32,52 +32,7 @@ const topTextAnimation = {
   },
 };
 
-function MainTextTop() {
-  const windowSize = useWindowSize();
-  const { scrollY } = useScroll();
-  const krzysztofTransform = useTransform(
-    scrollY,
-    [0.6 * windowSize.height, 1.8 * windowSize.height],
-    [0, -1.5 * windowSize.width]
-  );
-
-  const boneckiTransform = useTransform(
-    scrollY,
-    [0.8 * windowSize.height, 2 * windowSize.height],
-    [0, 1.5 * windowSize.width]
-  );
-
-  return (
-    <motion.span
-      initial="initial"
-      animate="animate"
-      variants={topTextVariants}
-      className="flex flex-col relative"
-    >
-      <motion.span
-        style={{ x: krzysztofTransform }}
-        variants={topTextAnimation}
-      >
-        <AnimatedHeader
-          fontSize="text-[clamp(7vw,11.5vw,20vh)]"
-          className="inline-block uppercase"
-        >
-          {"Krzysztof "}
-        </AnimatedHeader>
-      </motion.span>
-      <motion.span style={{ x: boneckiTransform }} variants={topTextAnimation}>
-        <AnimatedHeader
-          fontSize="text-[clamp(7vw,11.5vw,20vh)]"
-          className="inline-block uppercase"
-        >
-          {"Bonecki"}
-        </AnimatedHeader>
-      </motion.span>
-    </motion.span>
-  );
-}
-
-function MainTextBottom() {
+function MainText() {
   const windowSize = useWindowSize();
   const { scrollY } = useScroll();
 
@@ -108,30 +63,29 @@ function MainTextBottom() {
     >
       <motion.span style={{ x: frontTransform }}>
         <Header
-          fontSize="text-[clamp(7vw,11.5vw,20vh)]"
-          className="stroke-header uppercase"
+          fontSize="text-[clamp(7vw,9vw,18vh)]"
+          className="stroke-header uppercase leading-none"
         >
-          {"Front-end "}
+          {"Hello there,"}
         </Header>
       </motion.span>
       <motion.span style={{ x: devTransform }}>
         <Header
-          fontSize="text-[clamp(7vw,11.5vw,20vh)]"
-          className="stroke-header uppercase "
+          fontSize="text-[clamp(7vw,9vw,18vh)]"
+          className="stroke-header uppercase leading-none"
         >
-          {"Developer"}
+          {"I'm Krzysztof,"}
+        </Header>
+      </motion.span>
+      <motion.span style={{ x: devTransform }}>
+        <Header
+          fontSize="text-[clamp(7vw,9vw,18vh)]"
+          className="uppercase leading-none"
+        >
+          {"frontend developer"}
         </Header>
       </motion.span>
     </motion.span>
-  );
-}
-
-function MainText() {
-  return (
-    <h1 className="w-full relative m-auto z-10">
-      <MainTextTop />
-      <MainTextBottom />
-    </h1>
   );
 }
 
