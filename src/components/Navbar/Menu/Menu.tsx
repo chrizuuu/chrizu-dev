@@ -165,7 +165,7 @@ function Menu({
               variants={mobileLinksContainerVariants}
               initial="initial"
               animate="animate"
-              className="w-full flex lg:hidden flex-col items-center relative"
+              className="w-full flex lg:hidden flex-col items-center gap-[20px] relative"
             >
               <MobileLink
                 route="about-me"

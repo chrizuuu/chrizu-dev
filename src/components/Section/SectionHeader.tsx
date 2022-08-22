@@ -23,7 +23,7 @@ function SectionHeader({
       }}
       transition={{
         duration: 0.4,
-        delay: 0.5,
+        delay: 0.25,
         ease: "linear",
       }}
       className={classNames(

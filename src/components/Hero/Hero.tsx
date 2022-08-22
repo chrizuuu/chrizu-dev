@@ -1,67 +1,23 @@
 import React from "react";
-import {
-  motion,
-  AnimatePresence,
-  useTransform,
-  useScroll,
-} from "framer-motion";
-import AnimatedHeader from "components/Texts/AnimatedHeader";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionContainer from "components/Section/SectionContainer";
 import Header from "components/Texts/Header";
-import useWindowSize from "hooks/useWindowsSize";
-
-const topTextVariants = {
-  animate: {
-    transition: {
-      delayChildren: 0.4,
-      staggerChildren: 0.08,
-      staggerDirection: -1,
-    },
-  },
-};
-
-const topTextAnimation = {
-  initial: { opacity: 0, y: "50%" },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      ease: "easeInOut",
-      duration: 1,
-    },
-  },
-};
 
 function MainText() {
-  const windowSize = useWindowSize();
-  const { scrollY } = useScroll();
-
-  const frontTransform = useTransform(
-    scrollY,
-    [1 * windowSize.height, 2.2 * windowSize.height],
-    [0, -1.5 * windowSize.width]
-  );
-
-  const devTransform = useTransform(
-    scrollY,
-    [1.2 * windowSize.height, 2.4 * windowSize.height],
-    [0, 1.5 * windowSize.width]
-  );
   return (
-    <motion.span
-      initial={{ opacity: 0, x: "-30vw" }}
-      animate={{
-        x: 0,
-        opacity: 1,
-        transition: {
-          ease: "easeInOut",
-          duration: 1.5,
-          delay: 1.1,
-        },
-      }}
-      className="relative flex flex-col"
-    >
-      <motion.span style={{ x: frontTransform }}>
+    <motion.span className="relative flex flex-col">
+      <motion.span
+        initial={{ opacity: 0, x: "-30vw" }}
+        animate={{
+          x: 0,
+          opacity: 1,
+          transition: {
+            ease: "easeInOut",
+            duration: 1.5,
+            delay: 1.1,
+          },
+        }}
+      >
         <Header
           fontSize="text-[clamp(7vw,9vw,18vh)]"
           className="stroke-header uppercase leading-none"
@@ -69,7 +25,18 @@ function MainText() {
           {"Hello there,"}
         </Header>
       </motion.span>
-      <motion.span style={{ x: devTransform }}>
+      <motion.span
+        initial={{ opacity: 0, x: "-30vw" }}
+        animate={{
+          x: 0,
+          opacity: 1,
+          transition: {
+            ease: "easeInOut",
+            duration: 1.5,
+            delay: 1.1,
+          },
+        }}
+      >
         <Header
           fontSize="text-[clamp(7vw,9vw,18vh)]"
           className="stroke-header uppercase leading-none"
@@ -77,7 +44,18 @@ function MainText() {
           {"I'm Krzysztof,"}
         </Header>
       </motion.span>
-      <motion.span style={{ x: devTransform }}>
+      <motion.span
+        initial={{ opacity: 0, y: "30vh" }}
+        animate={{
+          y: 0,
+          opacity: 1,
+          transition: {
+            ease: "easeInOut",
+            duration: 1.5,
+            delay: 1.5,
+          },
+        }}
+      >
         <Header
           fontSize="text-[clamp(7vw,9vw,18vh)]"
           className="uppercase leading-none"

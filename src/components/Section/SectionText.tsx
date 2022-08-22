@@ -6,14 +6,14 @@ function SectionText({
   color,
   className,
 }: {
-  children: string;
+  children: string | JSX.Element;
   color?: string;
   className?: string;
 }): JSX.Element {
   return (
     <span
       className={classNames(
-        `text-[16px] inline-block font-normal text-${color}`,
+        `text-[16px] lg:text-[18px] inline-block font-light text-${color}`,
         className
       )}
     >

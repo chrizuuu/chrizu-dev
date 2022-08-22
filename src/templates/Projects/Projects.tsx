@@ -3,7 +3,6 @@ import React from "react";
 import SectionSmallHeader from "components/Section/SectionSmallHeader";
 import SectionText from "components/Section/SectionText";
 import SectionContainer from "components/Section/SectionContainer";
-import Header from "components/Texts/Header";
 import { graphql, useStaticQuery } from "gatsby";
 import { IGatsbyImageData, getImage } from "gatsby-plugin-image";
 import SectionHeader from "components/Section/SectionHeader";
@@ -59,11 +58,12 @@ function ProjectItem({ project }: { project: ProjectData }) {
   return (
     <div
       key={index}
-      className="w-full lg:h-[50vh] flex flex-col justify-center"
+      className="group relative w-full lg:h-[50vh] flex flex-col justify-center"
     >
-      <div className="flex flex-col justify-center lg:w-[50vw] relative">
+      <div className="flex flex-col justify-center relative lg:w-[40vw] 2xl:w-[30vw]">
         <SectionSmallHeader
           color="black-900"
+          className="uppercase"
           sectionIndex={tagline}
           nameOfSection={""}
         />
@@ -119,6 +119,29 @@ function ProjectItem({ project }: { project: ProjectData }) {
           )}
         </div>
       </div>
+      <motion.div
+        variants={imageVariants}
+        viewport={{ once: true }}
+        initial="initial"
+        whileInView="inView"
+        transition={{
+          duration: 1,
+          ease: "linear",
+        }}
+        className="lg:w-[40vw] bg-[red] absolute right-0 group-hover:opacity-100 opacity-0 transiton-opacity duration-300"
+      >
+        {image && (
+          <a target="_blank" rel="noreferrer" href={live}>
+            <ImageSlider
+              mainImage={{
+                image: image,
+                alt: main_image_alt,
+              }}
+              slideImages={slideImages}
+            />
+          </a>
+        )}
+      </motion.div>
     </div>
   );
 }

@@ -161,7 +161,7 @@ function IndexPage(): JSX.Element {
           <section
             id="about-me"
             className={classNames(
-              "w-full h-auto lg:h-[240vh] z-20 bg-black-900 lg:bg-transparent ",
+              "w-full h-auto lg:h-[240vh] z-20 bg-black-900 lg:bg-transparent",
               `text-${colorsSchema.color}`
             )}
           >

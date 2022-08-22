@@ -10,6 +10,7 @@
         @apply bg-background;
         overflow-x:hidden;
         @apply lg:h-[820vh];
+        @apply select-none;
     }
 
     html {
