@@ -3,7 +3,7 @@ index: 2
 title: "Portfolio"
 tagline: "Website"
 technologies: "gatsby, tailwindcss, framer-motion"
-description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into e"
+description: "My personal website that is used as my business card as a developer. When creating this website, it was the first time I used Gatsby and Typescript (I fell in love with it) so it was an interesting experience for me."
 main_image: "./images/krzysztofbonecki.com_1.png"
 main_image_alt: "krzysztofbonecki.com"
 live: 'https://krzysztofbonecki.com'
