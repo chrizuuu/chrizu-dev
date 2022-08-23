@@ -55,7 +55,6 @@ const timeSince = (date: Date) => {
   const diffInMonths = differenceInMonths(new Date(), date);
 
   if (diffInMonths < 12) {
-    console.log(diffInMonths);
     return `${diffInMonths} months`;
   } else {
     const diffInYears = differenceInYears(new Date(), date);
@@ -87,7 +86,7 @@ function SkillSet() {
   );
 }
 
-function MainSkills() {
+function MainSkills(): JSX.Element {
   return (
     <div className="pt-[100px] relative">
       <BackgroundText />

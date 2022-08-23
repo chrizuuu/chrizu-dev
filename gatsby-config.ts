@@ -1,22 +1,16 @@
 import type { GatsbyConfig } from "gatsby";
 import path from "path";
 
-// Get paths of Gatsby's required rules, which as of writing is located at:
-// https://github.com/gatsbyjs/gatsby/tree/fbfe3f63dec23d279a27b54b4057dd611dce74bb/packages/
-// gatsby/src/utils/eslint-rules
-
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Krzysztof Bonecki - portfolio`,
-    description: "Krzysztof Bonecki - portfolio",
+    description:
+      "Krzysztof Bonecki - front-end developer who expertise in building small and medium-sized web and mobile applications.",
     author: "Krzysztof Bonecki",
     siteUrl: "https://krzysztofbonecki.com",
     keywords:
       "frontend developer, frontend web developer, junior front end developer, front end, react, react native,",
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-image",
@@ -29,7 +23,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Krzysztof Bonecki - portfolio`,
+        name: "Krzysztof Bonecki",
         short_name: `Krzysztof Bonecki`,
         start_url: `/`,
         background_color: `#000`,
@@ -80,9 +74,9 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-typescript`,
       options: {
-        isTSX: true, // defaults to false
-        jsxPragma: `jsx`, // defaults to "React"
-        allExtensions: true, // defaults to false
+        isTSX: true,
+        jsxPragma: `jsx`,
+        allExtensions: true,
       },
     },
     {

@@ -12,7 +12,7 @@ import Footer from "components/Footer/Footer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import SmoothScroll from "components/SmoothScroll/SmoothScroll";
 import AboutMe from "components/AboutMe/AboutMe";
-import Projects from "templates/Projects/Projects";
+import Projects from "templates/Projects";
 import useWindowSize from "hooks/useWindowsSize";
 import AnimatedDot from "components/AnimatedDot/AnimatedDot";
 import useScrollPos from "hooks/useScrollPos";
