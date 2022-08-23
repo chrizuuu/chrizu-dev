@@ -14,7 +14,7 @@ function MainText() {
           transition: {
             ease: "easeInOut",
             duration: 1.5,
-            delay: 1.1,
+            delay: 0.4,
           },
         }}
       >
@@ -33,7 +33,7 @@ function MainText() {
           transition: {
             ease: "easeInOut",
             duration: 1.5,
-            delay: 1.1,
+            delay: 0.4,
           },
         }}
       >
@@ -52,7 +52,7 @@ function MainText() {
           transition: {
             ease: "easeInOut",
             duration: 1.5,
-            delay: 1.5,
+            delay: 0.8,
           },
         }}
       >
