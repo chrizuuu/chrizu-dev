@@ -11,7 +11,7 @@ function MenuToggle({
   color: string;
 }): JSX.Element {
   return (
-    <div className="flex flex-row items-center gap-x-4">
+    <div onClick={onClick} className="flex flex-row items-center gap-x-4">
       <span
         className={classNames(
           "font-bold uppercase",
@@ -21,11 +21,8 @@ function MenuToggle({
         menu
       </span>
 
-      <button
+      <div
         aria-label="menu-toggle"
-        name="menu"
-        type="button"
-        onClick={onClick}
         className={`flex flex-col gap-[8px] right-defaultSpacing`}
       >
         <span
@@ -42,7 +39,7 @@ function MenuToggle({
               : `bg-${color}`
           )}
         />
-      </button>
+      </div>
     </div>
   );
 }
