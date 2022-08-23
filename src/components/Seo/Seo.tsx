@@ -25,8 +25,7 @@ function Seo({ title }: { title?: string }): JSX.Element {
 
   return (
     <Helmet>
-      <html lang="en" />
-      <title>{seoTags.title}</title>
+      <title lang="en">{seoTags.title}</title>
       <meta name="description" content={seoTags.description} />
       <meta name="keywords" content={seoTags.keywords} />
       <meta property="og:url" content={seoTags.siteUrl} />
