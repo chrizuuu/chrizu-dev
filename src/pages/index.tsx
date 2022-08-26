@@ -16,6 +16,7 @@ import Projects from "templates/Projects";
 import useWindowSize from "hooks/useWindowsSize";
 import AnimatedDot from "components/AnimatedDot/AnimatedDot";
 import useScrollPos from "hooks/useScrollPos";
+import Seo from "components/Seo/Seo";
 
 const colors = {
   default: {
@@ -181,5 +182,12 @@ function IndexPage(): JSX.Element {
     </MainTemplate>
   );
 }
+
+export const Head = (): JSX.Element => (
+  <Seo>
+    <title lang="en">Krzysztof Bonecki - Portfolio</title>
+    <meta property="og:title" content="Krzysztof Bonecki - Portfolio" />
+  </Seo>
+);
 
 export default IndexPage;
