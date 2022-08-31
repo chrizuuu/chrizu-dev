@@ -23,7 +23,7 @@ function SectionLinkBtn({
       href={route}
       className={classNames(
         "flex flex-row items-center gap-[20px] h-[48px] rounded-md px-[20px]",
-        `bg-${background} text-${color}`,
+        `bg-${background} text-${color} transition-colors`,
         className
       )}
     >

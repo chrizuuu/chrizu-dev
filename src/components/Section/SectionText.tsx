@@ -13,7 +13,7 @@ function SectionText({
   return (
     <span
       className={classNames(
-        `text-[16px] lg:text-[18px] inline-block font-light text-${color}`,
+        `text-[16px] lg:text-[18px] inline-block font-light text-${color} transition-colors`,
         className
       )}
     >

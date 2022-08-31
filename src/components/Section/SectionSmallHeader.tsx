@@ -26,7 +26,9 @@ function SectionSmallHeader({
           transform: isInView ? "none" : "translateY(50%)",
           transition: "all 0.4s linear",
         }}
-        className={classNames(`inline-block font-bold text-${color}`)}
+        className={classNames(
+          `inline-block font-bold text-${color} transition-colors`
+        )}
       >
         {sectionIndex}
       </motion.span>
@@ -37,7 +39,7 @@ function SectionSmallHeader({
         }}
         className={classNames(
           "w-[90px] lg:w-[160px] h-[1px] my-auto inline-block mx-[10px] lg:mx-[32px]",
-          `bg-${color}`
+          `bg-${color} transition-colors`
         )}
       />
       <motion.span
@@ -46,7 +48,9 @@ function SectionSmallHeader({
           transform: isInView ? "none" : "translateY(50%)",
           transition: "all 0.4s linear 0.6s",
         }}
-        className={classNames(`inline-block font-bold text-${color}`)}
+        className={classNames(
+          `inline-block font-bold text-${color} transition-colors`
+        )}
       >
         {nameOfSection}
       </motion.span>

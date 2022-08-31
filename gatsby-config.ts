@@ -7,7 +7,7 @@ const config: GatsbyConfig = {
     description:
       "Krzysztof Bonecki - front-end developer who expertise in building small and medium-sized web and mobile applications.",
     author: "Krzysztof Bonecki",
-    siteUrl: "https://krzysztofbonecki.com",
+    siteUrl: "https://www.krzysztofbonecki.com",
     keywords:
       "frontend developer, frontend web developer, junior front end developer, front end, react, react native,",
   },
