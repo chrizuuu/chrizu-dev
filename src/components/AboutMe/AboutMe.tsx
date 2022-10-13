@@ -29,13 +29,9 @@ function WhoIAm() {
             <br />
             Currently studying at the University of Adam Mickiewicz in Poznań.
             My programming adventure began in 2013, when I wrote simple scripts
-            for servers in Minecraft. I have been systematically learning the
-            frontend since 2019 starting from the basics of HTML / CSS / JS to
+            for servers in Minecraft. Since 2019, I have been systematically
+            learning the frontend starting from the basics of HTML / CSS / JS to
             creating web and mobile applications using React and React Native.{" "}
-            <br />
-            I am currently looking for my first experience in a commercial
-            project.
-            <br />
           </p>
         </SectionText>
       </div>
