@@ -26,7 +26,7 @@ function FooterContact() {
       <h3 className="text-white-700 text-lg sm:text-3xl text-center pb-[20px]">
         Got a project or proposal?
       </h3>
-      <a href="mailto:chrizudev@gmail.com" className="group">
+      <a href="mailto:krzysztofboneckikontakt@gmail.com" className="group">
         <AnimatedHeader
           fontSize="text-[clamp(36px,10vw,128px)]"
           className="text-white-900 after:w-full after:bg-white-900 after:h-1 after:block after:group-hover:scale-x-0 after:duration-500"
@@ -75,13 +75,13 @@ function CopyableEmail() {
         onMouseLeave={() => setIsCopied(false)}
         type="button"
         onClick={() => {
-          copyTextToClipboard("chrizudev@gmail.com").then(() =>
+          copyTextToClipboard("krzysztofboneckikontakt@gmail.com").then(() =>
             setIsCopied(true)
           );
         }}
         className="text-white-900"
       >
-        chrizudev@gmail.com
+        krzysztofboneckikontakt@gmail.com
       </button>
     </div>
   );
